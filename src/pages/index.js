@@ -32,18 +32,27 @@ function HomepageHeader() {
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
-  const bannerUrl = useBaseUrl("img/eldiron-banner.png");
 
   return (
     <Layout
-      title={`Retro RPG Creator`}
-      description="Eldiron is a retro RPG game creator for 2D, isometric, and first-person adventures. Build your own classic RPG worlds with powerful tools and cross-platform freedom."
+      title={`Instruments for Visual Creation`}
+      description="Denrim is a growing range of high-quality creative applications for visual artists. Each Denrim app is designed as a focused instrument for procedural visual creation, combining powerful systems with clear, intuitive workflows."
     >
       <main>
         {/* Carousel at the top */}
         <section
           style={{ padding: "2rem 1rem", maxWidth: "1000px", margin: "0 auto" }}
         >
+          <img
+            src={useBaseUrl("/img/social-card.png")}
+            alt="Denrim"
+            style={{
+              width: "100%",
+              borderRadius: "12px",
+              // boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+              display: "block",
+            }}
+          />
           <h1
             style={{
               textAlign: "center",
@@ -53,7 +62,7 @@ export default function Home() {
               color: "var(--ifm-color-primary)",
             }}
           >
-            Build Your Own Retro RPG Worlds
+            Instruments for Visual Creation
           </h1>
           <p
             style={{
@@ -63,63 +72,11 @@ export default function Home() {
               color: "var(--ifm-font-color-secondary)",
             }}
           >
-            Craft adventures and build your own retro RPG — with powerful world
-            building tools and visual scripting
+            Denrim is a growing range of high-quality creative applications for
+            visual artists. Each Denrim app is designed as a focused instrument
+            for procedural visual creation, combining powerful systems with
+            clear, intuitive workflows.
           </p>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              maxWidth: "1000px",
-              margin: "0 auto",
-              gap: "2%",
-            }}
-          >
-            <div style={{ width: "48%", textAlign: "center" }}>
-              <div
-                style={{
-                  fontWeight: "700",
-                  marginBottom: "0.5rem",
-                  fontSize: "1.2rem",
-                  color: "var(--ifm-color-primary)",
-                }}
-              >
-                2D
-              </div>
-              <img
-                src={useBaseUrl("/img/screenshots/hideout2d.png")}
-                alt="2D screenshot"
-                style={{
-                  width: "100%",
-                  borderRadius: "12px",
-                  boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
-                  display: "block",
-                }}
-              />
-            </div>
-            <div style={{ width: "48%", textAlign: "center" }}>
-              <div
-                style={{
-                  fontWeight: "700",
-                  marginBottom: "0.5rem",
-                  fontSize: "1.2rem",
-                  color: "var(--ifm-color-primary)",
-                }}
-              >
-                3D
-              </div>
-              <img
-                src={useBaseUrl("/img/screenshots/dungeon3d_iso.png")}
-                alt="3D screenshot"
-                style={{
-                  width: "100%",
-                  borderRadius: "12px",
-                  boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
-                  display: "block",
-                }}
-              />
-            </div>
-          </div>
         </section>
 
         {/* Big screenshot section */}
@@ -141,104 +98,8 @@ export default function Home() {
         {/* Features in the middle */}
         <HomepageFeatures />
 
-        {/* Sponsor Thank You Section */}
-        <section
-          style={{ textAlign: "center", marginTop: "3rem", padding: "0 1rem" }}
-        >
-          <h2 style={{ color: "var(--ifm-color-primary)" }}>
-            Thanks to Our Supporters
-          </h2>
-          <p
-            style={{
-              fontSize: "1.05rem",
-              maxWidth: "700px",
-              margin: "0 auto 1rem",
-            }}
-          >
-            A heartfelt thank you to everyone supporting Eldiron via Patreon and
-            GitHub Sponsors. Your support helps me keep building and improving
-            this project.
-          </p>
-          <div
-            style={{
-              fontWeight: "bold",
-              marginBottom: "0.5rem",
-              color: "var(--ifm-color-primary)",
-              fontSize: "1.2rem",
-            }}
-          >
-            Patreon Supporters
-          </div>
-
-          <div
-            style={{
-              fontWeight: "bold",
-              marginBottom: "0.5rem",
-              fontSize: "0.95rem",
-              color: "var(--ifm-color-primary)",
-            }}
-          >
-            Lord:
-          </div>
-          <div style={{ marginBottom: "1rem" }}>—</div>
-
-          <div
-            style={{
-              fontWeight: "bold",
-              marginBottom: "0.5rem",
-              fontSize: "0.95rem",
-              color: "var(--ifm-color-primary)",
-            }}
-          >
-            Dragon Slayer:
-          </div>
-          <div style={{ marginBottom: "1rem" }}>
-            SmileyNina, Omer Golan-Joel, Mike Plaza
-          </div>
-
-          <div
-            style={{
-              fontWeight: "bold",
-              marginBottom: "0.5rem",
-              fontSize: "0.95rem",
-              color: "var(--ifm-color-primary)",
-            }}
-          >
-            Adventurer:
-          </div>
-          <div style={{ marginBottom: "1rem" }}>
-            Martin Down, Dan, Thomas Osborne, Kendric Tonn
-          </div>
-
-          <div
-            style={{
-              fontWeight: "bold",
-              marginBottom: "0.5rem",
-              fontSize: "0.95rem",
-              color: "var(--ifm-color-primary)",
-            }}
-          >
-            Farmer:
-          </div>
-          <div style={{ marginBottom: "1rem" }}>
-            R Isted, Titus Popescu, MZ, Tom Carlson, Michael Zeis, Viking Blood
-          </div>
-
-          <div
-            style={{
-              fontWeight: "bold",
-              marginBottom: "0.5rem",
-              color: "var(--ifm-color-primary)",
-              fontSize: "1.2rem",
-            }}
-          >
-            GitHub Sponsors
-          </div>
-          <div>cnasc</div>
-        </section>
-
         {/* Banner at the bottom */}
-        <section style={{ padding: "2rem 1rem", textAlign: "center" }}>
+        {/* <section style={{ padding: "2rem 1rem", textAlign: "center" }}>
           <img
             src={bannerUrl}
             alt="Eldiron Banner"
@@ -250,7 +111,7 @@ export default function Home() {
               height: "auto",
             }}
           />
-        </section>
+        </section>*/}
       </main>
     </Layout>
   );

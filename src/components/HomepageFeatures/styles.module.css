@@ -5,8 +5,8 @@
     justify-content: flex-start;
     width: 100%;
     padding: 3rem 0;
-    background-color: #f2e5bc; /* Gruvbox light background for features */
-    border-bottom: 2px solid #d5c4a1; /* Gruvbox light border */
+    background-color: var(--feature-surface);
+    border-bottom: 2px solid var(--ifm-table-border-color);
 }
 
 .featuresInner {
@@ -23,6 +23,20 @@
 }
 
 [data-theme="dark"] .features {
-    background-color: #32302f; /* Gruvbox dark background for features */
-    border-bottom: 2px solid #504945; /* Gruvbox dark border */
+    background-color: var(--feature-surface);
+    border-bottom: 2px solid var(--ifm-table-border-color);
+}
+
+.screenshotGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    align-items: start;
+    margin-top: 1.5rem;
+}
+
+.screenshotGrid img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
 }

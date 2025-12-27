@@ -197,8 +197,8 @@ const config = {
         title: "Denrim",
         logo: {
           alt: "Eldiron Logo",
-          src: "img/logo-black.svg",
-          srcDark: "img/logo-white.svg",
+          src: "img/denrim-logo.svg",
+          srcDark: "img/denrim-logo.svg",
         },
         items: [
           {
@@ -207,52 +207,15 @@ const config = {
             position: "left",
             label: "Docs",
           },
-          { to: "/blog", label: "Blog", position: "left" },
-          { to: "/intro", label: "History", position: "left" },
-          { to: "/sponsor", label: "Sponsor", position: "left" },
-          { to: "/games", label: "Games", position: "left" },
+          { to: "/blog", label: "News", position: "left" },
+          { to: "/support", label: "Support", position: "left" },
+
           {
             type: "html",
             position: "right",
             value: `
-              <a href="https://discord.gg/ZrNj6baSZU" class="navbar-icon" title="Eldiron Discord">
+              <a href="https://discord.gg/PYknqQ2RBD" class="navbar-icon" title="Eldiron Discord">
                 <img src="https://img.shields.io/badge/Discord-Join%20Server-458588?style=flat&logo=discord" alt="Join Discord"/>
-              </a>
-            `,
-          },
-          {
-            type: "html",
-            position: "right",
-            value: `
-              <a href="https://www.patreon.com/eldiron" class="navbar-icon" title="Support on Patreon">
-                <img src="https://img.shields.io/badge/Patreon-Support-458588?style=flat&logo=patreon" alt="Support on Patreon"/>
-              </a>
-            `,
-          },
-          {
-            type: "html",
-            position: "right",
-            value: `
-              <a href="https://www.youtube.com/channel/UCCmrO356zLQv_m8dPEqBUfA" class="navbar-icon" title="Eldiron YouTube Channel">
-                <img src="https://img.shields.io/youtube/channel/subscribers/UCCmrO356zLQv_m8dPEqBUfA?style=flat&color=458588&logo=youtube&label=Subscribe" alt="YouTube subscribers"/>
-              </a>
-            `,
-          },
-          {
-            type: "html",
-            position: "right",
-            value: `
-              <a href="https://github.com/markusmoenig/Eldiron" class="navbar-icon" title="GitHub Repository">
-                <img src="https://img.shields.io/github/stars/markusmoenig/Eldiron?style=flat&color=458588&logo=github" alt="GitHub stars"/>
-              </a>
-            `,
-          },
-          {
-            type: "html",
-            position: "right",
-            value: `
-              <a href="https://github.com/markusmoenig/Eldiron/releases" class="navbar-icon" title="Download Eldiron">
-                <i class="fas fa-download"></i>
               </a>
             `,
           },
@@ -262,15 +225,15 @@ const config = {
         style: "dark",
         links: [
           {
-            title: "Community",
+            title: "Social",
             items: [
-              {
-                label: "YouTube",
-                to: "https://www.youtube.com/channel/UCCmrO356zLQv_m8dPEqBUfA",
-              },
+              // {
+              //   label: "YouTube",
+              //   to: "https://www.youtube.com/channel/UCCmrO356zLQv_m8dPEqBUfA",
+              // },
               {
                 label: "Discord",
-                to: "https://discord.gg/ZrNj6baSZU",
+                to: "https://discord.gg/PYknqQ2RBD",
               },
               {
                 label: "X",
@@ -279,32 +242,20 @@ const config = {
             ],
           },
           {
-            title: "Sponsor",
+            title: "Legal",
             items: [
               {
-                label: "Patreon",
-                to: "https://patreon.com/eldiron",
-              },
-              {
-                label: "GitHub Sponsors",
-                to: "https://github.com/markusmoenig",
-              },
-              {
-                label: "PayPal",
-                to: "https://paypal.me/markusmoenigos",
+                label: "Privacy Policy",
+                to: "/privacy",
               },
             ],
           },
           {
-            title: "Links",
+            title: "Docs",
             items: [
               {
-                label: "Downloads",
-                to: "https://github.com/markusmoenig/Eldiron/releases",
-              },
-              {
-                label: "GitHub",
-                to: "https://github.com/markusmoenig/Eldiron",
+                label: "Getting Started (Denrim Noise)",
+                to: "/docs/denrim_noise/getting_started",
               },
             ],
           },

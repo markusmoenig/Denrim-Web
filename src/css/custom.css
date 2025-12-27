@@ -4,106 +4,94 @@
  * work well for content-centric websites.
  */
 
-/* Gruvbox Light Theme */
-
-/* Gruvbox Light Theme */
 :root {
-    /* Gruvbox light color palette */
-    --ifm-color-primary: #458588; /* Gruvbox blue - primary accent */
-    --ifm-color-primary-dark: #427b58; /* Gruvbox green */
-    --ifm-color-primary-darker: #076678; /* Darker blue */
-    --ifm-color-primary-darkest: #665c54; /* Gruvbox gray */
-    --ifm-color-primary-light: #689d6a; /* Light green */
-    --ifm-color-primary-lighter: #7c6f64; /* Light gray */
-    --ifm-color-primary-lightest: #928374; /* Lightest gray */
+    /* Light */
+    --ifm-color-primary: #2563eb;
+    --ifm-color-primary-dark: #1d4ed8;
+    --ifm-color-primary-darker: #1e3a8a;
+    --ifm-color-primary-darkest: #1a2b65;
+    --ifm-color-primary-light: #3b82f6;
+    --ifm-color-primary-lighter: #60a5fa;
+    --ifm-color-primary-lightest: #bfdbfe;
 
-    /* Background and text colors */
-    --ifm-background-color: #fbf1c7; /* Gruvbox light background */
-    --ifm-background-surface-color: #f9f5d7; /* Slightly darker background */
-    --ifm-font-color-base: #3c3836; /* Gruvbox dark gray text */
-    --ifm-font-color-secondary: #665c54; /* Secondary text */
+    --ifm-background-color: #f7f9fc;
+    --ifm-background-surface-color: #ffffff;
+    --ifm-font-color-base: #0f172a;
+    --ifm-font-color-secondary: #475569;
 
-    /* Navbar */
-    --ifm-navbar-background-color: #fbf1c7;
-    --ifm-navbar-link-color: #3c3836;
-    --ifm-navbar-link-hover-color: #458588;
-    --ifm-navbar-shadow: 0 2px 4px rgba(60, 56, 54, 0.1);
+    --ifm-navbar-background-color: #ffffff;
+    --ifm-navbar-link-color: #0f172a;
+    --ifm-navbar-link-hover-color: var(--ifm-color-primary);
+    --ifm-navbar-shadow: 0 10px 40px rgba(15, 23, 42, 0.08);
 
-    /* Footer */
-    --ifm-footer-background-color: #ebdbb2; /* Gruvbox light footer */
-    --ifm-footer-color: #3c3836;
-    --ifm-footer-link-color: #458588;
-    --ifm-footer-link-hover-color: #427b58;
+    --ifm-footer-background-color: #0f172a;
+    --ifm-footer-color: #e2e8f0;
+    --ifm-footer-link-color: #93c5fd;
+    --ifm-footer-link-hover-color: #bfdbfe;
 
-    /* Code and syntax */
-    --docusaurus-highlighted-code-line-bg: rgba(69, 133, 136, 0.1);
+    --docusaurus-highlighted-code-line-bg: rgba(37, 99, 235, 0.08);
     --ifm-code-font-size: 95%;
 
-    /* Cards and surfaces */
-    --ifm-card-background-color: #f9f5d7;
-    --ifm-table-border-color: #d5c4a1;
+    --ifm-card-background-color: #ffffff;
+    --ifm-table-border-color: #e2e8f0;
 
-    /* Buttons */
-    --ifm-button-background-color: #458588;
-    --ifm-button-color: #fbf1c7;
+    --ifm-button-background-color: var(--ifm-color-primary);
+    --ifm-button-color: #ffffff;
+
+    --feature-surface: #eef2ff;
 }
 
-/* Gruvbox Dark Theme */
 [data-theme="dark"] {
-    /* Gruvbox dark color palette */
-    --ifm-color-primary: #83a598; /* Gruvbox blue-green - primary accent */
-    --ifm-color-primary-dark: #8ec07c; /* Gruvbox green */
-    --ifm-color-primary-darker: #689d6a; /* Darker green */
-    --ifm-color-primary-darkest: #d3869b; /* Gruvbox pink */
-    --ifm-color-primary-light: #b8bb26; /* Gruvbox yellow */
-    --ifm-color-primary-lighter: #fabd2f; /* Light yellow */
-    --ifm-color-primary-lightest: #fe8019; /* Orange */
+    /* Dark */
+    --ifm-color-primary: #ffffff;
+    --ifm-color-primary-dark: #e2e8f0;
+    --ifm-color-primary-darker: #cbd5e1;
+    --ifm-color-primary-darkest: #94a3b8;
+    --ifm-color-primary-light: #ffffff;
+    --ifm-color-primary-lighter: #ffffff;
+    --ifm-color-primary-lightest: #ffffff;
 
-    /* Background and text colors */
-    --ifm-background-color: #282828; /* Gruvbox dark background */
-    --ifm-background-surface-color: #3c3836; /* Slightly lighter background */
-    --ifm-font-color-base: #ebdbb2; /* Gruvbox light text */
-    --ifm-font-color-secondary: #d5c4a1; /* Secondary text */
+    --ifm-background-color: #07090f;
+    --ifm-background-surface-color: #0d1018;
+    --ifm-font-color-base: #f8fafc;
+    --ifm-font-color-secondary: #cbd5e1;
 
-    /* Navbar */
-    --ifm-navbar-background-color: #1d2021; /* Darker navbar */
-    --ifm-navbar-link-color: #ebdbb2;
-    --ifm-navbar-link-hover-color: #83a598;
-    --ifm-navbar-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    --ifm-navbar-background-color: #07090f;
+    --ifm-navbar-link-color: #f8fafc;
+    --ifm-navbar-link-hover-color: var(--ifm-color-primary);
+    --ifm-navbar-shadow: 0 10px 40px rgba(7, 9, 15, 0.5);
 
-    /* Footer */
-    --ifm-footer-background-color: #1d2021; /* Dark footer */
-    --ifm-footer-color: #ebdbb2;
-    --ifm-footer-link-color: #83a598;
-    --ifm-footer-link-hover-color: #8ec07c;
+    --ifm-footer-background-color: #0b0e16;
+    --ifm-footer-color: #f8fafc;
+    --ifm-footer-link-color: #d8b4fe;
+    --ifm-footer-link-hover-color: #e9d5ff;
 
-    /* Code and syntax */
-    --docusaurus-highlighted-code-line-bg: rgba(131, 165, 152, 0.15);
+    --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.08);
 
-    /* Cards and surfaces */
-    --ifm-card-background-color: #3c3836;
-    --ifm-table-border-color: #504945;
+    --ifm-card-background-color: #0d1018;
+    --ifm-table-border-color: #1f2937;
 
-    /* Buttons */
-    --ifm-button-background-color: #83a598;
-    --ifm-button-color: #282828;
+    --ifm-button-background-color: var(--ifm-color-primary);
+    --ifm-button-color: #07090f;
+
+    --feature-surface: #0f111a;
 }
 
 /* Apply background colors to main elements */
 [data-theme="dark"] body {
-    background-color: #282828 !important;
+    background-color: var(--ifm-background-color) !important;
 }
 
 [data-theme="dark"] .main-wrapper {
-    background-color: #282828 !important;
+    background-color: var(--ifm-background-color) !important;
 }
 
 [data-theme="dark"] .docusaurus-wrapper {
-    background-color: #282828 !important;
+    background-color: var(--ifm-background-color) !important;
 }
 
 [data-theme="dark"] .theme-doc-page {
-    background-color: #282828 !important;
+    background-color: var(--ifm-background-color) !important;
 }
 
 /* Footer styling */
@@ -127,13 +115,13 @@
 
 /* Homepage features section */
 .features {
-    background-color: #f2e5bc !important; /* Gruvbox light features */
-    border-bottom: 2px solid #d5c4a1;
+    background-color: var(--feature-surface) !important;
+    border-bottom: 2px solid var(--ifm-table-border-color);
 }
 
 [data-theme="dark"] .features {
-    background-color: #32302f !important; /* Gruvbox dark features */
-    border-bottom: 2px solid #504945;
+    background-color: var(--feature-surface) !important;
+    border-bottom: 2px solid var(--ifm-table-border-color);
 }
 
 /* Play button overlay styles */
@@ -182,7 +170,7 @@
 /* Carousel dots */
 .carousel .control-dots .dot {
     box-shadow: none !important;
-    background: #a89984 !important; /* Gruvbox gray */
+    background: #cbd5e1 !important;
     opacity: 1;
     transition: background 0.3s ease;
 }
@@ -224,11 +212,46 @@ table {
 /* Hero section */
 .hero {
     background-color: var(--ifm-background-color) !important;
+    background-image:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(37, 99, 235, 0.12),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 10%,
+            rgba(56, 189, 248, 0.12),
+            transparent 40%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.06),
+            rgba(255, 255, 255, 0)
+        );
 }
 
 .hero--primary {
     --ifm-hero-background-color: var(--ifm-background-color);
     --ifm-hero-text-color: var(--ifm-font-color-base);
+}
+
+[data-theme="dark"] .hero {
+    background-image:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255, 255, 255, 0.12),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(255, 255, 255, 0.08),
+            transparent 40%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.02),
+            rgba(255, 255, 255, 0)
+        );
 }
 
 /* Cards */
@@ -299,7 +322,7 @@ table {
 .DocSearch {
     --docsearch-text-color: var(--ifm-font-color-base);
     --docsearch-muted-color: var(--ifm-font-color-secondary);
-    --docsearch-container-background: rgba(60, 56, 54, 0.8);
+    --docsearch-container-background: rgba(15, 23, 42, 0.7);
     --docsearch-modal-background: var(--ifm-background-color);
     --docsearch-searchbox-background: var(--ifm-background-surface-color);
     --docsearch-searchbox-focus-background: var(--ifm-background-surface-color);
@@ -310,7 +333,7 @@ table {
 }
 
 [data-theme="dark"] .DocSearch {
-    --docsearch-container-background: rgba(40, 40, 40, 0.8);
+    --docsearch-container-background: rgba(11, 18, 32, 0.8);
 }
 
 /* Sidebar */
@@ -390,7 +413,7 @@ table {
     opacity: 0.9;
 }
 
-/* Adjust badge to match Gruvbox theme */
+/* Adjust badge to match theme */
 [data-theme="dark"] .navbar-icon img {
     filter: brightness(0.9) grayscale(20%);
 }
