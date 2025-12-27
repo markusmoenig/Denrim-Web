@@ -14,7 +14,8 @@
             <guid>https://denrim.com/blog/2025/01/07/denrim-noise-v1.0</guid>
             <pubDate>Tue, 07 Jan 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[We are happy to announce the release of v1 of Denrim: Noise.]]></description>
-            <content:encoded><![CDATA[<p>We are happy to announce the release of v1 of Denrim: Noise.</p>]]></content:encoded>
+            <content:encoded><![CDATA[<p>We are happy to announce the release of v1 of Denrim: Noise.</p>
+<p>Test</p>]]></content:encoded>
             <category>releases</category>
         </item>
     </channel>

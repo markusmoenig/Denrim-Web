@@ -13,7 +13,8 @@
         <link href="https://denrim.com/blog/2025/01/07/denrim-noise-v1.0"/>
         <updated>2025-01-07T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[We are happy to announce the release of v1 of Denrim: Noise.]]></summary>
-        <content type="html"><![CDATA[<p>We are happy to announce the release of v1 of Denrim: Noise.</p>]]></content>
+        <content type="html"><![CDATA[<p>We are happy to announce the release of v1 of Denrim: Noise.</p>
+<p>Test</p>]]></content>
         <author>
             <name>Markus Moenig</name>
             <uri>https://github.com/markusmoenig</uri>
