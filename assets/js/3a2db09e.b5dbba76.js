@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdenrim_web=self.webpackChunkdenrim_web||[]).push([[502],{8070:e=>{e.exports=JSON.parse('{"tags":[{"label":"releases","permalink":"/blog/tags/blog/tags/releases","count":1}]}')}}]);

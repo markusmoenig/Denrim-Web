@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdenrim_web=self.webpackChunkdenrim_web||[]).push([[472],{5513:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Denrim Noise v1.0 Release","permalink":"/blog/2025/01/07/denrim-noise-v1.0","unlisted":false,"date":"2025-01-07T00:00:00.000Z"}]}')}}]);

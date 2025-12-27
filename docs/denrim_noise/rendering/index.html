@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-denrim_noise/rendering" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.8.1">
+<title data-rh="true">Rendering | Denrim</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://denrim.com/img/eldiron-banner.png"><meta data-rh="true" name="twitter:image" content="https://denrim.com/img/eldiron-banner.png"><meta data-rh="true" property="og:url" content="https://denrim.com/docs/denrim_noise/rendering"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Rendering | Denrim"><meta data-rh="true" name="description" content="Domain Warping"><meta data-rh="true" property="og:description" content="Domain Warping"><link data-rh="true" rel="icon" href="/img/favicon.svg"><link data-rh="true" rel="canonical" href="https://denrim.com/docs/denrim_noise/rendering"><link data-rh="true" rel="alternate" href="https://denrim.com/docs/denrim_noise/rendering" hreflang="en"><link data-rh="true" rel="alternate" href="https://denrim.com/docs/denrim_noise/rendering" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Denrim: Noise","item":"https://denrim.com/docs/category/denrim-noise"},{"@type":"ListItem","position":2,"name":"Rendering","item":"https://denrim.com/docs/denrim_noise/rendering"}]}</script><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="Denrim RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="Denrim Atom Feed">
+
+<link rel="preconnect" href="https://www.google-analytics.com">
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-XXXXXXXXXX",{anonymize_ip:!0})</script>
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="/assets/css/styles.a62eae43.css">
+<script src="/assets/js/runtime~main.3b864834.js" defer="defer"></script>
+<script src="/assets/js/main.9896171a.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t="light";var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",e||t),document.documentElement.setAttribute("data-theme-choice",e||t)}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/denrim-logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/denrim-logo.svg" alt="Eldiron Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/denrim-logo.svg" alt="Eldiron Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Denrim</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/category/denrim-noise">Docs</a><a class="navbar__item navbar__link" href="/blog">News</a><a class="navbar__item navbar__link" href="/support">Support</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="navbar__item">
+              <a href="https://discord.gg/PYknqQ2RBD" class="navbar-icon" title="Eldiron Discord">
+                <img src="https://img.shields.io/badge/Discord-Join%20Server-458588?style=flat&logo=discord" alt="Join Discord">
+              </a>
+            </div><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" href="/docs/category/denrim-noise">Denrim: Noise</a><button aria-label="Collapse sidebar category &#x27;Denrim: Noise&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/denrim_noise/getting_started">Getting Started</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/denrim_noise/noises">Noises</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/denrim_noise/rendering">Rendering</a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/docs/category/denrim-noise"><span>Denrim: Noise</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Rendering</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Warping, Coloring &amp; Shading Guide</h1></header>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="domain-warping">Domain Warping<a href="#domain-warping" class="hash-link" aria-label="Direct link to Domain Warping" title="Direct link to Domain Warping">​</a></h2>
+<p>Imagine bending and twisting your noise like taffy. Domain warping doesn&#x27;t change the noise itself - it distorts where you sample it, creating flowing, liquid-like patterns impossible with basic noise.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="how-it-works">How It Works<a href="#how-it-works" class="hash-link" aria-label="Direct link to How It Works" title="Direct link to How It Works">​</a></h3>
+<p>Instead of reading noise straight at position (x, y), we generate a second &quot;warp&quot; noise that pushes and pulls those coordinates around before sampling. Add a second warp pass and things get really interesting - swirls within swirls, organic marble patterns, flowing lava.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="key-controls">Key Controls<a href="#key-controls" class="hash-link" aria-label="Direct link to Key Controls" title="Direct link to Key Controls">​</a></h3>
+<p><strong>Warp Strength (0.0 - 2.0)</strong></p>
+<p>How much the distortion affects your pattern.</p>
+<ul>
+<li><strong>0.5</strong> - Good starting point, subtle organic flow</li>
+<li><strong>1.0</strong> - Strong swirling effects</li>
+<li><strong>1.5+</strong> - Extreme, abstract distortions</li>
+</ul>
+<p><strong>Primary Scale (0.1 - 5.0)</strong></p>
+<p>The &quot;size&quot; of the warp distortions.</p>
+<ul>
+<li><strong>Low (0.5-1.5)</strong> - Large, sweeping flows</li>
+<li><strong>High (2.0-5.0)</strong> - Fine, detailed warps</li>
+</ul>
+<p><strong>Secondary Warp</strong></p>
+<p>Add a second layer of warping for compound effects. Use different scales from your primary warp for the best results - try primary at 1.0 and secondary at 3.0.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="quick-recipes">Quick Recipes<a href="#quick-recipes" class="hash-link" aria-label="Direct link to Quick Recipes" title="Direct link to Quick Recipes">​</a></h3>
+<p><strong>Natural Terrain</strong> - Strength: 0.6, Primary Scale: 1.5, Secondary: 0.7</p>
+<p><strong>Flowing Water</strong> - Strength: 1.2, Primary Scale: 0.8, Secondary: high influence</p>
+<p><strong>Marble</strong> - Strength: 0.4, Primary Scale: 3.0, Secondary: subtle</p>
+<p><strong>Abstract Chaos</strong> - Strength: 1.8, mix extreme scale values</p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="color--gradients">Color &amp; Gradients<a href="#color--gradients" class="hash-link" aria-label="Direct link to Color &amp; Gradients" title="Direct link to Color &amp; Gradients">​</a></h2>
+<p>Your noise starts as grayscale. Time to paint it.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="the-4-color-gradient">The 4-Color Gradient<a href="#the-4-color-gradient" class="hash-link" aria-label="Direct link to The 4-Color Gradient" title="Direct link to The 4-Color Gradient">​</a></h3>
+<p>Map noise values to colors using four gradient stops:</p>
+<ul>
+<li><strong>Color 1</strong> → Darkest areas (0.0)</li>
+<li><strong>Color 2</strong> → Dark-mid tones (0.33)</li>
+<li><strong>Color 3</strong> → Light-mid tones (0.66)</li>
+<li><strong>Color 4</strong> → Brightest areas (1.0)</li>
+</ul>
+<p>Click any color button to choose your palette.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="adjustment-controls">Adjustment Controls<a href="#adjustment-controls" class="hash-link" aria-label="Direct link to Adjustment Controls" title="Direct link to Adjustment Controls">​</a></h3>
+<p><strong>Contrast</strong> - Punch it up or soften it down</p>
+<ul>
+<li>Default: 1.0</li>
+<li>&lt; 1.0 for gentle, dreamy looks</li>
+<li>&gt; 1.0 for dramatic, bold patterns</li>
+</ul>
+<p><strong>Brightness</strong> - Shift the whole image lighter or darker</p>
+<ul>
+<li>Range: -1.0 to 1.0</li>
+<li>Fine-tune the overall exposure</li>
+</ul>
+<p><strong>Saturation</strong> - From grayscale to ultra-vivid</p>
+<ul>
+<li>0.0 for pure black and white</li>
+<li>1.0 for natural colors</li>
+<li>1.5+ for eye-popping intensity</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="inspiring-palettes">Inspiring Palettes<a href="#inspiring-palettes" class="hash-link" aria-label="Direct link to Inspiring Palettes" title="Direct link to Inspiring Palettes">​</a></h3>
+<p><strong>Terrain</strong> - Brown → Tan → Green → White (earthy realism)</p>
+<p><strong>Ocean</strong> - Deep Blue → Blue → Cyan → White (aquatic depth)</p>
+<p><strong>Lava</strong> - Black → Red → Orange → Yellow (molten intensity)</p>
+<p><strong>Sunset</strong> - Purple → Orange → Pink → Yellow (warm atmosphere)</p>
+<p><strong>Monochrome</strong> - Pick one hue, vary its brightness across all four stops</p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="3d-rendering">3D Rendering<a href="#3d-rendering" class="hash-link" aria-label="Direct link to 3D Rendering" title="Direct link to 3D Rendering">​</a></h2>
+<p>Flat colors are nice, but what if your noise had <em>depth</em>?</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="render-modes">Render Modes<a href="#render-modes" class="hash-link" aria-label="Direct link to Render Modes" title="Direct link to Render Modes">​</a></h3>
+<p><strong>Flat</strong> - Pure 2D color. What you see is what you get. Use for final textures, wallpapers, or when exporting for other software.</p>
+<p><strong>Bump Mapping</strong> - Your noise becomes a height map with realistic lighting. Watch your patterns come alive with shadows, highlights, and surface detail.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="lighting-setup">Lighting Setup<a href="#lighting-setup" class="hash-link" aria-label="Direct link to Lighting Setup" title="Direct link to Lighting Setup">​</a></h3>
+<p><strong>Light Height (-5.0 - 5.0)</strong></p>
+<p>Where&#x27;s your light source?</p>
+<ul>
+<li><strong>-1.0</strong> - Low, dramatic side lighting (long shadows)</li>
+<li><strong>1.0</strong> - Good default (balanced illumination)</li>
+<li><strong>3.0+</strong> - Overhead (flatter, softer)</li>
+</ul>
+<p>Try negative values for unusual, artistic effects.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="material-properties">Material Properties<a href="#material-properties" class="hash-link" aria-label="Direct link to Material Properties" title="Direct link to Material Properties">​</a></h3>
+<p><strong>Bump Strength (0.0 - 1.0)</strong></p>
+<p>How &quot;tall&quot; are the bumps?</p>
+<ul>
+<li><strong>0.05</strong> - Start here for subtle texture</li>
+<li><strong>0.3</strong> - Good default for visible relief</li>
+<li><strong>0.7+</strong> - Extreme, exaggerated depth</li>
+</ul>
+<p><strong>Shininess (1.0 - 50.0)</strong></p>
+<p>Surface reflectivity - but backwards! Higher = less shiny.</p>
+<ul>
+<li><strong>5-10</strong> - Metallic, glossy (large highlights)</li>
+<li><strong>15-25</strong> - Balanced (default)</li>
+<li><strong>35-50</strong> - Matte, rough (tiny highlights)</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="environment">Environment<a href="#environment" class="hash-link" aria-label="Direct link to Environment" title="Direct link to Environment">​</a></h3>
+<p>Choose your ambient lighting mood:</p>
+<ul>
+<li><strong>Studio</strong> - Neutral, even lighting</li>
+<li><strong>Outdoor</strong> - Natural daylight</li>
+<li><strong>Sunset</strong> - Warm, golden glow</li>
+<li><strong>Night</strong> - Cool, dramatic shadows</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="quick-setups">Quick Setups<a href="#quick-setups" class="hash-link" aria-label="Direct link to Quick Setups" title="Direct link to Quick Setups">​</a></h3>
+<p><strong>Stone</strong> - Bump: 0.4, Shininess: 35, Light: 1.0, Outdoor</p>
+<p><strong>Metal</strong> - Bump: 0.15, Shininess: 8, Light: 1.5, Studio</p>
+<p><strong>Terrain</strong> - Bump: 0.3, Shininess: 28, Light: 0.8, Outdoor</p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="workflow-tips">Workflow Tips<a href="#workflow-tips" class="hash-link" aria-label="Direct link to Workflow Tips" title="Direct link to Workflow Tips">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="the-basic-recipe">The Basic Recipe<a href="#the-basic-recipe" class="hash-link" aria-label="Direct link to The Basic Recipe" title="Direct link to The Basic Recipe">​</a></h3>
+<ol>
+<li>Pick a noise type (OpenSimplex 2 is always solid)</li>
+<li>Set frequency around 20, add 4-6 octaves</li>
+<li>Enable warping at strength 0.5-0.8</li>
+<li>Choose a color palette</li>
+<li>Switch to bump mapping and tweak lighting</li>
+<li>Iterate until it looks amazing</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="smart-combinations">Smart Combinations<a href="#smart-combinations" class="hash-link" aria-label="Direct link to Smart Combinations" title="Direct link to Smart Combinations">​</a></h3>
+<p><strong>Heavy warping?</strong> Works best in Flat mode - all that flow and detail shows up clearly.</p>
+<p><strong>Lots of octaves?</strong> Use less bump strength or it gets noisy.</p>
+<p><strong>High contrast colors?</strong> Pair with moderate shininess (15-20) for balance.</p>
+<p><strong>Creating textures for 3D?</strong> Use Flat mode, square aspect, enable tiling.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="export-smart">Export Smart<a href="#export-smart" class="hash-link" aria-label="Direct link to Export Smart" title="Direct link to Export Smart">​</a></h3>
+<p><strong>For Games/3D</strong> - Flat mode, 1:1 aspect, power-of-2 resolution (1024, 2048, 4096)</p>
+<p><strong>For Wallpapers</strong> - Bump mode looks great, match your screen&#x27;s aspect ratio (16:9), go 2048px or higher</p>
+<p><strong>For Print</strong> - Flat mode, PNG format, 4096px+, high resolution</p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="experiment">Experiment!<a href="#experiment" class="hash-link" aria-label="Direct link to Experiment!" title="Direct link to Experiment!">​</a></h2>
+<p>These are guidelines, not rules. The best patterns come from experimentation. Crank that warp to 2.0. Try weird color combos. Put the light below the surface. See what happens.</p>
+<p>That&#x27;s the beauty of procedural generation - infinite variations, instant preview, full undo. So go ahead, break some &quot;rules&quot; and create something unique.</p></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/denrim_noise/noises"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Noises</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#domain-warping" class="table-of-contents__link toc-highlight">Domain Warping</a><ul><li><a href="#how-it-works" class="table-of-contents__link toc-highlight">How It Works</a></li><li><a href="#key-controls" class="table-of-contents__link toc-highlight">Key Controls</a></li><li><a href="#quick-recipes" class="table-of-contents__link toc-highlight">Quick Recipes</a></li></ul></li><li><a href="#color--gradients" class="table-of-contents__link toc-highlight">Color &amp; Gradients</a><ul><li><a href="#the-4-color-gradient" class="table-of-contents__link toc-highlight">The 4-Color Gradient</a></li><li><a href="#adjustment-controls" class="table-of-contents__link toc-highlight">Adjustment Controls</a></li><li><a href="#inspiring-palettes" class="table-of-contents__link toc-highlight">Inspiring Palettes</a></li></ul></li><li><a href="#3d-rendering" class="table-of-contents__link toc-highlight">3D Rendering</a><ul><li><a href="#render-modes" class="table-of-contents__link toc-highlight">Render Modes</a></li><li><a href="#lighting-setup" class="table-of-contents__link toc-highlight">Lighting Setup</a></li><li><a href="#material-properties" class="table-of-contents__link toc-highlight">Material Properties</a></li><li><a href="#environment" class="table-of-contents__link toc-highlight">Environment</a></li><li><a href="#quick-setups" class="table-of-contents__link toc-highlight">Quick Setups</a></li></ul></li><li><a href="#workflow-tips" class="table-of-contents__link toc-highlight">Workflow Tips</a><ul><li><a href="#the-basic-recipe" class="table-of-contents__link toc-highlight">The Basic Recipe</a></li><li><a href="#smart-combinations" class="table-of-contents__link toc-highlight">Smart Combinations</a></li><li><a href="#export-smart" class="table-of-contents__link toc-highlight">Export Smart</a></li></ul></li><li><a href="#experiment" class="table-of-contents__link toc-highlight">Experiment!</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Social</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://discord.gg/PYknqQ2RBD" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord</a></li><li class="footer__item"><a href="https://x.com/EldironRPG" target="_blank" rel="noopener noreferrer" class="footer__link-item">X</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Legal</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/privacy">Privacy Policy</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/denrim_noise/getting_started">Getting Started (Denrim Noise)</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Markus Moenig</div></div></div></footer></div>
+</body>
+</html>
