@@ -6,13 +6,13 @@ sidebar_position: 1
 
 ![Denrim Noise](/img/screenshots/denrim_ui.png)
 
-**Denrim: Noise** supports 3 layers of noise which are displayed on the right side of the UI and are labeled:
+**Denrim: Noise** supports three layers of noise, displayed on the right side of the UI:
 
 - **Base Noise**
 - **Warp Noise**
 - and the rendering **Result**
 
-When the **Base Noise** or **Warp Noise** is selected, you can apply one of the available noises to this layer. The available noises are:
+When the **Base Noise** or **Warp Noise** is selected, you can apply one of the available noises to that layer. The available noises are:
 
 - **OpenSimplex 2** (displayed as **OpenSimplex**). Modern smooth gradient noise with minimal artifacts for general organic textures.
 - **OpenSimplex 2S (OS2S)** (displayed as **OpenSimplex+**). Variant of OpenSimplex with a slightly different frequency response for a touch more detail.
