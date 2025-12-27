@@ -251,10 +251,10 @@ const config = {
             ],
           },
           {
-            title: "Docs",
+            title: "Documentation",
             items: [
               {
-                label: "Getting Started (Denrim Noise)",
+                label: "Denrim: Noise",
                 to: "/docs/denrim_noise/getting_started",
               },
             ],

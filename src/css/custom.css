@@ -43,13 +43,13 @@
 
 [data-theme="dark"] {
     /* Dark */
-    --ifm-color-primary: #ffffff;
-    --ifm-color-primary-dark: #e2e8f0;
-    --ifm-color-primary-darker: #cbd5e1;
-    --ifm-color-primary-darkest: #94a3b8;
-    --ifm-color-primary-light: #ffffff;
-    --ifm-color-primary-lighter: #ffffff;
-    --ifm-color-primary-lightest: #ffffff;
+    --ifm-color-primary: rgb(13, 127, 200);
+    --ifm-color-primary-dark: #0b70a8;
+    --ifm-color-primary-darker: #0a5a85;
+    --ifm-color-primary-darkest: #073f5c;
+    --ifm-color-primary-light: #3399d9;
+    --ifm-color-primary-lighter: #74c5f1;
+    --ifm-color-primary-lightest: #d4edff;
 
     --ifm-background-color: #07090f;
     --ifm-background-surface-color: #0d1018;
@@ -66,7 +66,7 @@
     --ifm-footer-link-color: #d8b4fe;
     --ifm-footer-link-hover-color: #e9d5ff;
 
-    --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.08);
+    --docusaurus-highlighted-code-line-bg: rgba(13, 127, 200, 0.12);
 
     --ifm-card-background-color: #0d1018;
     --ifm-table-border-color: #1f2937;
@@ -239,12 +239,12 @@ table {
     background-image:
         radial-gradient(
             circle at 15% 20%,
-            rgba(255, 255, 255, 0.12),
+            rgba(13, 127, 200, 0.2),
             transparent 35%
         ),
         radial-gradient(
             circle at 85% 15%,
-            rgba(255, 255, 255, 0.08),
+            rgba(52, 153, 217, 0.14),
             transparent 40%
         ),
         linear-gradient(
