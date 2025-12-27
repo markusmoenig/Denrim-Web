@@ -8,7 +8,6 @@ The OpenSimplex, Perlin, Value and Cellular noises used by **Denrim: Noise** are
 
 MIT License
 Copyright(c) 2020 Jordan Peck (jordan.me2@gmail.com)
-Copyright(c) 2020 Contributors
 
 ---
 
