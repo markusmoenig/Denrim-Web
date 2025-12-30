@@ -237,7 +237,7 @@ const config = {
               },
               {
                 label: "X",
-                to: "https://x.com/EldironRPG",
+                to: "https://x.com/MarkusMoenig",
               },
             ],
           },
