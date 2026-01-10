@@ -236,6 +236,10 @@ const config = {
                 to: "https://discord.gg/PYknqQ2RBD",
               },
               {
+                label: "Bluesky",
+                to: "https://bsky.app/profile/markusmoenig.bsky.social",
+              },
+              {
                 label: "X",
                 to: "https://x.com/MarkusMoenig",
               },

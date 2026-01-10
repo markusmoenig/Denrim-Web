@@ -40,3 +40,19 @@
     border-radius: 12px;
     box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
 }
+
+.appstoreLightOnly {
+    display: block;
+}
+
+.appstoreDarkOnly {
+    display: none;
+}
+
+[data-theme="dark"] .appstoreLightOnly {
+    display: none;
+}
+
+[data-theme="dark"] .appstoreDarkOnly {
+    display: block;
+}
