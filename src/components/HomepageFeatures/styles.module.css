@@ -56,3 +56,20 @@
 [data-theme="dark"] .appstoreDarkOnly {
     display: block;
 }
+
+.storeLinks {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+}
+
+.storeBadge {
+    display: inline-flex;
+}
+
+.storeBadge img {
+    height: 48px;
+    width: auto;
+}
