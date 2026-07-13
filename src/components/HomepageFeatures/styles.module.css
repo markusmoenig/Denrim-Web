@@ -33,6 +33,68 @@
     border-top: 2px solid var(--ifm-table-border-color);
 }
 
+.printStory {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 2rem;
+    align-items: center;
+    margin-top: 2.5rem;
+    padding: 1.5rem;
+    border: 1px solid var(--ifm-table-border-color);
+    border-radius: 16px;
+    background: var(--ifm-background-surface-color);
+}
+
+.printStoryCopy h2 {
+    margin-bottom: 0.75rem;
+}
+
+.printStoryCopy p:last-child {
+    margin-bottom: 0;
+}
+
+.printEyebrow {
+    margin-bottom: 0.45rem;
+    color: var(--ifm-color-primary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.printStory a {
+    display: block;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+}
+
+.printStory img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center 72%;
+    transition: transform 160ms ease;
+}
+
+.printStory a:hover img,
+.printStory a:focus-visible img {
+    transform: scale(1.025);
+}
+
+.printStory a:focus-visible {
+    outline: 3px solid var(--ifm-color-primary);
+    outline-offset: 3px;
+}
+
+@media screen and (max-width: 600px) {
+    .printStory {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+}
+
 .featureSvg {
     height: 200px;
     width: 200px;
