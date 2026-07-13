@@ -1,12 +1,56 @@
-import Admonition from '@theme/Admonition';
 import styles from './styles.module.css';
+import ScreenshotGallery from '@site/src/components/ScreenshotGallery';
+
+# Denrim: Forge
+
+<a href="/img/screenshots/forge/forge_mac_castle.png" target="_blank" rel="noreferrer">
+  <img src="/img/screenshots/forge/forge_mac_castle.png" alt="A game-ready low-poly castle created in Denrim Forge" style={{ float: 'center', marginLeft: '1rem', borderRadius: '8px' }} />
+</a>
+
+**Easy 3D creation for game props, figurines, and printable assets.**
+
+<p className={styles.platformLine}>Native for <strong>macOS and iPadOS</strong>, with iCloud sync.</p>
+
+Denrim Forge is a focused low-poly modeler for artists who want to make game-ready props, stylized characters, and assets for 3D printing without getting lost in a complex toolset. Build directly in the viewport, finish with paint and materials, then export to the workflow you need.
+
+## Main Features
+
+- **Beginner-friendly modeling** - Start with primitives and shape them using direct tools for transforms, push/pull, extrude, inset, bevel, cut, lathe, and more.
+- **Game props and figurines** - Make crates, buildings, vehicles, stylized characters, and printable forms with a clean low-poly workflow.
+- **Integrated help everywhere** - Contextual guidance explains each tool, mode, workflow, and constraint while you work.
+- **Mesh tools and symmetry** - Select, repair, mirror, subdivide, bridge, weld, and refine topology without leaving the editor.
+- **Materials, paint, and UVs** - Apply palette materials, paint face-level details, and adjust UVs directly in the viewport.
+- **Render and inspect** - Switch to a clean render view with lighting, reflections, tone mapping, floor, and presentation controls.
+- **Flexible export** - Export OBJ texture bundles, vertex-color OBJ, GLB, USDZ, STL, and PNG renderings.
+- **Cross-platform workflow** - Native apps for macOS and iPadOS, with document-based projects and iCloud-backed project library support.
+
+Create a simple blockout, refine its silhouette, add details, and take it into a game engine, a renderer, or a 3D-printing workflow. Forge keeps the essential steps close together so you can learn by making.
+
+**Available soon for macOS and iPadOS.**
+
+<ScreenshotGallery
+  label="Denrim Forge screenshots"
+  images={[
+    { src: '/img/screenshots/forge/forge_mac_cube.png', alt: 'Denrim Forge cube modeling workflow' },
+    { src: '/img/screenshots/forge/forge_mac_arc.png', alt: 'Denrim Forge arc modeling tool' },
+    { src: '/img/screenshots/forge/forge_mac_car.png', alt: 'Denrim Forge low-poly car' },
+    { src: '/img/screenshots/forge/forge_mac_paint.png', alt: 'Denrim Forge face paint workflow' },
+    { src: '/img/screenshots/forge/forge_mac_chest.png', alt: 'Denrim Forge rendered chest prop' },
+    { src: '/img/screenshots/forge/forge_mac_symmetrize.png', alt: 'Denrim Forge symmetry workflow' },
+  ]}
+/>
+
+<hr className={styles.productDivider} />
 
 # Denrim: Noise
 
-<!--![Eldiron Screenshot](/img/screenshots/denrim.png)-->
-<img src="/img/screenshots/denrim.png" alt="Adventurer" style={{ float: 'center', marginLeft: '1rem', borderRadius: '80x' }} />
+<a href="/img/screenshots/denrim.png" target="_blank" rel="noreferrer">
+  <img src="/img/screenshots/denrim.png" alt="Procedural noise created in Denrim Noise" style={{ float: 'center', marginLeft: '1rem', borderRadius: '8px' }} />
+</a>
 
 **Professional procedural noise generation for artists, designers, and developers.**
+
+<p className={styles.platformLine}>Native for <strong>macOS and iPadOS</strong>, with iCloud sync.</p>
 
 Create stunning textures, backgrounds, and patterns with advanced noise algorithms. Denrim Noise combines powerful procedural generation with an intuitive interface, making it easy to craft unique visuals for games, digital art, web design, and more.
 
@@ -19,28 +63,30 @@ Create stunning textures, backgrounds, and patterns with advanced noise algorith
 - **Gradient Coloring** - Transform grayscale noise with customizable 4-color gradients
 - **3D Rendering** - Realistic bump mapping with adjustable lighting and material properties
 - **Flexible Export** - Save at any resolution (512px-8192px) in multiple aspect ratios and formats
-- **Cross-platform**: Native apps for macOS and iPad with iCloud sync
-<!--, plus builds for Windows and Linux.-->
+- **Cross-platform** - Native apps for macOS and iPadOS with iCloud sync
 
 Perfect for creating terrain heightmaps, seamless textures, desktop wallpapers, game assets, and abstract art. Start generating beautiful procedural patterns in minutes.
 
-**Available now for macOS and iOS as well as Windows and Linux.**
+**Available now for macOS and iPadOS as well as Windows and Linux.**
 
 <div className={styles.storeLinks}>
   <a href="https://apps.apple.com/app/6756531438" className={styles.storeBadge}>
-    <img src="/img/appstore-black.svg" alt="AppStore" className={styles.appstoreLightOnly} />
-    <img src="/img/appstore-white.svg" alt="AppStore" className={styles.appstoreDarkOnly} />
+    <img src="/img/appstore-black.svg" alt="Download Denrim Noise on the App Store" className={styles.appstoreLightOnly} />
+    <img src="/img/appstore-white.svg" alt="Download Denrim Noise on the App Store" className={styles.appstoreDarkOnly} />
   </a>
 
   <a href="https://denrim.itch.io/denrim-noise" className={styles.storeBadge}>
-    <img src="/img/itch-badge.svg" alt="Itch.io" className={styles.appstoreLightOnly} />
-    <img src="/img/itch-badge-color.svg" alt="Itch.io" className={styles.appstoreDarkOnly} />
+    <img src="/img/itch-badge.svg" alt="Download Denrim Noise on itch.io" className={styles.appstoreLightOnly} />
+    <img src="/img/itch-badge-color.svg" alt="Download Denrim Noise on itch.io" className={styles.appstoreDarkOnly} />
   </a>
 </div>
 
-<div className={styles.screenshotGrid}>
-  <img src="/img/screenshots/denrim1.png" alt="Denrim Screenshot" />
-  <img src="/img/screenshots/denrim2.png" alt="Denrim Screenshot" />
-  <img src="/img/screenshots/denrim3.png" alt="Denrim Screenshot" />
-  <img src="/img/screenshots/denrim4.png" alt="Denrim Screenshot" />
-</div>
+<ScreenshotGallery
+  label="Denrim Noise screenshots"
+  images={[
+    { src: '/img/screenshots/denrim1.png', alt: 'Denrim Noise editor' },
+    { src: '/img/screenshots/denrim2.png', alt: 'Denrim Noise color controls' },
+    { src: '/img/screenshots/denrim3.png', alt: 'Denrim Noise rendering controls' },
+    { src: '/img/screenshots/denrim4.png', alt: 'Denrim Noise warp controls' },
+  ]}
+/>

@@ -36,7 +36,7 @@ export default function Home() {
   return (
     <Layout
       title={`Instruments for Visual Creation`}
-      description="Denrim is a growing range of high-quality creative applications for visual artists. Each Denrim app is designed as a focused instrument for procedural visual creation, combining powerful systems with clear, intuitive workflows."
+      description="Denrim is a growing range of high-quality creative applications for visual artists. Each Denrim app is designed as a focused instrument for visual creation, combining powerful systems with clear, intuitive workflows."
     >
       <main>
         {/* Carousel at the top */}
@@ -74,7 +74,7 @@ export default function Home() {
           >
             Denrim is a growing range of high-quality creative applications for
             visual artists. Each Denrim app is designed as a focused instrument
-            for procedural visual creation, combining powerful systems with
+            for visual creation, combining powerful systems with
             clear, intuitive workflows.
           </p>
         </section>

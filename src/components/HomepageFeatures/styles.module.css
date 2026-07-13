@@ -17,6 +17,22 @@
     padding: 0 1rem;
 }
 
+.platformLine {
+    margin: 1rem 0;
+    padding: 0.7rem 1rem;
+    border-left: 4px solid var(--ifm-color-primary);
+    border-radius: 0 8px 8px 0;
+    background: var(--ifm-background-surface-color);
+    color: var(--ifm-font-color-base);
+    font-size: 1.1rem;
+}
+
+.productDivider {
+    margin: 4rem 0;
+    border: 0;
+    border-top: 2px solid var(--ifm-table-border-color);
+}
+
 .featureSvg {
     height: 200px;
     width: 200px;
