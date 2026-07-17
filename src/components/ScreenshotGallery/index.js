@@ -5,6 +5,25 @@ export default function ScreenshotGallery({images, label}) {
   const [activeIndex, setActiveIndex] = useState(null);
   const activeImage = activeIndex === null ? null : images[activeIndex];
 
+  const renderMedia = (image, isViewer = false) => {
+    if (image.type === 'video') {
+      return (
+        <video
+          aria-label={image.alt}
+          autoPlay
+          controls={isViewer}
+          loop
+          muted
+          playsInline
+          preload="metadata">
+          <source src={image.src} type={image.mimeType || 'video/mp4'} />
+        </video>
+      );
+    }
+
+    return <img src={image.src} alt={image.alt} />;
+  };
+
   useEffect(() => {
     if (!activeImage) return undefined;
 
@@ -28,7 +47,7 @@ export default function ScreenshotGallery({images, label}) {
             onClick={() => setActiveIndex(index)}
             type="button"
             aria-label={`View ${image.alt} full size`}>
-            <img src={image.src} alt={image.alt} />
+            {renderMedia(image)}
           </button>
         ))}
       </div>
@@ -44,10 +63,12 @@ export default function ScreenshotGallery({images, label}) {
             <button className={styles.close} onClick={() => setActiveIndex(null)} type="button" aria-label="Close screenshot viewer">
               Close
             </button>
-            <img src={activeImage.src} alt={activeImage.alt} />
+            {renderMedia(activeImage, true)}
             <div className={styles.viewerFooter}>
               <span>{activeImage.alt}</span>
-              <a href={activeImage.src} target="_blank" rel="noreferrer">Open full size</a>
+              <a href={activeImage.src} target="_blank" rel="noreferrer">
+                {activeImage.type === 'video' ? 'Open video' : 'Open full size'}
+              </a>
             </div>
           </div>
         </div>

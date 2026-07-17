@@ -18,14 +18,17 @@
     box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
 }
 
-.thumbnail img {
+.thumbnail img,
+.thumbnail video {
     display: block;
     width: 100%;
     transition: transform 160ms ease;
 }
 
 .thumbnail:hover img,
-.thumbnail:focus-visible img {
+.thumbnail:hover video,
+.thumbnail:focus-visible img,
+.thumbnail:focus-visible video {
     transform: scale(1.025);
 }
 
@@ -56,7 +59,8 @@
     box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
 }
 
-.viewer > img {
+.viewer > img,
+.viewer > video {
     display: block;
     max-width: 100%;
     max-height: calc(100vh - 10rem);
