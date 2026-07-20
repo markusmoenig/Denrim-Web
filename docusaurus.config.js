@@ -222,6 +222,15 @@ const config = {
               </a>
             `,
           },
+          {
+            type: "html",
+            position: "right",
+            value: `
+              <a href="https://www.youtube.com/@DenrimApps" class="navbar-icon" title="Denrim YouTube Channel">
+                <img src="https://img.shields.io/youtube/channel/subscribers/UC6hqhY0CWL8ybmJJGojinmQ?style=flat&color=458588&logo=youtube&label=Subscribe" alt="YouTube subscribers"/>
+              </a>
+            `,
+          },
         ],
       },
       footer: {
@@ -260,6 +269,10 @@ const config = {
           {
             title: "Documentation",
             items: [
+              {
+                label: "Denrim: Forge",
+                to: "/docs/denrim_forge/getting-started",
+              },
               {
                 label: "Denrim: Noise",
                 to: "/docs/denrim_noise/getting_started",
