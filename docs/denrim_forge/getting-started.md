@@ -2,11 +2,20 @@
 sidebar_position: 1
 ---
 
+import AppStoreBadge from '@site/src/components/AppStoreBadge';
+
 # Getting started
 
 Denrim: Forge is a focused low-poly modeler for making game props, stylized figurines, and practical assets for 3D printing. Start with simple forms, shape them directly in the viewport, then export when the model is ready.
 
 > **Native for macOS and iPadOS.** Work on the platform that fits your process, with document-based projects and iCloud-backed library support.
+
+**Available now on the App Store.**
+
+<AppStoreBadge
+  href="https://apps.apple.com/app/denrim-forge/id6767993560"
+  productName="Denrim: Forge"
+/>
 
 ![A castle prop made in Denrim Forge](/img/screenshots/forge/forge_mac_castle.png)
 

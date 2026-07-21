@@ -1,0 +1,24 @@
+.storeBadge {
+    display: inline-flex;
+}
+
+.storeBadge img {
+    width: auto;
+    height: 48px;
+}
+
+.lightOnly {
+    display: block;
+}
+
+.darkOnly {
+    display: none;
+}
+
+[data-theme="dark"] .lightOnly {
+    display: none;
+}
+
+[data-theme="dark"] .darkOnly {
+    display: block;
+}
