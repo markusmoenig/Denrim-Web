@@ -167,6 +167,8 @@ const config = {
           sidebarPath: "./sidebars.js",
         },
         blog: {
+          blogTitle: "News",
+          blogDescription: "News and release notes for Denrim apps.",
           showReadingTime: true,
           feedOptions: {
             type: ["rss", "atom"],
