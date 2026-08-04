@@ -37,19 +37,19 @@ export default function Home() {
           <article className={styles.releaseCard}>
             <div className={styles.releaseMeta}>
               <span>Denrim: Forge</span>
-              <time dateTime="2026-07-20">July 20, 2026</time>
+              <time dateTime="2026-08-04">August 4, 2026</time>
             </div>
             <h2 id="latest-heading">
-              <Link to="/blog/denrim-forge-v1-0-6">
-                Denrim: Forge v1.0.6 — Initial Release
+              <Link to="/blog/denrim-forge-v1-1-0">
+                Denrim: Forge 1.1 — UVs, SVG Import, and Precision Modeling
               </Link>
             </h2>
             <p>
-              The first public release brings a focused low-poly modeling
-              workflow for game props, figurines, and printable assets to macOS
-              and iPadOS.
+              A complete UV workspace, SVG-to-solid import, sharper texture
+              painting, precision modeling tools, and expanded HDR presentation
+              controls for macOS and iPadOS.
             </p>
-            <Link className={styles.readMore} to="/blog/denrim-forge-v1-0-6">
+            <Link className={styles.readMore} to="/blog/denrim-forge-v1-1-0">
               Read the release notes →
             </Link>
           </article>

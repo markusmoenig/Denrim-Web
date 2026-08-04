@@ -1,0 +1,61 @@
+---
+title: "Denrim: Forge 1.1 — UVs, SVG Import, and Precision Modeling"
+description: "Forge 1.1 adds a complete UV workspace, SVG-to-solid import, precision tools, HDR environments, and major painting improvements."
+slug: denrim-forge-v1-1-0
+authors: [markusm]
+tags: [releases]
+---
+
+import AppStoreBadge from '@site/src/components/AppStoreBadge';
+
+Denrim: Forge 1.1 expands the complete asset-creation workflow, from precise modeling and UV layout to texture painting and presentation.
+
+<AppStoreBadge
+  href="https://apps.apple.com/app/denrim-forge/id6767993560"
+  productName="Denrim: Forge"
+/>
+
+<!-- truncate -->
+
+## A complete UV workspace
+
+Every object can now have named UV maps with persistent seams and a live viewport preview. Mark individual seams or complete edge loops, select an entire UV island, then unwrap selected faces or the whole object. Planar, box, cylinder, sphere, and Smart UV projections provide useful starting points, while configurable island packing arranges the result with pixel margins, normalization, and optional rotation.
+
+The new seam-aware unfolding handles both box-like and curved meshes without collapsing faces, and UV edits are preserved in textured OBJ, GLB, and USDZ exports.
+
+## Sharper, smoother texture painting
+
+Texture painting now renders from the full-resolution 1024² material atlas in the Forge viewport, matching the exported texture instead of showing a coarse preview. A persistent Brush Size control ranges from single-texel detail to broad strokes, and fast Apple Pencil input is interpolated into continuous lines.
+
+Painting is also more responsive: strokes update the GPU atlas live and publish the completed texture to the document when the stroke ends. Paint symmetry now finds the true mirrored counterpart on twisted and non-planar faces, producing continuous mirrored strokes.
+
+## Turn SVG artwork into 3D geometry
+
+Import filled SVG paths and shapes as selected, undoable, watertight solids. Forge supports Bézier curves, arcs, nested transforms, holes, CSS class styles, solid fills, and representative materials for gradients. Choose the imported width, extrusion depth, and curve quality.
+
+The new **Combine paths into one object** option is enabled by default and retains the individual path materials. Disable it when each SVG path should remain a separate object. For best results, convert text and strokes to outlines before import.
+
+## New precision modeling tools
+
+- **Project Units** let each document use millimeters, centimeters, meters, or inches without rescaling its geometry. Measurements use the selected unit, while STL, GLB, and USDZ convert to the units expected by those formats.
+- **Offset** moves objects, vertices, edges, or faces by an exact signed distance along world X, Y, or Z.
+- **Selection** transform orientation aligns the gizmo to the active face, edge, or vertex. **View** orientation provides screen-relative movement, sizing, and rotation.
+- **Align to Face** rigidly attaches a selected mesh or face region to a picked destination face without changing its topology.
+- **Circlify** turns a closed loop or face-region boundary into a circle with adjustable influence, regular spacing, and optional surface preservation.
+- **Subdivide** is now available in Object mode for destructively subdividing every face of the selected objects, independently of the non-destructive Sub-D preview.
+- **Smooth angle** controls the threshold used for smooth viewport normals, keeping hard-surface details crisp when needed.
+
+Modeling sliders that work in world space now follow the active grid step, and Push/Pull and Extrude provide continuous viewport previews. Edge Slide follows neighboring topology rails and live symmetry, while Reset can bake rotation and scale and reposition an object's origin without changing its world-space shape.
+
+## More control over the workspace
+
+The visibility menu now offers **Hide Selected**, **Hide Unselected**, and **Reveal All** for objects or faces. The action panel has three layouts: **Full** for descriptions and options, **Names** for a compact labeled list, and **Icons** for maximum viewport space.
+
+Reference images can be imported from Photos as well as Files. Multi-object selections now outline every selected object, and the responsive toolbar has been refined for narrow Mac and iPad layouts.
+
+## Expanded rendering and reliability
+
+Choose from six HDR environment maps for different lighting and reflection setups. Forge also preserves framing when switching between perspective and isometric views.
+
+This release includes substantial fixes and refinements across Bevel, Inset, Edge Slide, Extrude, Knife, UV rotation, texture painting, thumbnails, document handling, and the iPad document browser. Complex projects close and return to the document browser more reliably, and high-poly thumbnails no longer need to load the complete geometry payload.
+

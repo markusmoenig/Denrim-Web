@@ -18,7 +18,7 @@ Move, size, or rotate selected objects, or move selected components.
 
 **Use it for:** Use Transform as the default modeling gizmo: drag arrows to move, side handles to size object selections, and rotation handles to rotate object selections.
 
-**Notes:** Component selections currently use the move handles; size and rotate handles are available for object selections.
+**Notes:** Choose World, Local, Selection, or View axes. Selection follows the active component, while View keeps its horizontal and vertical axes aligned with the screen.
 
 ### Size
 
@@ -34,7 +34,15 @@ Rotate selected objects around X, Y, and Z.
 
 **Use it for:** Use Rotate to aim repeated parts, turn cutters for CSG, or align a primitive before joining or subtracting it.
 
-**Notes:** Rotation values stay within one full turn. World/local gizmo mode changes the handle orientation.
+**Notes:** Rotation values stay within one full turn. World, Local, Selection, and View axis modes change the handle orientation.
+
+### Offset
+
+Move the current selection by an exact signed distance on one world axis.
+
+**Use it for:** Select one or more objects, vertices, edges, or faces, choose X, Y, or Z, enter the distance in the current project unit, then apply Offset.
+
+**Notes:** Positive and negative values move in opposite directions. Multi-object and multi-component selections keep their relative spacing, and typed values remain exact even when slider movement follows the grid step.
 
 ### Flatten
 
@@ -43,6 +51,14 @@ Project the current selection onto a flat plane.
 **Use it for:** Use Flatten to clean warped polygons, align edge loops, or make selected vertices share an X, Y, Z, or calculated best-fit plane.
 
 **Notes:** Angle mode uses a best-fit plane through the selected world-space points. Axis modes flatten to the selection center on that world axis.
+
+### Circlify
+
+Turn a selected loop or face-region boundary into a circle.
+
+**Use it for:** Select a closed vertex or edge loop, or a connected face region, then adjust Influence and apply Circlify. Enable Regular Spacing for evenly distributed vertices.
+
+**Notes:** Face selections use their outer boundary. Branched or open selections are left unchanged; Preserve Surface projects the result back onto the original mesh.
 
 ### Push/Pull
 
@@ -92,6 +108,14 @@ Revolve a drawn profile into a radial object.
 
 **Notes:** Draw points on the vertical plane. Segments, subdivisions, and cap toggles control the generated mesh.
 
+### Align to Face
+
+Attach a selected mesh region to another face using the active face as the source.
+
+**Use it for:** Select the faces to move, make the attachment face active last, start Align to Face, then pick the destination face in the viewport.
+
+**Notes:** The source face is placed against the destination face with opposing normals. The selected region moves rigidly without changing topology.
+
 ### Cut Through
 
 Turn a selected cut face into a tunnel through the object.
@@ -122,7 +146,7 @@ Split selected faces into smaller faces.
 
 **Use it for:** Use Subdivide when you need more editable regions before painting, cutting, beveling, or shaping local detail.
 
-**Notes:** Child faces remain selected so you can continue editing immediately.
+**Notes:** In component mode, child faces remain selected so you can continue editing immediately. In Object mode, every face of each selected object is subdivided and the objects remain selected. This is destructive and separate from Sub-D preview.
 
 ### Sub-D
 
@@ -146,7 +170,7 @@ Measure the point-to-point distance between two selected vertices.
 
 **Use it for:** Switch to vertex mode, select exactly two vertices, then click Ruler to show their world-space distance.
 
-**Notes:** The viewport HUD formats the measurement using the unit preference in Preferences.
+**Notes:** The viewport HUD formats the measurement using the current document's Units setting.
 
 ## Selection and visibility
 
@@ -206,6 +230,14 @@ Select naked boundary edges.
 
 **Notes:** Open edges are also highlighted by mesh-health overlays.
 
+### Select UV Island
+
+Expand the current selection to the complete seam-delimited UV island.
+
+**Use it for:** Select a vertex, edge, or face in the island, then use Select UV Island before unwrapping, packing, moving, or rotating that chart.
+
+**Notes:** The command selects every face in the UV island containing the current component selection and works from Vertex, Edge, or Face mode.
+
 ### Grow Selection
 
 Expand the current component selection outward.
@@ -222,21 +254,29 @@ Contract the current component selection inward.
 
 **Notes:** Works on component selections.
 
-### Hide Faces
+### Hide Selected
 
-Hide selected faces without deleting them.
+Hide the current object or face selection without deleting it.
 
-**Use it for:** Use Hide Faces to clear obstructing polygons from the viewport while editing interior or back-side details.
+**Use it for:** Clear obstructing geometry from the viewport while editing interior or back-side details.
 
-**Notes:** Hidden faces remain part of the object and can be restored with Unhide Faces.
+**Notes:** In Object mode it hides selected objects and clears their selection. In Face mode it hides selected faces. The command is undoable.
 
-### Unhide Faces
+### Hide Unselected
 
-Show hidden faces on the selected object.
+Isolate the current object or face selection by hiding everything else.
 
-**Use it for:** Use Unhide Faces after finishing the temporary edit that needed a clearer view.
+**Use it for:** Focus on one object hierarchy or a face region without changing the underlying scene.
 
-**Notes:** The command is available in face mode when a selected object has hidden faces.
+**Notes:** Object mode keeps selected hierarchies together. Face mode isolates the selected faces on the active object.
+
+### Reveal All
+
+Show all hidden objects or faces again.
+
+**Use it for:** Restore the complete scene after a focused editing pass.
+
+**Notes:** Use it from Object mode for scene objects or Face mode for hidden faces. Visibility changes are undoable.
 
 ## Topology and repair
 
@@ -532,13 +572,101 @@ Remove material overrides and brush paint grids from selected objects or faces.
 
 **Notes:** This does not delete materials from the palette.
 
+### UV map management
+
+Create, duplicate, rename, delete, and activate UV maps for the selected object.
+
+**Use it for:** Keep alternate texture layouts, duplicate a useful map before experimenting, or choose the layout used for painting and export.
+
+**Notes:** UV maps belong to individual objects. Deleting the active map changes texture layout data but does not delete mesh geometry or palette materials.
+
+### Mark Seam
+
+Mark selected edges as cuts for seam-aware unwrapping.
+
+**Use it for:** Define where a connected surface may split into UV islands before using Unwrap Selection or Unwrap All.
+
+**Notes:** Work in Edge mode. Seams are stored with the active UV map and highlighted when Show UV Seams is enabled.
+
+### Clear Seam
+
+Remove UV seam marks from selected edges.
+
+**Use it for:** Join charts differently before unwrapping the object again.
+
+**Notes:** Clearing a seam does not immediately move existing UVs; run Unwrap again to rebuild the layout from the revised cuts.
+
+### Mark Edge Loop / Clear Edge Loop
+
+Expand selected edges into complete edge loops and mark or clear those loops as seams.
+
+**Use it for:** Cut or reconnect a regular quad strip without selecting every edge manually.
+
+**Notes:** Edge-loop expansion works best on clean, non-branching topology. Use Clear All Seams when the complete seam layout should be reset.
+
+### Show UV Seams
+
+Show or hide seam overlays in the viewport.
+
+**Use it for:** Hide the colored seam display when judging the model or painting while retaining the seam layout.
+
+**Notes:** This is a display setting only; it does not add or remove stored seams.
+
+### Unwrap Selection
+
+Unfold selected faces into UV islands.
+
+**Use it for:** Mark the required seams or select a bounded face region, then unwrap only that part of the object.
+
+**Notes:** The unwrap uses marked seams and the selection boundary. Re-running it reflects any seam changes.
+
+### Unwrap All
+
+Build a seam-aware UV layout for the complete object.
+
+**Use it for:** Create a connected layout after defining seams across the whole mesh.
+
+**Notes:** Box-like and curved meshes are unfolded into charts rather than projected onto one dominant plane.
+
+### Planar / Box / Cylinder / Sphere / Smart UV
+
+Generate UVs using a projection suited to the selected form.
+
+**Use it for:** Use Planar for flat surfaces, Box for hard-surface forms, Cylinder for wrapped sides, Sphere for rounded objects, or Smart UV for automatic chart creation.
+
+**Notes:** Projection can provide a quick starting point when a hand-authored seam layout is unnecessary.
+
+### Pack Selection
+
+Arrange selected UV islands inside the texture tile.
+
+**Use it for:** Repack only the working islands while leaving unrelated selections alone.
+
+**Notes:** Pixel Margin, Normalize Islands, and Allow Rotation control spacing, relative scale, and orientation.
+
+### Pack All
+
+Arrange every UV island in the active map inside the texture tile.
+
+**Use it for:** Finish a complete layout before texture painting or export.
+
+**Notes:** Leave a suitable pixel margin to reduce texture bleeding between islands.
+
+### Pack to Others
+
+Fit selected UV islands around the unselected islands already in the map.
+
+**Use it for:** Add or revise one part of a layout without repacking the established charts.
+
+**Notes:** Unselected islands keep their existing placement.
+
 ### Rotate UV 90
 
 Rotate selected face UVs by 90 degrees.
 
 **Use it for:** Use Rotate UV 90 to align checker or painted patterns across neighboring faces.
 
-**Notes:** The viewport UV overlay shows the mapping direction.
+**Notes:** The viewport UV overlay shows the mapping direction. Multiple selected faces rotate around one shared pivot so an island stays together.
 
 ### Flip U
 
@@ -587,6 +715,24 @@ Paste copied UVs onto matching selected faces.
 **Use it for:** Use Paste UV to quickly align repeated planks, panels, caps, or matching sides.
 
 **Notes:** Only faces with the same vertex count receive the pasted UVs.
+
+## Import
+
+### Import SVG
+
+Convert filled SVG artwork into extruded, watertight mesh geometry.
+
+**Use it for:** Import logos, outlined lettering, symbols, and custom profiles, then set the width, extrusion depth, and curve quality before creating the solid.
+
+**Notes:** Filled paths, shapes, Bézier curves, arcs, nested transforms, holes, CSS class styles, and solid fills are supported. Gradients use representative solid materials. Convert text and strokes to outlines first.
+
+### Combine paths into one object
+
+Control whether an SVG import becomes one object or a set of separate objects.
+
+**Use it for:** Leave it enabled to select, transform, and undo a multi-path design as one object; disable it when individual paths need independent object-level editing.
+
+**Notes:** Combining is enabled by default and preserves the materials assigned to individual SVG paths.
 
 ## Primitives
 
