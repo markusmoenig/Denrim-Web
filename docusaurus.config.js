@@ -228,8 +228,9 @@ const config = {
             type: "html",
             position: "right",
             value: `
-              <a href="https://www.youtube.com/@DenrimApps" class="navbar-icon" title="Denrim YouTube Channel">
-                <img src="https://img.shields.io/youtube/channel/subscribers/UC6hqhY0CWL8ybmJJGojinmQ?style=flat&color=458588&logo=youtube&label=Subscribe" alt="YouTube subscribers"/>
+              <a href="https://www.youtube.com/@DenrimApps" class="navbar-icon navbar-youtube" title="Denrim YouTube Channel" aria-label="Visit the Denrim YouTube channel" target="_blank" rel="noopener noreferrer">
+                <span class="navbar-youtube__play" aria-hidden="true"></span>
+                <span>YouTube</span>
               </a>
             `,
           },

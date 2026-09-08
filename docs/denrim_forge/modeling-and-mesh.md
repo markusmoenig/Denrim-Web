@@ -16,6 +16,8 @@ Start with a primitive or an imported SVG solid, then use **Transform**, **Size*
 
 **Arc**, **Knife**, **Cut Through**, and **Lathe** make more specific forms without introducing a separate modeling system. **Bevel** softens hard edges, while **Sub-D** gives you a reversible smooth preview over the original editable cage. Use **Subdivide** when you want real editable faces instead; in Object mode it subdivides every face on each selected object.
 
+**Relax** evens out selected mesh vertices with one conservative smoothing pass. Select distorted vertices or faces to move interior vertices toward the average of their connected neighbors. Boundary vertices remain fixed, and you can repeat the undoable command deliberately for stronger smoothing.
+
 ## Precision and alignment
 
 **Offset** moves selected objects, vertices, edges, or faces by an exact signed distance along world X, Y, or Z. Choose the axis, enter a distance in the current project unit, preview the change, then apply it. Multiple selections retain their relative spacing.
@@ -44,5 +46,11 @@ When a model has been heavily edited, use **Recalculate Normals**, **Weld**, **R
 ## Symmetry and repeated parts
 
 For a symmetrical prop or figurine, model one half then use **Mirror**, live symmetry, or **Symmetrize** across the required local axis. **Duplicate** and **Array** are useful for repeated beams, planks, bolts, fence posts, wheels, and other modular details.
+
+## Hierarchies for articulated assets
+
+Use **Group** when several items only need an organizational container. Use **Parent** when selected parts should inherit an active object's movement, rotation, and scale. The active object becomes the parent; every other selected hierarchy root becomes its child. Parent-child relationships can be nested to any depth, making them suitable for segmented characters, articulated props, vehicles, and mechanical assemblies.
+
+**Unparent** returns selected objects to the scene root while preserving their world transforms and descendants. Parent relationships are also evaluated by the animation system, so rotating a shoulder can carry an arm and hand without skeletal deformation or skinning.
 
 See the [tool reference](./tool-reference.md) for every command’s selection requirements and practical notes.

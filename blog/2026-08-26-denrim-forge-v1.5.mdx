@@ -1,0 +1,83 @@
+---
+title: "Denrim: Forge 1.5 — Object Animation, Hierarchies, and Project Merging"
+description: "Forge 1.5 adds transform animation, parent-child motion, animated GLB export, multi-item playback, project merging, and custom HDR environments."
+slug: denrim-forge-v1-5
+authors: [markusm]
+tags: [releases]
+---
+
+import AppStoreBadge from '@site/src/components/AppStoreBadge';
+
+Denrim: Forge 1.5 brings animation into the modeling workflow. Build parent-child hierarchies, animate object transforms in a dedicated timeline, preview multiple items together, export animated GLB files, and carry complete animated assets between projects.
+
+<AppStoreBadge
+  href="https://apps.apple.com/app/denrim-forge/id6767993560"
+  productName="Denrim: Forge"
+/>
+
+<!-- truncate -->
+
+## Animate directly in Forge
+
+The new timeline workspace provides frame scrubbing, transport controls, a persistent playhead, keyed-frame navigation, clip creation, Auto Key, and live viewport playback. Position, rotation, and scale each have editable channels with stepped, linear, or eased interpolation.
+
+Select keys to move them in time, edit their frame or value directly, or use cut, copy, paste, and delete. Timeline changes participate in the regular undo workflow, and animation tracks follow duplicated objects while deleted objects are removed cleanly from their clips.
+
+<video
+  autoPlay
+  controls
+  loop
+  muted
+  playsInline
+  preload="metadata"
+  poster="/img/screenshots/forge/forge_mac_robocat.png"
+  aria-label="RoboCat walking with parent-child object animation in Denrim: Forge 1.5"
+  style={{ display: 'block', width: '100%', borderRadius: '8px' }}
+>
+  <source src="/img/screenshots/forge/forge_cat_walk_h264_v2.mp4" type="video/mp4" />
+</video>
+
+## Build motion with parent-child hierarchies
+
+Forge animation evaluates the existing scene hierarchy, making it well suited to segmented characters, articulated props, vehicles, and mechanical assemblies. Use **Parent** and **Unparent** to create forward-kinematic hierarchies of any depth while preserving world transforms. Object pivots define the center of motion, and optional pivot axes make local orientations easy to inspect.
+
+This approach keeps animation direct and approachable: no skeletal rig, skinning, or vertex deformation is required. Each part remains an ordinary Forge object that can still be modeled, painted, duplicated, organized, and exported.
+
+## Preview complete animated scenes
+
+**Preview All Items** plays each animated item's chosen clip on one shared clock. Forge remembers clip choices as you move through the Outliner, preserves independent clip timing and playback behavior, and resolves the combined parent-child pose correctly. You can switch back to the active item whenever you want to isolate one clip.
+
+Position, rotation, and scale channels also gain independent **Pre** and **Post** behavior. Constant, Repeat, Oscillate, and Offset Repeat can continue keyed motion procedurally without filling the timeline with duplicate keys.
+
+## Export animation to GLB
+
+GLB export now carries Forge object animation into compatible game engines, renderers, and viewers. Visible objects retain their hierarchy as individual glTF nodes, and every Forge clip exports its translation, rotation, and scale channels with correct object pivots and project-unit scaling.
+
+Ping-pong clips are exported as a complete forward-and-reverse cycle. Forge also combines compatible per-item clips into an **All Items** take so standard GLB viewers can play the complete animated project together, while preserving the original individual takes.
+
+## Merge projects without replacing your scene
+
+The Project Database now offers **Merge** alongside **Load**. Merge appends another Forge project's objects, hierarchy, layers, materials, UV maps, paint, and animation clips to the open project. Imported content is selected automatically, differing project units are converted, and the complete operation can be undone.
+
+This makes it practical to maintain reusable characters, props, environments, and animated assemblies as separate projects, then combine them when a larger scene needs them.
+
+## A clearer modeling and presentation workspace
+
+Forge 1.5 also includes a wide set of modeling and viewport refinements:
+
+- Import custom Radiance HDR environments and keep them in the Forge library for future projects.
+- Tap View Cube faces to align and frame orthographic views, or drag the cube to orbit as before.
+- Hide the modeling grid without disabling position or rotation snapping.
+- Inspect object origins with a persistent origin dot and optional local XYZ pivot axes.
+- Start Knife cuts on any visible selected face, snap precisely to vertices, and keep guides clear on the surface.
+- Work with more readable Inset previews and geometry-aware amount controls.
+- See clearer UV seams, square 0–1 UV layouts, and recorded cuts created during seam-aware unfolding.
+- Assign optional two- or three-finger iPad gestures to Undo, Clear Selection, or Add/Replace selection.
+
+Viewport navigation is more consistent across mouse, trackpad, touch, and the View Cube. Mac users also gain right-button panning, improved mouse-wheel zoom, and Command-scroll trackpad zoom.
+
+## Reliability across modeling and animation
+
+This release fixes hierarchical scaling, multi-object animation keying, object-safe track deletion, 180-degree rotation playback, UV-seam visibility, transparent wireframe display, viewport stroke artifacts, iPad Split View sizing, outliner renaming, and several parenting and selection edge cases.
+
+Together, these changes make Forge 1.5 a more complete workspace for building, painting, animating, presenting, and reusing finished 3D assets on macOS and iPadOS.

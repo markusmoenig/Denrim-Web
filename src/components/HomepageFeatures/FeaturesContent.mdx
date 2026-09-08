@@ -4,28 +4,42 @@ import ScreenshotGallery from '@site/src/components/ScreenshotGallery';
 
 # Denrim: Forge
 
-<a href="/img/screenshots/forge/forge_mac_ogre.png" target="_blank" rel="noreferrer">
-  <img src="/img/screenshots/forge/forge_mac_ogre.png" alt="A stylized ogre created in Denrim: Forge" style={{ float: 'center', marginLeft: '1rem', borderRadius: '8px' }} />
-</a>
+<video
+  autoPlay
+  controls
+  loop
+  muted
+  playsInline
+  preload="metadata"
+  poster="/img/screenshots/forge/forge_mac_robocat.png"
+  aria-label="RoboCat walking with object animation created in Denrim: Forge 1.5"
+  style={{ display: 'block', width: '100%', borderRadius: '8px' }}
+>
+        <source src="/img/screenshots/forge/forge_cat_walk_h264_v2.mp4" type="video/mp4" />
+</video>
 
-**Approachable 3D creation for game props, figurines, logos, and printable assets.**
+**Model, UV, paint, and animate game props, stylized figurines, logos, and printable assets.**
 
 <p className={styles.platformLine}>Native for <strong>macOS and iPadOS</strong>, with iCloud sync.</p>
 
-Denrim: Forge is a focused 3D modeler for artists who want to make game-ready props, stylized characters, logos, and assets for 3D printing without getting lost in a complex toolset. Start with primitives or imported SVG artwork, build directly in the viewport, create UV layouts, paint textures, then export to the workflow you need.
+Denrim: Forge is a focused 3D modeler for creating game-ready props, stylized figurines, logos, animated objects, and printable assets.
+
+Start with simple primitives or imported SVG artwork, shape your model directly in the viewport, create UV layouts, paint textures, animate objects, and export to the workflow you need. Forge keeps modeling approachable without sacrificing the tools needed to turn an idea into a finished asset.
 
 ## Main Features
 
-- **Beginner-friendly modeling** - Start with primitives or turn SVG artwork into solid geometry, then shape it with direct tools for transforms, push/pull, extrude, inset, bevel, cut, lathe, and more.
-- **Game props and figurines** - Make crates, buildings, vehicles, stylized characters, and printable forms with a clean low-poly workflow.
-- **Integrated help everywhere** - Contextual guidance explains each tool, mode, workflow, and constraint while you work.
-- **Precise mesh tools** - Work with project units, exact offsets, flexible transform orientations, symmetry, subdivision, mesh repair, and topology tools without leaving the editor.
-- **Materials, paint, and UVs** - Create UV maps, mark seams, unwrap and pack islands, apply PBR materials, and paint directly in texture space.
-- **Render and inspect** - Present your work with HDR environment lighting, reflections, tone mapping, smooth-angle control, floor, and background options.
-- **Flexible export** - Export OBJ texture bundles, vertex-color OBJ, GLB, USDZ, STL, and PNG renderings.
-- **Cross-platform workflow** - Native apps for macOS and iPadOS, with document-based projects and iCloud-backed project library support.
+- **Build from primitives or SVG artwork** - Start with boxes, cylinders, spheres, capsules, and tori, or turn SVG paths into solid 3D geometry.
+- **Shape models directly** - Use Transform, Push/Pull, Extrude, Inset, Bevel, Knife, Lathe, Offset, Circlify, Align to Face, and more.
+- **Work precisely** - Combine project units, grid snapping, numeric controls, multiple transform orientations, symmetry, and flexible selection tools.
+- **Organize and animate** - Build groups and parent-child hierarchies, then animate position, rotation, and scale with clips, Auto Key, editable keyframes, interpolation controls, and synchronized multi-item playback.
+- **Extend keyed motion** - Choose Constant, Repeat, Oscillate, or Offset Repeat behavior independently for animation channels.
+- **Merge complete projects** - Bring another Forge project into your scene while preserving its objects, hierarchy, layers, materials, UV maps, paint, and animation.
+- **Create UVs and paint textures** - Create and pack UV maps, mark seams, select UV islands, apply PBR materials, and paint directly in texture space or onto faces in the viewport.
+- **Render and inspect** - Preview with Sub-D, control smooth shading, repair meshes, inspect topology, and render with built-in or custom HDR environments, reflections, tone mapping, and presentation controls.
+- **Export where you need it** - Export textured OBJ bundles, vertex-color OBJ, animated GLB files, USDZ, STL, and PNG renderings for game engines, renderers, animation, and 3D-printing workflows.
+- **Learn while you work** - Integrated contextual help explains tools, modes, and controls throughout Forge.
 
-Create a simple blockout, refine its silhouette, add details, and take it into a game engine, a renderer, or a 3D-printing workflow. Denrim: Forge keeps the essential steps close together so you can learn by making.
+Create a simple blockout, refine its silhouette, add details, paint and animate it, then take it into a game engine, renderer, or 3D-printing workflow. Denrim: Forge keeps the essential steps close together so you can learn by making.
 
 **Available now for macOS and iPadOS.**
 
@@ -47,9 +61,13 @@ Create a simple blockout, refine its silhouette, add details, and take it into a
 <ScreenshotGallery
   label="Denrim: Forge screenshots"
   images={[
+    { src: '/img/screenshots/forge/forge_mac_robocat.png', alt: 'RoboCat posed in the Denrim: Forge 1.5 modeling workspace' },
+    { src: '/img/screenshots/forge/forge_mac_ogre.png', alt: 'A stylized ogre created in Denrim: Forge' },
     { src: '/img/screenshots/forge/forge_mac_chest.png', alt: 'A rendered chest prop created in Denrim: Forge' },
     { src: '/img/screenshots/forge/forge_mac_castle.png', alt: 'A game-ready low-poly castle created in Denrim: Forge' },
     { src: '/img/screenshots/forge/forge_mac_car.png', alt: 'Denrim: Forge low-poly car' },
+    { src: '/img/screenshots/forge/forge_mac_inset.png', alt: 'Using the Inset tool on selected faces in Denrim: Forge' },
+    { src: '/img/screenshots/forge/forge_mac_smartuv.png', alt: 'Creating a Smart UV layout in Denrim: Forge' },
     { src: '/img/screenshots/forge/mac_cube_video.mp4', type: 'video', alt: 'Denrim: Forge cube modeling workflow' },
   ]}
 />

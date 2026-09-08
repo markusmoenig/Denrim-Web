@@ -1,5 +1,5 @@
 ---
-sidebar_position: 6
+sidebar_position: 7
 ---
 
 # Tool reference
@@ -52,6 +52,14 @@ Project the current selection onto a flat plane.
 
 **Notes:** Angle mode uses a best-fit plane through the selected world-space points. Axis modes flatten to the selection center on that world axis.
 
+### Relax
+
+Even out selected mesh vertices with one conservative smoothing pass.
+
+**Use it for:** Select distorted vertices or faces, then use Relax to move the interior vertices toward the average of their connected neighbors.
+
+**Notes:** Boundary vertices remain fixed and the command is undoable. Repeat deliberately for stronger smoothing.
+
 ### Circlify
 
 Turn a selected loop or face-region boundary into a circle.
@@ -98,7 +106,7 @@ Draw a knife polygon on the selected face.
 
 **Use it for:** Use Knife to place windows, holes, panels, and custom face regions before using Cut Through, Push/Pull, or Inset.
 
-**Notes:** Place points on the face, move points if needed, then Apply Cut or Cancel Cut.
+**Notes:** Knife can begin on any visible face in a multi-face selection, snaps to nearby vertices, and keeps grid-snapped points on rotated face planes. Two points create a straight split.
 
 ### Lathe
 
@@ -244,7 +252,7 @@ Expand the current component selection outward.
 
 **Use it for:** Use Grow when your face, edge, or vertex selection is almost right and needs one more neighboring ring.
 
-**Notes:** Works on component selections.
+**Notes:** Face growth includes neighbors that meet along an edge or at a corner.
 
 ### Shrink Selection
 
@@ -334,7 +342,7 @@ Slide selected edges along adjacent faces.
 
 **Use it for:** Use Edge Slide to reposition a loop or support edge without changing the surrounding surface shape too much.
 
-**Notes:** Best on edges with clear neighboring faces.
+**Notes:** Best on edges with clear neighboring faces. Open chains and closed loops follow their neighboring topology rails, and active live-symmetry axes are respected.
 
 ### Triangulate
 
@@ -497,6 +505,32 @@ Create repeated object or face copies.
 **Use it for:** Use Array for evenly spaced parts like fence posts and grille slats, or radial wheel and hub details around a center.
 
 **Notes:** Generated array copies are placed in one Array group in the Outliner so they stay organized while remaining editable.
+
+## Scene organization
+
+### Group
+
+Create an organizational group from the selected objects.
+
+**Use it for:** Keep related scene items together in the Outliner without making one mesh object control another object's transform.
+
+**Notes:** Group and Ungroup are organizational operations. Use Parent when child transforms should follow another object.
+
+### Parent
+
+Parent the other selected objects to the active object.
+
+**Use it for:** Build forward-kinematic hierarchies for segmented characters, articulated props, vehicles, and mechanical assemblies.
+
+**Notes:** The active object becomes the parent. World transforms are preserved, hierarchy depth is unrestricted, and cycles are rejected.
+
+### Unparent
+
+Move selected objects to the scene root without flattening their children.
+
+**Use it for:** Detach an item from its transform parent while keeping the item and its descendants in their current world-space pose.
+
+**Notes:** Unparenting preserves descendants and world transforms.
 
 ### CSG Subtract
 
@@ -718,6 +752,14 @@ Paste copied UVs onto matching selected faces.
 
 ## Import
 
+### Merge Project
+
+Append a stored Forge project to the open project instead of replacing it.
+
+**Use it for:** Open the Project Database library and choose **Merge** beside a reusable prop, character, environment, or animated assembly.
+
+**Notes:** Merge preserves objects, hierarchy, layers, materials, UV maps, paint, and animation clips. Imported content is selected, unit differences are converted automatically, and the complete operation can be undone. **Load** still replaces the open project.
+
 ### Import SVG
 
 Convert filled SVG artwork into extruded, watertight mesh geometry.
@@ -759,3 +801,19 @@ Add a sphere using the project sphere resolution.
 **Use it for:** Use spheres for round parts or as CSG cutters for rounded cavities.
 
 **Notes:** Set the sphere segment count from the primitive toolbar menu; it is independent from snap grid subdivision.
+
+### Create Capsule
+
+Add a quad capsule primitive.
+
+**Use it for:** Use capsules for rounded posts, handles, rounded limbs, and soft end-cap forms.
+
+**Notes:** Set the capsule segment count from the primitive toolbar menu; it is independent from snap grid subdivision.
+
+### Create Torus
+
+Add a quad torus primitive.
+
+**Use it for:** Use torus primitives for rings, tires, handles, rims, and donut-shaped cutters.
+
+**Notes:** Set the torus segment count and thickness from the primitive toolbar menu; it is independent from snap grid subdivision.
