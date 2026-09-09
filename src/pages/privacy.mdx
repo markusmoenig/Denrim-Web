@@ -5,13 +5,15 @@ description: How Denrim handles your data and privacy.
 
 # Privacy Policy
 
-_Last updated: May 1, 2024_
+_Last updated: September 9, 2026_
 
 Denrim is built to keep your creative work local to your devices. This policy explains what we collect, how we use it, and your choices.
 
+**Platform scope:** The Apple App Store versions use Apple iCloud/CloudKit for their cloud features. Google sign-in and Supabase apply only to the optional public library in the Rust desktop versions for Windows and Linux. These services are not used by the Apple App Store versions.
+
 ## What we collect
 
-- **App data**: Projects and exports stay on your device or your own iCloud storage. We do not receive or inspect your content.
+- **App data**: Projects and exports stay on your device or your own iCloud storage unless you choose to share them through a public library. The Rust public library is described separately below.
 - **Crash reports (optional)**: If you opt in to share diagnostics through the OS, Apple may send anonymized crash data to help us improve stability.
 - **Support messages**: When you contact us, we receive the info you provide (like email and message content) to respond.
 
@@ -23,7 +25,7 @@ Denrim is built to keep your creative work local to your devices. This policy ex
 
 ## Storage and retention
 
-- Your creative files remain on your device or your iCloud account.
+- Your unpublished creative files remain on your device or your iCloud account. Files you choose to publish are shared through the selected public library.
 - Crash diagnostics, if provided, are retained by Apple and made available to us in aggregate.
 - Support emails are kept as long as needed to handle your request.
 
@@ -33,6 +35,32 @@ We do not sell or rent your data. We may share limited data with:
 
 - **Platform providers** (Apple) for distribution, payments, and diagnostics.
 - **Service providers** we use for support or hosting, bound by confidentiality and data protection terms.
+
+## Optional Rust public library (Windows and Linux)
+
+This section applies only to the Rust desktop public library. It does not change how the Apple App Store versions use iCloud/CloudKit.
+
+### Sign-in and account data
+
+Browsing and downloading public projects do not require an account. Publishing requires sign-in and publisher approval. Google sign-in supplies basic identity information, including your name, email address, profile information and account identifier, to Supabase, our authentication provider. We use this information to identify publishers and manage upload ownership and publishing permissions. Forge does not request access to your Google mail or files.
+
+Your sign-in email is not part of the public library listing unless you include it yourself in the content you publish. Signing out of the Rust app discards its in-memory session; it does not delete your account or publications.
+
+### Public uploads
+
+Nothing is uploaded automatically. If you choose to publish, Supabase stores your project package and included assets, thumbnail, title, author name, description, tags, usage terms and publication information. Published files and listing details are publicly downloadable, including by people who are not signed in. Do not publish private information or content you do not have permission to share.
+
+The Rust library provides public sharing only, not private cloud storage or cloud backup. We use the uploaded data to display listings and deliver the projects you choose to share.
+
+### Removal and account deletion
+
+You can remove your own uploads through the library. Removal withdraws the listing and deletes its hosted files when the deletion completes. If a transfer or deletion fails, the app allows you to retry cleanup. Removal cannot recall copies that others have already downloaded.
+
+Contact privacy@denrim.com to request deletion of your publisher account and associated uploads. Signing out alone does not make this request.
+
+### Service providers
+
+We use Google for sign-in and Supabase for authentication, database storage and public file hosting. See [Google's Privacy Policy](https://policies.google.com/privacy) and [Supabase's Privacy Policy](https://supabase.com/privacy) for their handling of service and authentication data. The public-sharing disclosures above apply only when using this optional Rust library.
 
 ## Children
 
