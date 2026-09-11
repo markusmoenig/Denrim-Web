@@ -219,6 +219,15 @@ const config = {
             type: "html",
             position: "right",
             value: `
+              <a href="https://community.denrim.com" class="navbar-icon" title="Denrim Community">
+                <img src="https://img.shields.io/badge/Discourse-Community-458588?style=flat&logo=discourse" alt="Denrim Community"/>
+              </a>
+            `,
+          },
+          {
+            type: "html",
+            position: "right",
+            value: `
               <a href="https://discord.gg/PYknqQ2RBD" class="navbar-icon" title="Eldiron Discord">
                 <img src="https://img.shields.io/badge/Discord-Join%20Server-458588?style=flat&logo=discord" alt="Join Discord"/>
               </a>
