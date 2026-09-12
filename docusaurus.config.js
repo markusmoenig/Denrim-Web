@@ -122,9 +122,9 @@ const gruvboxDarkTheme = {
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Denrim",
-  tagline: "Your Tagline Here",
-  favicon: "img/favicon.svg",
+  title: "Denrim: Forge",
+  tagline: "Low-poly modeling, from idea to motion",
+  favicon: "img/forge-favicon-32.png",
 
   // Set the production url of your site here
   url: "https://denrim.com",
@@ -149,6 +149,7 @@ const config = {
   },
 
   headTags: [
+    { tagName: "link", attributes: { rel: "apple-touch-icon", sizes: "180x180", href: "/img/forge-apple-touch-icon.png" } },
     {
       tagName: "link",
       attributes: {
@@ -168,7 +169,7 @@ const config = {
         },
         blog: {
           blogTitle: "News",
-          blogDescription: "News and release notes for Denrim apps.",
+          blogDescription: "Development news and release notes for Denrim: Forge.",
           showReadingTime: true,
           feedOptions: {
             type: ["rss", "atom"],
@@ -197,100 +198,37 @@ const config = {
         respectPrefersColorScheme: true,
       },
       // Replace with your project's social card
-      image: "img/eldiron-banner.png",
+      image: "img/forge-banner.png",
       navbar: {
-        title: "Denrim",
-        logo: {
-          alt: "Eldiron Logo",
-          src: "img/denrim-logo.svg",
-          srcDark: "img/denrim-logo.svg",
-        },
+        title: "Denrim: Forge",
+        logo: { alt: "Denrim: Forge", src: "img/forge-icon.png" },
         items: [
-          {
-            type: "docSidebar",
-            sidebarId: "tutorialSidebar",
-            position: "left",
-            label: "Docs",
-          },
-          { to: "/blog", label: "News", position: "left" },
-          { to: "/support", label: "Support", position: "left" },
-
-          {
-            type: "html",
-            position: "right",
-            value: `
-              <a href="https://community.denrim.com" class="navbar-icon" title="Denrim Community">
-                <img src="https://img.shields.io/badge/Discourse-Community-458588?style=flat&logo=discourse" alt="Denrim Community"/>
-              </a>
-            `,
-          },
-          {
-            type: "html",
-            position: "right",
-            value: `
-              <a href="https://discord.gg/PYknqQ2RBD" class="navbar-icon" title="Eldiron Discord">
-                <img src="https://img.shields.io/badge/Discord-Join%20Server-458588?style=flat&logo=discord" alt="Join Discord"/>
-              </a>
-            `,
-          },
-          {
-            type: "html",
-            position: "right",
-            value: `
-              <a href="https://www.youtube.com/@DenrimApps" class="navbar-icon navbar-youtube" title="Denrim YouTube Channel" aria-label="Visit the Denrim YouTube channel" target="_blank" rel="noopener noreferrer">
-                <span class="navbar-youtube__play" aria-hidden="true"></span>
-                <span>YouTube</span>
-              </a>
-            `,
-          },
+          { to: "/#gallery", label: "Gallery", position: "right" },
+          { to: "/#features", label: "Features", position: "right" },
+          { to: "/docs/denrim_forge/getting-started", label: "Manual", position: "right" },
+          { href: "https://community.denrim.com", label: "Forum", position: "right", className: "forge-community-link" },
+          { href: "https://discord.gg/PYknqQ2RBD", label: "Discord", position: "right", className: "forge-community-link" },
+          { to: "/#get-forge", label: "Get Forge", position: "right", className: "forge-download-link" },
         ],
       },
       footer: {
         style: "dark",
         links: [
-          {
-            title: "Social",
-            items: [
-              // {
-              //   label: "YouTube",
-              //   to: "https://www.youtube.com/channel/UCCmrO356zLQv_m8dPEqBUfA",
-              // },
-              {
-                label: "Discord",
-                to: "https://discord.gg/PYknqQ2RBD",
-              },
-              {
-                label: "Bluesky",
-                to: "https://bsky.app/profile/markusmoenig.bsky.social",
-              },
-              {
-                label: "X",
-                to: "https://x.com/MarkusMoenig",
-              },
-            ],
-          },
-          {
-            title: "Legal",
-            items: [
-              {
-                label: "Privacy Policy",
-                to: "/privacy",
-              },
-            ],
-          },
-          {
-            title: "Documentation",
-            items: [
-              {
-                label: "Denrim: Forge",
-                to: "/docs/denrim_forge/getting-started",
-              },
-              {
-                label: "Denrim: Noise",
-                to: "/docs/denrim_noise/getting_started",
-              },
-            ],
-          },
+          { title: "Denrim: Forge", items: [
+            { label: "Get Forge", to: "/#get-forge" },
+            { label: "Manual", to: "/docs/denrim_forge/getting-started" },
+            { label: "News", to: "/blog" },
+          ] },
+          { title: "Community", items: [
+            { label: "Forum", href: "https://community.denrim.com" },
+            { label: "Discord", href: "https://discord.gg/PYknqQ2RBD" },
+            { label: "YouTube", href: "https://www.youtube.com/@DenrimApps" },
+          ] },
+          { title: "More", items: [
+            { label: "Support", to: "/support" },
+            { label: "Privacy Policy", to: "/privacy" },
+            { label: "Denrim: Noise", to: "/noise" },
+          ] },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} Markus Moenig`,
       },

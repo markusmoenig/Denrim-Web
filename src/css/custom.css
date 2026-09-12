@@ -446,3 +446,26 @@ table {
 [data-theme="dark"] .navbar-icon img:hover {
     filter: brightness(1) grayscale(0%);
 }
+
+/* Forge branding. Keep the manual's light/dark reading modes. */
+:root { --ifm-color-primary: #ac510b; --ifm-color-primary-dark: #984609; --ifm-color-primary-darker: #874008; --ifm-color-primary-darkest: #713507; --ifm-color-primary-light: #bf6016; --ifm-color-primary-lighter: #cc701f; --ifm-color-primary-lightest: #dc8437; }
+[data-theme="dark"] { --ifm-color-primary: #ffab43; --ifm-color-primary-dark: #ff9c21; --ifm-color-primary-darker: #fa9010; --ifm-color-primary-darkest: #e57e00; --ifm-color-primary-light: #ffba65; --ifm-color-primary-lighter: #ffc47a; --ifm-color-primary-lightest: #ffd39c; }
+.navbar { background: #0c1015; color: #f3f1ed; --ifm-navbar-link-color: #d3d5d8; --ifm-navbar-link-hover-color: #ffab43; box-shadow: none; border-bottom: 1px solid #252b32; }
+.navbar__inner { max-width: 1240px; margin: auto; }
+.navbar__brand { color: #f3f1ed; letter-spacing: -.03em; }
+.navbar__logo { height: 36px; }
+.navbar__logo img { border-radius: 9px; }
+.navbar__toggle, .navbar__items--right > div > button { color: #f3f1ed; }
+.navbar-sidebar { background: #0c1015; --ifm-menu-color: #d3d5d8; --ifm-menu-color-active: #ffab43; --ifm-menu-color-background-active: #20262e; }
+.navbar-sidebar__back { color: #f3f1ed; }
+.navbar .forge-download-link { background: #ffab43; color: #181109; border-radius: 7px; padding: 8px 17px; margin: 0 12px; font-weight: 700; }
+.navbar .forge-download-link:hover { background: #ffbd6d; color: #181109; }
+html { scroll-padding-top: 85px; }
+
+.navbar__link--active[href*="/#"] { color: var(--ifm-navbar-link-color); }
+
+.navbar-sidebar .menu__link.forge-download-link { color: #181109; }
+.navbar-sidebar .menu__link[href*="/#"]:not(.forge-download-link) { color: #d3d5d8; }
+
+/* Keep community navigation as simple text links on desktop and mobile. */
+.navbar .forge-community-link svg { display: none; }

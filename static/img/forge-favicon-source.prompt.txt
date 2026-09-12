@@ -1,0 +1,2 @@
+Built-in image generation, based on rust/icon.png.
+Simplify the Forge helmet for a favicon: preserve angular silhouette, three-quarter view, silver/charcoal facets and bright orange T-shaped visor. Remove rocky ring, sparks and fine textures; use broad polygons on a dark background with no text.
