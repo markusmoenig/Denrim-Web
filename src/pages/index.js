@@ -123,13 +123,13 @@ export default function Home() {
     message: 'Where can I get Forge?'
   }), translate({
     id: 'forge.home.platformA',
-    message: 'Forge is available now on the App Store for macOS and iPadOS. Windows, Linux, and Android versions are in development. Their download links will appear here when they are ready.'
+    message: 'Forge is available for Windows and Linux, and on the App Store for macOS and iPadOS. Android is coming soon.'
   })], [translate({
     id: 'forge.home.demoQ',
     message: 'Is there a desktop demo?'
   }), translate({
     id: 'forge.home.demoA',
-    message: 'A downloadable demo is planned for Windows and Linux. It is not available yet. Follow the News page or the Forum for release announcements.'
+    message: 'Yes. Download the Windows or Linux demo from the Desktop page. Saving, exporting, and public uploads are disabled in the demo. A one-time $14.99 purchase unlocks both platforms, with unlimited installs.'
   })], [translate({
     id: 'forge.home.beginnerQ',
     message: 'Is Forge a good place to start with 3D?'
@@ -152,7 +152,7 @@ export default function Home() {
     message: 'Low-poly modeling, from idea to motion'
   })} description={translate({
     id: 'forge.home.description',
-    message: 'Meet Denrim: Forge. Model, UV, paint, and animate in one focused 3D workspace. Available for Mac and iPad. Windows, Linux, and Android coming soon.'
+    message: 'Meet Denrim: Forge. Model, UV, paint, and animate in one focused 3D workspace. Available for Windows, Linux, Mac, and iPad. Android coming soon.'
   })} noFooter>
     <main className={styles.home}>
       <section className={styles.hero} aria-labelledby="forge-title">
@@ -185,7 +185,7 @@ export default function Home() {
               })} <span aria-hidden="true">↓</span></a></div>
           <p className={styles.availability}><span aria-hidden="true" />{translate({
               id: 'forge.home.available',
-              message: 'Available now for Mac and iPad'
+              message: 'Available now for Windows, Linux, Mac, and iPad'
             })}</p>
         </div>
       </section>
@@ -235,11 +235,8 @@ export default function Home() {
                   message: 'Windows & Linux'
                 })}</h3><p>{translate({
                   id: 'forge.home.desktopBody',
-                  message: 'Desktop apps + downloadable demo'
-                })}</p></div><span>{translate({
-                id: 'forge.home.soon',
-                message: 'Coming soon'
-              })}</span></div>
+                  message: 'Free demo · Unlock both for $14.99'
+                })}</p></div><Link className={styles.desktopLink} to="/desktop">{translate({id: 'forge.home.desktopDownload', message: 'Download & unlock'})} ↗</Link></div>
           <div className={styles.future}><div><h3>{translate({
                   id: 'forge.home.android',
                   message: 'Android'

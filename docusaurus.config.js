@@ -203,6 +203,7 @@ const config = {
         title: "Denrim: Forge",
         logo: { alt: "Denrim: Forge", src: "img/forge-icon.png" },
         items: [
+          { to: "/blog", label: "News", position: "right" },
           { to: "/#gallery", label: "Gallery", position: "right" },
           { to: "/#features", label: "Features", position: "right" },
           { to: "/docs/denrim_forge/getting-started", label: "Manual", position: "right" },

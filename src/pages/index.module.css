@@ -692,3 +692,22 @@
 
 
 }
+
+.desktopHero { text-align: center; padding-top: 65px; }
+.desktopHero > img { border-radius: 20px; margin-bottom: 25px; }
+.desktopHero h1 { font-size: clamp(2.3rem, 5vw, 3.6rem); margin-bottom: 22px; }
+.desktopDownloads { border-top: 1px solid #252c34; }
+.desktopCards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 30px; }
+.desktopCards article { background: #181c21; border: 1px solid #303740; border-radius: 10px; padding: 28px; }
+.desktopCards article > a { display: flex; margin-top: 14px; }
+.desktopCards small { display: block; margin-top: 15px; color: #a9b0b8; }
+.desktopPurchase { display: grid; grid-template-columns: 1.4fr 1fr; gap: 45px; border-top: 1px solid #252c34; }
+.desktopPurchase h2 { margin-bottom: 22px; }
+.desktopPrice { align-self: center; text-align: center; padding: 30px 20px; border: 1px solid #6c4b2c; border-radius: 10px; background: #181c21; }
+.desktopPrice strong { font-size: 3rem; }
+.desktopPrice strong small { font-size: .85rem; color: #a9b0b8; }
+.desktopPrice > p { font-size: .85rem; }
+.desktopPrice > a { display: flex; justify-content: center; margin-top: 20px; }
+.desktopPrice > a:last-child { font-size: .8rem; }
+.home .desktopLink { color: #ffab43; font-size: .8rem; text-align: right; }
+@media (max-width: 640px) { .desktopCards, .desktopPurchase { grid-template-columns: 1fr; } .desktopCards article { padding: 22px; } }
