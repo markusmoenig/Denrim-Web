@@ -14,3 +14,7 @@
 - Activate Windows and Linux desktop downloads (ZIP, .deb, .tar.gz), add Polar checkout for the $14.99 one-time desktop unlock with unlimited installs, and clarify demo restrictions. Update homepage availability and navigation.
 
 - Make News the first navigation item, linking to the blog, and remove Desktop from the navigation.
+
+- Align homepage and desktop search titles, descriptions, and introductory copy with cross-platform 3D modeling and editing. Add SoftwareApplication structured data and robots.txt with sitemap discovery; update the Forge documentation overview for Windows and Linux availability.
+
+- Remove the legacy Eldiron foreword, example games, and sponsorship pages from the site and generated sitemap.

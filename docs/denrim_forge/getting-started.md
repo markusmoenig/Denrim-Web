@@ -1,5 +1,7 @@
 ---
 sidebar_position: 1
+title: "Getting started with Denrim: Forge"
+description: "Get started with Denrim: Forge for 3D modeling, UV editing, painting, and animation. Available for Windows, Linux, Mac, and iPad."
 ---
 
 import AppStoreBadge from '@site/src/components/AppStoreBadge';
@@ -8,7 +10,7 @@ import AppStoreBadge from '@site/src/components/AppStoreBadge';
 
 Denrim: Forge is a focused 3D modeler for making game props, stylized figurines, logos, animated objects, and practical assets for 3D printing. Start with simple forms or imported SVG artwork, shape the model directly in the viewport, create UVs and paint textures, animate object transforms, then export when the asset is ready.
 
-> **Native for macOS and iPadOS.** Work on the platform that fits your process, with document-based projects and iCloud-backed library support.
+> **Available for Windows, Linux, macOS, and iPadOS.** [Download the Windows or Linux demo](/desktop), or get the Mac and iPad versions on the App Store. iCloud features apply to the Apple versions. This guide uses the Apple interface; some controls differ on desktop.
 
 **Available now on the App Store.**
 

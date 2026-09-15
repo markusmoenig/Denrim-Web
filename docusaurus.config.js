@@ -123,7 +123,7 @@ const gruvboxDarkTheme = {
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Denrim: Forge",
-  tagline: "Low-poly modeling, from idea to motion",
+  tagline: "Cross-platform 3D modeling and editing",
   favicon: "img/forge-favicon-32.png",
 
   // Set the production url of your site here

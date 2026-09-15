@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import Layout from '@theme/Layout';
+import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import useBrokenLinks from '@docusaurus/useBrokenLinks';
 import { translate } from '@docusaurus/Translate';
@@ -149,11 +150,26 @@ export default function Home() {
   }
   return <Layout title={translate({
     id: 'forge.home.title',
-    message: 'Low-poly modeling, from idea to motion'
+    message: '3D Modeling for Windows, Linux, Mac & iPad'
   })} description={translate({
     id: 'forge.home.description',
-    message: 'Meet Denrim: Forge. Model, UV, paint, and animate in one focused 3D workspace. Available for Windows, Linux, Mac, and iPad. Android coming soon.'
+    message: 'Denrim: Forge is a cross-platform 3D editor for low-poly modeling, UV editing, painting, and animation on Windows, Linux, Mac, and iPad. Try the desktop demo.'
   })} noFooter>
+    <Head>
+      <script type="application/ld+json">{JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        '@id': 'https://denrim.com/#forge',
+        name: 'Denrim: Forge',
+        url: 'https://denrim.com/',
+        description: 'Cross-platform 3D editing and low-poly modeling software with UV editing, texture painting, and object animation.',
+        applicationCategory: 'DesignApplication',
+        operatingSystem: ['Windows', 'Linux', 'macOS', 'iPadOS'],
+        image: 'https://denrim.com/img/forge-banner.png',
+        featureList: ['Low-poly 3D modeling', 'UV editing', 'Texture painting', 'Object animation', '3D printing exports'],
+        author: {'@type': 'Person', name: 'Markus Moenig'}
+      })}</script>
+    </Head>
     <main className={styles.home}>
       <section className={styles.hero} aria-labelledby="forge-title">
         <img className={styles.banner} src="/img/forge-banner.png" width="2172" height="724" alt={translate({
@@ -163,7 +179,7 @@ export default function Home() {
         <div className={styles.heroCopy}>
           <p className={styles.eyebrow}>{translate({
               id: 'forge.home.eyebrow',
-              message: 'A little imagination. A world of possibilities.'
+              message: 'Cross-platform 3D modeling & editing'
             })}</p>
           <h1 id="forge-title">{translate({
               id: 'forge.home.headline',
@@ -174,7 +190,7 @@ export default function Home() {
               })}</em></h1>
           <p className={styles.lead}>{translate({
               id: 'forge.home.lead',
-              message: 'Model, UV, paint, and animate. One focused 3D workspace for game props, playful characters, and things you can hold in your hands.'
+              message: 'Denrim: Forge brings low-poly 3D modeling, UV editing, painting, and animation to Windows, Linux, Mac, and iPad. Create game props, playful characters, and models for 3D printing.'
             })}</p>
           <div className={styles.actions}><a className={styles.primary} href="#get-forge">{translate({
                 id: 'forge.home.get',

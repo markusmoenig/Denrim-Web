@@ -9,7 +9,7 @@ const checkout = 'https://buy.polar.sh/polar_cl_QrGz36bGvv8ifkf4jbN3mmBdibK6NBND
 
 export default function Desktop() {
   return (
-    <Layout title="Forge for Windows & Linux" description="Download the free Denrim: Forge desktop demo. Unlock saving and exporting on both Windows and Linux for $14.99, with unlimited installs." noFooter>
+    <Layout title="3D Modeling for Windows & Linux — Free Demo" description="Download Denrim: Forge, a 3D modeling and editing app for Windows and Linux. Try the free demo; unlock saving and exporting on both for $14.99. Unlimited installs." noFooter>
       <main className={styles.home}>
         <section className={`${styles.section} ${styles.desktopHero}`}>
           <img src="/img/forge-icon.png" width="88" height="88" alt="" />
