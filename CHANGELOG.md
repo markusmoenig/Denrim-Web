@@ -18,3 +18,5 @@
 - Align homepage and desktop search titles, descriptions, and introductory copy with cross-platform 3D modeling and editing. Add SoftwareApplication structured data and robots.txt with sitemap discovery; update the Forge documentation overview for Windows and Linux availability.
 
 - Remove the legacy Eldiron foreword, example games, and sponsorship pages from the site and generated sitemap.
+
+- Display small platform version labels on the homepage and desktop downloads: Mac/iPad v1.5.24 and Windows/Linux v1.5.30.

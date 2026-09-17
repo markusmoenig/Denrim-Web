@@ -711,3 +711,14 @@
 .desktopPrice > a:last-child { font-size: .8rem; }
 .home .desktopLink { color: #ffab43; font-size: .8rem; text-align: right; }
 @media (max-width: 640px) { .desktopCards, .desktopPurchase { grid-template-columns: 1fr; } .desktopCards article { padding: 22px; } }
+
+.home .platformVersion {
+  display: inline-block;
+  margin: 0 0 0 6px;
+  color: var(--muted);
+  font-size: .72rem;
+  font-weight: 400;
+  letter-spacing: normal;
+  vertical-align: middle;
+  white-space: nowrap;
+}

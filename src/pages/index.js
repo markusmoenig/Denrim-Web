@@ -5,6 +5,7 @@ import Link from '@docusaurus/Link';
 import useBrokenLinks from '@docusaurus/useBrokenLinks';
 import { translate } from '@docusaurus/Translate';
 import styles from './index.module.css';
+import {platformVersions} from '../data/platformVersions';
 const store = 'https://apps.apple.com/app/denrim-forge/id6767993560';
 const forum = 'https://community.denrim.com';
 const media = '/img/screenshots/forge/';
@@ -239,7 +240,7 @@ export default function Home() {
           <div className={styles.apple}><div><h3>{translate({
                   id: 'forge.home.apple',
                   message: 'Mac & iPad'
-                })}</h3><p>{translate({
+                })} <small className={styles.platformVersion}>v{platformVersions.apple}</small></h3><p>{translate({
                   id: 'forge.home.appleBody',
                   message: 'Native apps. Your projects, connected with iCloud.'
                 })}</p></div><a href={store}><img src="/img/appstore-white.svg" width="150" height="50" alt={translate({
@@ -249,7 +250,7 @@ export default function Home() {
           <div className={styles.future}><div><h3>{translate({
                   id: 'forge.home.desktop',
                   message: 'Windows & Linux'
-                })}</h3><p>{translate({
+                })} <small className={styles.platformVersion}>v{platformVersions.desktop}</small></h3><p>{translate({
                   id: 'forge.home.desktopBody',
                   message: 'Free demo · Unlock both for $14.99'
                 })}</p></div><Link className={styles.desktopLink} to="/desktop">{translate({id: 'forge.home.desktopDownload', message: 'Download & unlock'})} ↗</Link></div>

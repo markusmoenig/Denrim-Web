@@ -3,6 +3,7 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import Translate from '@docusaurus/Translate';
 import styles from './index.module.css';
+import {platformVersions} from '../data/platformVersions';
 
 const downloads = 'https://raw.githubusercontent.com/markusmoenig/DenrimForge-Releases/main/';
 const checkout = 'https://buy.polar.sh/polar_cl_QrGz36bGvv8ifkf4jbN3mmBdibK6NBND7e3B324xMsL';
@@ -30,13 +31,13 @@ export default function Desktop() {
           <p><Translate id="forge.desktop.limits">The demo has saving, exporting, and public uploads disabled. All downloads below are for x86-64 (64-bit Intel or AMD) computers.</Translate></p>
           <div className={styles.desktopCards}>
             <article>
-              <h3>Windows</h3>
+              <h3>Windows <small className={styles.platformVersion}>v{platformVersions.desktop}</small></h3>
               <p><Translate id="forge.desktop.windowsInfo">Download the ZIP, extract it, and launch Forge.</Translate></p>
               <a className={styles.primary} href={`${downloads}denrim-forge-x86_64-pc-windows-msvc.zip`}><Translate id="forge.desktop.windowsDownload">Download Windows demo</Translate> ↓</a>
               <small>ZIP · x86-64</small>
             </article>
             <article>
-              <h3>Linux</h3>
+              <h3>Linux <small className={styles.platformVersion}>v{platformVersions.desktop}</small></h3>
               <p><Translate id="forge.desktop.linuxInfo">Choose the Debian/Ubuntu package or the portable archive.</Translate></p>
               <a className={styles.primary} href={`${downloads}denrim-forge_amd64.deb`}><Translate id="forge.desktop.debDownload">Download Linux .deb</Translate> ↓</a>
               <a className={styles.secondary} href={`${downloads}denrim-forge-x86_64-unknown-linux-gnu.tar.gz`}><Translate id="forge.desktop.archiveDownload">Download Linux .tar.gz</Translate> ↓</a>
