@@ -1,0 +1,6 @@
+.figure { margin: 1.25rem 0; }
+.link { position: relative; display: block; width: fit-content; max-width: 100%; }
+.link img { display: block; max-width: 100%; height: auto; }
+.link:focus-visible { outline: 3px solid var(--ifm-color-primary); outline-offset: 4px; }
+.marker { position: absolute; transform: translate(-50%, -50%); display: grid; place-items: center; width: 1.65rem; height: 1.65rem; border: 2px solid white; border-radius: 50%; background: #9d3816; color: white; font: bold 0.9rem/1 system-ui, sans-serif; box-shadow: 0 1px 4px #0008; pointer-events: none; }
+@media (max-width: 480px) { .marker { width: 1.2rem; height: 1.2rem; font-size: 0.7rem; border-width: 1px; } }

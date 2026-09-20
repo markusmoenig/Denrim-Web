@@ -8,7 +8,23 @@ Forge lets you finish a model in the same workspace where you created it. Create
 
 > **Native for macOS and iPadOS.** Paint, materials, and UV tools are part of the same Forge workflow on both platforms.
 
-![Face painting in Denrim Forge](/img/screenshots/forge/forge_mac_paint.png)
+[![Continuous gold brush strokes forming an F on a cube, with Brush scope selected and Brush Size set to 40 px in the current Mac painting interface.](/img/docs/forge/brush-painting.png)](/img/docs/forge/brush-painting.png)
+
+*Brush painting in the Mac SwiftUI app, v1.5.30. The gold strokes are painted directly onto the surface with a 40 px brush. Click the screenshot to view it at full size.*
+
+## Try it on a cube
+
+Follow [UVs and your first painted face](./uv-and-first-paint.md) to find the UV controls, create and pack a layout, choose Face paint scope, and color the top of a cube. The lesson includes screenshots of the actual controls and result.
+
+## Paint continuous brush strokes
+
+1. Choose **Paint** mode using the paintbrush in the bottom toolbar. If the UV panel is open, toggle its toolbar button off to show the Paint controls.
+2. In the floating palette, choose **Brush** scope—the pointed paintbrush beside the Face and Object buttons.
+3. Choose a material from the palette or Material Library. The example above uses **Gold**.
+4. Adjust **Brush Size**. The screenshot uses **40 px** for broad strokes; reduce it for finer details.
+5. Drag across the model surface to paint. Strokes follow the pointer or Pencil continuously, and each gesture applies immediately. Use Undo to remove a stroke.
+
+Brush Size controls the texture brush footprint; the modeling snap-grid spacing does not limit painting to blocks. Use **Face** scope to assign a material to an entire face in one click, or **Object** scope for a whole object. Those scopes are separate from freehand brush painting.
 
 ## Materials and paint
 
@@ -56,3 +72,5 @@ Use **Pack Selection** or **Pack All** to arrange islands inside the texture til
 Selected faces show a live UV preview and axis overlay in the viewport. Use **Rotate 90**, **Flip U**, **Flip V**, **Reset**, and **Fit** to repair or orient the mapping. A multi-face 90-degree rotation uses one pivot for the complete selection, keeping the island together. **Copy** and **Paste** speed up repeated parts with matching face layouts.
 
 The active UV layout and baked base-color/PBR textures are retained for textured OBJ, GLB, and USDZ exports.
+
+For a complete seam-to-brush workflow with inspection checkpoints, follow [Texture a prop](./texture-a-prop.md).

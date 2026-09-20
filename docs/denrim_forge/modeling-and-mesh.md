@@ -8,17 +8,32 @@ Forge is most effective when you move from silhouette to detail. A box can becom
 
 > **Native for macOS and iPadOS.** Build your props and printable assets with Forge on either platform.
 
-![A low-poly vehicle assembled in Denrim Forge](/img/screenshots/forge/forge_mac_car.png)
+[![A raised panel modeled with Inset and Extrude in the current Mac interface.](/img/docs/forge/panel-result.png)](/img/docs/forge/panel-result.png)
+
+*Mac v1.5.30: the committed border and side walls are visible in Shaded + Wire.*
+
+## Follow a modeling lesson
+
+Unsure which operation fits? Start with [What do you want to do?](./choose-a-tool.md).
+
+- [Make a window](./make-a-window.md): Knife defines a region; Cut Through builds the opening and tunnel walls.
+
+- [Make a raised panel](./make-a-raised-panel.md): select a face, inset a border, and extrude connected geometry.
+- [Round and repeat a part](./round-and-repeat-a-part.md): bevel a cube and create an evenly spaced row with Array.
+- [Center and align objects](./center-and-align-objects.md): match object positions without confusing alignment with pivot placement.
 
 ## Shape first
 
-Start with a primitive or an imported SVG solid, then use **Transform**, **Size**, and **Rotate** to set its proportion. For attached volume, choose **Extrude**. For a raised or recessed surface without creating a separate object, use **Push/Pull**. **Inset** creates borders, frames, panels, doors, windows, and recessed details.
+Start with a primitive or an imported SVG solid, then use the move, size, and rotation handles of **Transform** to set its proportions. Expand **Detail** for exact Position, Scale, and Rotation values. For attached volume, choose **Extrude**. For a raised or recessed surface without creating a separate object, use **Push/Pull**. **Inset** creates borders, frames, panels, doors, windows, and recessed details.
 
 **Arc**, **Knife**, **Cut Through**, and **Lathe** make more specific forms without introducing a separate modeling system. **Bevel** softens hard edges, while **Sub-D** gives you a reversible smooth preview over the original editable cage. Use **Subdivide** when you want real editable faces instead; in Object mode it subdivides every face on each selected object.
 
 **Relax** evens out selected mesh vertices with one conservative smoothing pass. Select distorted vertices or faces to move interior vertices toward the average of their connected neighbors. Boundary vertices remain fixed, and you can repeat the undoable command deliberately for stronger smoothing.
 
 ## Precision and alignment
+
+**Want to center two whole objects?** Follow [Center and align objects](./center-and-align-objects.md), with real Mac screenshots and exact Position-field steps. The face-attachment workflow below is a different operation.
+
 
 **Offset** moves selected objects, vertices, edges, or faces by an exact signed distance along world X, Y, or Z. Choose the axis, enter a distance in the current project unit, preview the change, then apply it. Multiple selections retain their relative spacing.
 

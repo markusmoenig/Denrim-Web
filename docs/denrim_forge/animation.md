@@ -6,6 +6,12 @@ sidebar_position: 5
 
 Forge animates ordinary scene objects by keying their position, rotation, and scale. Parent-child hierarchy evaluation makes this useful for segmented characters, articulated props, vehicles, and mechanical assemblies without requiring a skeletal rig, skinning, or vertex deformation.
 
+[![Current animation workspace with the clip controls, Auto Key, transport, and separate Position, Rotation, and Scale tracks below the viewport.](/img/docs/forge/animation-workspace.png)](/img/docs/forge/animation-workspace.png)
+
+*Mac v1.5.30: the Outliner selects the animated object; the bottom timeline edits its clip. The wall is the example object, not a separate animation system.*
+
+## Example animated model
+
 <video
   autoPlay
   controls
@@ -13,14 +19,17 @@ Forge animates ordinary scene objects by keying their position, rotation, and sc
   muted
   playsInline
   preload="metadata"
-  poster="/img/screenshots/forge/forge_mac_robocat.png"
   aria-label="An articulated RoboCat walking with object animation in Denrim Forge"
   style={{ display: 'block', width: '100%', borderRadius: '8px' }}
 >
   <source src="/img/screenshots/forge/forge_cat_walk_h264_v2.mp4" type="video/mp4" />
 </video>
 
-*RoboCat uses ordinary parented objects with keyed position, rotation, and scale—no skeletal rig or skinning required.*
+*RoboCat demonstrates ordinary parented-object animation. This showcase was recorded with an earlier interface; use the current screenshots and instructions on this page for controls and shortcuts.*
+
+## Try a complete lesson
+
+Follow [Animate a hinged door](./animate-a-hinged-door.md) to place a hinge origin, parent a handle, record two poses, and export a checked GLB example.
 
 ## Open the animation workspace
 
@@ -30,7 +39,13 @@ Closing Animation returns the normal modeling controls. It does not delete clips
 
 ## Create and manage clips
 
-Animation clips belong to animated items. Select an object, create or choose a clip, then use the separate pencil and trash actions to rename or remove that object's track. **Clip Settings** controls frame rate, duration, and the interpolation assigned to newly created keys.
+Select an object in the Outliner, then choose **Create Clip** or the **New Animation Clip** plus button. Use the Clip picker to switch clips and **Rename Animation Clip** to change the clip name. **Remove Selected Object Animation** and **Delete Animation Clip** are separate controls; check their tooltips before removing animation.
+
+**Clip Settings** controls frame rate, duration, and the interpolation assigned to newly created keys.
+
+[![Close-up of the current timeline with clip controls, Auto Key, Add Transform Key, playback, and the three transform tracks.](/img/docs/forge/animation-timeline.png)](/img/docs/forge/animation-timeline.png)
+
+*The screenshot shows a new clip with transform keys at frame 0 and the playhead at frame 30. Inspect Auto Key's state before posing the object; a highlighted Auto Key records changed transforms.*
 
 Deleting the selected object's animation removes only that object's track. **Delete Entire Clip…** is a separate confirmed command that removes animation for every object in the scene clip.
 
@@ -83,7 +98,7 @@ Channel behavior is evaluated procedurally across the clip timeline without crea
 
 ## Animate a parent-child assembly
 
-1. Switch to **Scene** mode and select the intended children plus their intended parent.
+1. Open the **Scene Outliner** using the bottom-toolbar list-in-a-rectangle button, and select the intended children plus their intended parent. This is separate from the top Model/Scene workspace switch.
 2. Make the intended parent the active object, then choose **Parent**.
 3. Place each object's origin where it should rotate. Enable **Show Pivots** in Preferences when you need to inspect the local axes.
 4. Open **Animation**, select an item in the Outliner, and create a clip.

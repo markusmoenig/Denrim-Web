@@ -8,14 +8,35 @@ Forge keeps the core workflow visible: the viewport is where you model, the acti
 
 > **Native for macOS and iPadOS.** Forge provides the same focused modeling workflow on both platforms.
 
+For a first session, [Before your first lesson](./before-you-start.md) provides a labeled starting screenshot and recovery steps.
+
+## Learn selection and tool controls
+
+[Learn by example](./learn-by-example.md#understand-what-is-selected) explains Object, Vertex, Edge, Face, and Paint modes with a selected-face screenshot. Its [Apply/Done guide](./learn-by-example.md#preview-apply-done-and-undo) shows when an operation is a preview and when it is committed.
+
+## Model workspace, Scene workspace, and selection modes
+
+The **Model / Scene** control at the top selects the workspace. Model is where you edit a model's mesh; Scene is where model instances can be arranged into a composition. The tutorials begin in **Model**.
+
+The **Scene** button in the bottom selection toolbar opens the Outliner for the current modeling context. It is separate from the top Scene workspace button. Use the Outliner for object selection and hierarchy operations.
+
 ## Modes
 
 - **Edit** is the modeling workspace. It includes selection, mesh tools, materials, paint, references, and the scene hierarchy.
-- **Render** hides modeling overlays and focuses on the presentation of the current scene while retaining camera navigation.
+- **Studio/PBR** switches viewport shading to the Studio renderer. Turn it on with the transparent-cube button in the viewport display strip; the environment and renderer-options controls then appear. This does not require leaving the modeling workspace.
 - **Animation** replaces the lower modeling controls with the timeline. Closing it restores the normal modeling controls without deleting clips or keys.
 - Selection modes include **Object**, **Vertex**, **Edge**, **Face**, **Paint**, **Camera**, and **Scene**. Choose the mode that matches the kind of thing you want to change.
 
 ## Action panel layouts
+
+[![Mac SwiftUI workspace showing the bottom selection-mode toolbar and the right Actions panel with Transform and Detail open.](/img/docs/forge/transform-details.png)](/img/docs/forge/transform-details.png)
+
+*Find Object mode at the cube icon in the bottom toolbar. Find Transform in the right Actions panel; Detail expands the numeric fields. The small layout button is at the top right of Actions. Screenshot: Mac v1.5.30.*
+
+For a task-based tool finder and comparisons, see [What do you want to do?](./choose-a-tool.md).
+
+For a step-by-step example using these controls, see [Center and align objects](./center-and-align-objects.md).
+
 
 The action-panel header cycles through three layouts:
 
@@ -54,7 +75,7 @@ Every selected object shows a small origin dot. Enable **Show Pivots** in Prefer
 
 ## Scene and project controls
 
-**Scene** mode opens the Outliner, where you can select, rename, group, ungroup, hide, and reorder objects. **Group** creates an organizational container. **Parent** instead makes the active object the transform parent of the other selected objects, allowing forward-kinematic hierarchies of arbitrary depth. **Unparent** moves selected objects back to the scene root without flattening their descendants, and world transforms are preserved.
+The bottom-toolbar **Scene Outliner** button opens the Outliner, where you can select, rename, group, ungroup, hide, and reorder objects. **Group** creates an organizational container. **Parent** instead makes the active object the transform parent of the other selected objects, allowing forward-kinematic hierarchies of arbitrary depth. **Unparent** moves selected objects back to the scene root without flattening their descendants, and world transforms are preserved.
 
 Project metadata and the library live in the Project Database. **Load** replaces the open project with a stored project. **Merge** appends a stored project's objects, hierarchy, layers, materials, UV maps, paint, and animation clips to the current project. Imported content is selected, project-unit differences are converted automatically, and the complete merge can be undone.
 

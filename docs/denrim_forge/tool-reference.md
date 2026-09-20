@@ -4,15 +4,37 @@ sidebar_position: 7
 
 # Tool reference
 
+import ToolIcon from '@site/src/components/ForgeToolIcon';
+
 Every Forge action includes contextual guidance in the app. This reference brings together the same practical information: what the action does, when to reach for it, and the important constraint to remember.
 
 > **Native for macOS and iPadOS.** Every tool documented here is part of the Forge workflow on both platforms.
 
 > Selection matters. If an action is unavailable or has no effect, switch to the component type named in its notes and make the required selection first.
 
+## Find the right tool
+
+[What do you want to do?](./choose-a-tool.md) connects common tasks to tools and compares similar operations.
+
+**New to Forge?** Use [Learn by example](./learn-by-example.md) for guided projects, selection basics, and an explanation of Preview, Apply, Done, and Undo.
+
+The selection-mode lines below list supported modes; a valid selection is still required. Read each tool's notes for restrictions such as “exactly two vertices” or “one quad face.”
+
+**Trying to center two objects?** Start with [Center and align objects](./center-and-align-objects.md). **Transform → Detail → Position** provides numeric object placement. **Align to Face** is a Face-mode attachment tool.
+
+The symbols below are the same SF Symbols used by the Apple app. In the right-hand **Actions** panel, cycle the header layout button until names and descriptions are visible. Select an object or component first: available actions depend on **Object**, **Vertex**, **Edge**, or **Face** mode.
+
+[![Native Mac app with Transform selected and Detail expanded to reveal Position, Scale, Rotation, and Origin controls.](/img/docs/forge/transform-details.png)](/img/docs/forge/transform-details.png)
+
+*Mac SwiftUI interface, v1.5.30. Transform is highlighted in the right Actions panel. Expand Detail below the transform tools for exact values; X, Y, Z fields run left to right. Click a screenshot to inspect it at full size.*
+
 ## Transform and shape
 
 ### Transform
+
+<ToolIcon name="move" />
+
+**Selection modes:** Object, Vertex, Edge, Face.
 
 Move, size, or rotate selected objects, or move selected components.
 
@@ -20,23 +42,33 @@ Move, size, or rotate selected objects, or move selected components.
 
 **Notes:** Choose World, Local, Selection, or View axes. Selection follows the active component, while View keeps its horizontal and vertical axes aligned with the screen.
 
+**Find it:** Select an object in **Object** mode, then choose **Transform** in the right Actions panel (Mac shortcut **M**). Expand **Detail** for Position, Scale, and Rotation. Enter a Position value and press Return to commit it; this numeric edit does not have a separate Apply step.
+
+**Centering objects:** Follow the [illustrated alignment steps](./center-and-align-objects.md). **Origin → Center** changes the pivot without moving the mesh. The transform-center menu changes the gizmo pivot; it does not align objects.
+
+**Example:** Move a wheel into place in Object mode; switch to Face mode to move only a selected surface. For exact center alignment, follow [Center and align objects](./center-and-align-objects.md).
+
 ### Size
 
-Scale the selected object with grid-aware handles.
+<ToolIcon name="resize" />
 
-**Use it for:** Use Size to set the broad proportions of boxes, cylinders, and joined objects before doing detailed edits.
+Resize a selected object with the **Transform** gizmo's size handles, or use **Transform → Detail → Scale** for exact factors. Scale 2 doubles the corresponding original dimension.
 
-**Notes:** Size works on object selections. Use Details for exact X, Y, and Z scale values.
+**Find it:** In the current modeling Actions panel, use Transform. Size is not a separate action there. See [the wall setup example](./make-a-window.md#1-turn-the-cube-into-a-wall).
 
 ### Rotate
 
-Rotate selected objects around X, Y, and Z.
+<ToolIcon name="rotate" />
 
-**Use it for:** Use Rotate to aim repeated parts, turn cutters for CSG, or align a primitive before joining or subtracting it.
+Rotate selected objects with **Transform**'s rotation handles, or enter angles in **Transform → Detail → Rotation**. The axis orientation menu changes how the gizmo is oriented.
 
-**Notes:** Rotation values stay within one full turn. World, Local, Selection, and View axis modes change the handle orientation.
+**Find it:** In the current modeling Actions panel, use Transform. Rotate is not a separate action there. Use the Rotation fields for exact angles and press Return after editing.
 
 ### Offset
+
+<ToolIcon name="offset" />
+
+**Selection modes:** Object, Vertex, Edge, Face.
 
 Move the current selection by an exact signed distance on one world axis.
 
@@ -44,7 +76,13 @@ Move the current selection by an exact signed distance on one world axis.
 
 **Notes:** Positive and negative values move in opposite directions. Multi-object and multi-component selections keep their relative spacing, and typed values remain exact even when slider movement follows the grid step.
 
+**Example:** Raise a selected shelf by 0.5 on world Y without changing its X or Z position. With several objects selected, Offset moves the group of selected parts together; it does not close the gaps between them.
+
 ### Flatten
+
+<ToolIcon name="flatten" />
+
+**Selection modes:** Object, Vertex, Edge, Face.
 
 Project the current selection onto a flat plane.
 
@@ -52,7 +90,13 @@ Project the current selection onto a flat plane.
 
 **Notes:** Angle mode uses a best-fit plane through the selected world-space points. Axis modes flatten to the selection center on that world axis.
 
+**Example:** Select vertices on a warped tabletop and choose the Y axis to bring them to one height. Inspect the preview before applying so you do not flatten the entire table by mistake.
+
 ### Relax
+
+<ToolIcon name="relax" />
+
+**Selection modes:** Vertex, Face.
 
 Even out selected mesh vertices with one conservative smoothing pass.
 
@@ -60,7 +104,13 @@ Even out selected mesh vertices with one conservative smoothing pass.
 
 **Notes:** Boundary vertices remain fixed and the command is undoable. Repeat deliberately for stronger smoothing.
 
+**Example:** Select a lumpy patch of vertices on a curved prop and apply one pass. Compare the silhouette before repeating; the operation changes vertex positions, not the number of faces.
+
 ### Circlify
+
+<ToolIcon name="circlify" />
+
+**Selection modes:** Vertex, Edge, Face.
 
 Turn a selected loop or face-region boundary into a circle.
 
@@ -68,7 +118,13 @@ Turn a selected loop or face-region boundary into a circle.
 
 **Notes:** Face selections use their outer boundary. Branched or open selections are left unchanged; Preserve Surface projects the result back onto the original mesh.
 
+**Example:** Select the closed edge boundary of an uneven opening to make it round. Regular Spacing evens out the points; it is useful when the ring should also have evenly spaced segments.
+
 ### Push/Pull
+
+<ToolIcon name="pushPull" />
+
+**Selection modes:** Face.
 
 Move selected faces along their face normal.
 
@@ -76,7 +132,13 @@ Move selected faces along their face normal.
 
 **Notes:** The tool previews the offset. Apply from the sidebar or drag the normal handle.
 
+**Example:** Move the top face of an existing block to adjust its height. Use Extrude when you want an additional connected section with new side faces, as in the [raised-panel lesson](./make-a-raised-panel.md).
+
 ### Extrude
+
+<ToolIcon name="extrude" />
+
+**Selection modes:** Edge, Face.
 
 Create new connected geometry from selected faces.
 
@@ -84,7 +146,13 @@ Create new connected geometry from selected faces.
 
 **Notes:** Apply Extrude commits one extrusion and keeps Extrude active, so repeated clicks continue from the newly selected faces.
 
+**Example:** Make a raised square panel: inset the top of a box, keep the inner face selected, then extrude it by 0.75. [Follow the screenshot walkthrough](./make-a-raised-panel.md#3-extrude-the-inner-face). Apply commits; Done exits. Another Apply continues extruding the new face.
+
 ### Inset
+
+<ToolIcon name="inset" />
+
+**Selection modes:** Face.
 
 Create a smaller region inside selected faces.
 
@@ -92,7 +160,13 @@ Create a smaller region inside selected faces.
 
 **Notes:** Use Inset per face for separate panels, or turn it off to inset connected coplanar faces as one region.
 
+**Example:** Make a frame on a box face with Amount 0.25, then extrude the inner face. [See the Inset controls and result](./make-a-raised-panel.md#2-inset-a-border). Inset changes the surface border; it does not by itself raise the panel.
+
 ### Arc
+
+<ToolIcon name="arc" />
+
+**Selection modes:** Face.
 
 Round a selected quad face into a segmented arch.
 
@@ -100,15 +174,29 @@ Round a selected quad face into a segmented arch.
 
 **Notes:** Works best on a single quad face. Segment and height controls shape the curve.
 
+**Example:** Select one quad face for the top of a doorway, then preview a segmented arch. Increase the segment count only enough to describe the curve you need.
+
 ### Knife
+
+<ToolIcon name="cut" />
+
+**Selection modes:** Face.
 
 Draw a knife polygon on the selected face.
 
 **Use it for:** Use Knife to place windows, holes, panels, and custom face regions before using Cut Through, Push/Pull, or Inset.
 
+**Commit controls:** **Apply Cut** commits the drawn cut and returns to Transform. **Undo Point** removes the latest point; **Cancel Cut** abandons the cut. For a rectangular opening, follow [Make a window](./make-a-window.md).
+
 **Notes:** Knife can begin on any visible face in a multi-face selection, snaps to nearby vertices, and keeps grid-snapped points on rotated face planes. Two points create a straight split.
 
+**Example:** Draw a smaller window-shaped region on a wall face, commit the cut, and select that new region before using Cut Through. Drawing cut lines alone does not make a hole through the wall.
+
 ### Lathe
+
+<ToolIcon name="lathe" />
+
+**Selection modes:** Object.
 
 Revolve a drawn profile into a radial object.
 
@@ -116,23 +204,43 @@ Revolve a drawn profile into a radial object.
 
 **Notes:** Draw points on the vertical plane. Segments, subdivisions, and cap toggles control the generated mesh.
 
+**Example:** Draw one side of a vase profile on the vertical plane, then revolve it. The profile describes the side silhouette; segment count determines the number of divisions around the vase.
+
 ### Align to Face
 
+<ToolIcon name="alignToFace" />
+
+**Selection modes:** Face.
+
 Attach a selected mesh region to another face using the active face as the source.
+
+**Find it:** Switch to **Face** mode, select the source faces, then choose **Align to Face** in the Actions panel. It is unavailable in Object mode. To center whole objects, use [Position instead](./center-and-align-objects.md).
 
 **Use it for:** Select the faces to move, make the attachment face active last, start Align to Face, then pick the destination face in the viewport.
 
 **Notes:** The source face is placed against the destination face with opposing normals. The selected region moves rigidly without changing topology.
 
+**Example:** Attach a selected mounting face to a support face. Select the moving region, make its attachment face active last, start the tool, then click the support face. To center entire objects instead, use [Position](./center-and-align-objects.md).
+
 ### Cut Through
+
+<ToolIcon name="cutThrough" />
+
+**Selection modes:** Face.
 
 Turn a selected cut face into a tunnel through the object.
 
-**Use it for:** Use Cut Through after Cut to make real openings like windows, vents, archways, and intersecting passages.
+**Use it for:** Use Cut Through after Knife to make real openings like windows, vents, archways, and intersecting passages.
 
-**Notes:** The command builds tunnel side faces and can merge with existing through-cuts.
+**Notes:** The command builds tunnel side faces and can merge with existing through-cuts. It runs directly, without another Apply step. [See the before/after window example](./make-a-window.md#4-open-the-wall-with-cut-through).
+
+**Example:** After Knife creates a window region on a solid wall, select that region and use Cut Through to connect an opening through the wall. Use Delete only when removing a face without building tunnel walls is the intended result.
 
 ### Bevel
+
+<ToolIcon name="bevel" />
+
+**Selection modes:** Object, Edge, Face.
 
 Chamfer selected objects, edges, or face borders.
 
@@ -140,7 +248,13 @@ Chamfer selected objects, edges, or face borders.
 
 **Notes:** Use low segment counts for interactive work. Preview shows the affected chamfer area.
 
+**Example:** Round a default cube with Amount 0.20 and Segments 3. [Compare the preview with the committed wireframe](./round-and-repeat-a-part.md#1-soften-the-block-with-bevel). One segment makes a flat chamfer; more segments add strips around the curve.
+
 ### Solidify
+
+<ToolIcon name="solidify" />
+
+**Selection modes:** Object, Face.
 
 Add thickness to selected faces.
 
@@ -148,7 +262,13 @@ Add thickness to selected faces.
 
 **Notes:** Selected faces are replaced by an offset surface plus clean side faces.
 
+**Example:** Give a thin roof panel a wall thickness. Check the offset direction in the preview so the new surface extends toward the intended side.
+
 ### Subdivide
+
+<ToolIcon name="subdivide" />
+
+**Selection modes:** Object, Face.
 
 Split selected faces into smaller faces.
 
@@ -156,7 +276,13 @@ Split selected faces into smaller faces.
 
 **Notes:** In component mode, child faces remain selected so you can continue editing immediately. In Object mode, every face of each selected object is subdivided and the objects remain selected. This is destructive and separate from Sub-D preview.
 
+**Example:** Split a large face into smaller editable regions before adding local detail. Use Sub-D if the goal is a reversible smooth preview rather than more permanent mesh faces.
+
 ### Sub-D
+
+<ToolIcon name="subdivisionPreview" />
+
+**Selection modes:** Object, Vertex, Edge, Face, Paint, Scene.
 
 Preview a smooth subdivision surface while keeping the original object editable.
 
@@ -164,7 +290,13 @@ Preview a smooth subdivision surface while keeping the original object editable.
 
 **Notes:** Sub-D preview can be toggled while editing the original cage. Freeze is still a separate object-mode step for turning the smoothed result into real mesh faces.
 
+**Example:** Preview a smoother prop at level 1, compare with level 2, and choose Off to return to the original cage appearance. Freeze is only needed when you want to bake the preview.
+
 ### Freeze Sub-D
+
+<ToolIcon name="freezeSubdivision" />
+
+**Selection modes:** Object, Scene.
 
 Bake the current Sub-D preview into ordinary editable mesh geometry.
 
@@ -172,7 +304,13 @@ Bake the current Sub-D preview into ordinary editable mesh geometry.
 
 **Notes:** Freeze is undoable, but the generated mesh can be much denser than the original cage.
 
+**Example:** Bake the approved smooth form before editing its generated vertices. Check the mesh density first: freezing can create many more faces than the starting model.
+
 ### Ruler
+
+<ToolIcon name="ruler" />
+
+**Selection modes:** Vertex.
 
 Measure the point-to-point distance between two selected vertices.
 
@@ -180,9 +318,15 @@ Measure the point-to-point distance between two selected vertices.
 
 **Notes:** The viewport HUD formats the measurement using the current document's Units setting.
 
+**Example:** Select exactly two vertices at opposite ends of a feature and use Ruler to check its point-to-point distance. Use the document Units setting to interpret the displayed measurement.
+
 ## Selection and visibility
 
 ### Select Loop
+
+<ToolIcon name="selectEdgeLoop" />
+
+**Selection modes:** Vertex, Edge, Face.
 
 Extend two adjacent components into a loop.
 
@@ -192,6 +336,10 @@ Extend two adjacent components into a loop.
 
 ### Select Edge Ring
 
+<ToolIcon name="selectEdgeRing" />
+
+**Selection modes:** Edge.
+
 Select opposite edges across a quad strip.
 
 **Use it for:** Use Select Edge Ring to prepare a Loop Cut or to inspect evenly spaced structure through a mesh.
@@ -200,13 +348,23 @@ Select opposite edges across a quad strip.
 
 ### Select Boundary
 
+<ToolIcon name="selectBoundary" />
+
+**Selection modes:** Face.
+
 Select the boundary around selected faces.
 
 **Use it for:** Use Select Boundary before filling, beveling a face perimeter, or inspecting the outline of a region.
 
 **Notes:** Face mode converts to edge selection around the selected region.
 
+**Example:** Select a patch of faces on a panel, then convert the selection to the surrounding edges before working on its outline.
+
 ### Select Connected
+
+<ToolIcon name="selectConnected" />
+
+**Selection modes:** Vertex, Edge, Face.
 
 Select the connected island for the current component type.
 
@@ -214,7 +372,13 @@ Select the connected island for the current component type.
 
 **Notes:** Works in vertex, edge, and face modes.
 
+**Example:** Select one component of an isolated mesh island, then expand to the connected part rather than manually selecting each element.
+
 ### Select Coplanar
+
+<ToolIcon name="selectCoplanar" />
+
+**Selection modes:** Face.
 
 Select faces on the same plane as the current face.
 
@@ -222,7 +386,13 @@ Select faces on the same plane as the current face.
 
 **Notes:** The command compares face planes, so curved or angled surfaces are excluded.
 
+**Example:** Select a face on a flat wall to gather other faces lying on its plane. Curved neighboring surfaces do not belong to the same plane.
+
 ### Select Hard Edges
+
+<ToolIcon name="selectHardEdges" />
+
+**Selection modes:** Edge.
 
 Select edges between sharply angled faces.
 
@@ -231,6 +401,10 @@ Select edges between sharply angled faces.
 **Notes:** Requires edge mode and visible mesh topology.
 
 ### Select Open Edges
+
+<ToolIcon name="selectOpenEdges" />
+
+**Selection modes:** Edge.
 
 Select naked boundary edges.
 
@@ -248,19 +422,31 @@ Expand the current selection to the complete seam-delimited UV island.
 
 ### Grow Selection
 
+<ToolIcon name="growSelection" />
+
+**Selection modes:** Vertex, Edge, Face.
+
 Expand the current component selection outward.
 
 **Use it for:** Use Grow when your face, edge, or vertex selection is almost right and needs one more neighboring ring.
 
 **Notes:** Face growth includes neighbors that meet along an edge or at a corner.
 
+**Example:** Start with a few faces at the center of a detail and grow outward one step at a time. Check the highlighted boundary after each step.
+
 ### Shrink Selection
+
+<ToolIcon name="shrinkSelection" />
+
+**Selection modes:** Vertex, Edge, Face.
 
 Contract the current component selection inward.
 
 **Use it for:** Use Shrink to remove the outer border from a selected region before applying a command.
 
 **Notes:** Works on component selections.
+
+**Example:** Select a broad face patch, then shrink to remove its outer ring and work on the interior.
 
 ### Hide Selected
 
@@ -290,6 +476,10 @@ Show all hidden objects or faces again.
 
 ### Split Edge
 
+<ToolIcon name="splitEdge" />
+
+**Selection modes:** Edge.
+
 Insert midpoint vertices on selected edges.
 
 **Use it for:** Use Split Edge to add control points before filling, reshaping, or creating cleaner manual topology.
@@ -297,6 +487,10 @@ Insert midpoint vertices on selected edges.
 **Notes:** Works on edge selections and keeps the inserted vertices selected.
 
 ### Merge
+
+<ToolIcon name="merge" />
+
+**Selection modes:** Vertex, Edge, Face.
 
 Merge selected vertices, edges, or faces.
 
@@ -306,6 +500,10 @@ Merge selected vertices, edges, or faces.
 
 ### Connect
 
+<ToolIcon name="connect" />
+
+**Selection modes:** Vertex.
+
 Connect two selected vertices with a new edge path.
 
 **Use it for:** Use Connect in vertex mode to draw topology across one face or a simple strip of faces.
@@ -313,6 +511,10 @@ Connect two selected vertices with a new edge path.
 **Notes:** Connect needs exactly two vertices on the same object and refuses ambiguous paths.
 
 ### Fill
+
+<ToolIcon name="fill" />
+
+**Selection modes:** Vertex, Edge.
 
 Create a face from selected boundary vertices or edges.
 
@@ -322,13 +524,23 @@ Create a face from selected boundary vertices or edges.
 
 ### Bridge
 
+<ToolIcon name="bridge" />
+
+**Selection modes:** Edge, Face.
+
 Create bridge faces between two compatible selections.
 
 **Use it for:** Use Bridge on two edges to patch a gap, or on two matching faces to turn them into a connected tunnel.
 
 **Notes:** Face bridges need two selected faces with the same vertex count.
 
+**Example:** Connect matching open borders to build a band of faces between two regions. Check that the chosen boundaries correspond before applying the operation.
+
 ### Loop Cut
+
+<ToolIcon name="loopCut" />
+
+**Selection modes:** Edge, Face.
 
 Cut a quad strip through selected edges or adjacent faces.
 
@@ -336,7 +548,13 @@ Cut a quad strip through selected edges or adjacent faces.
 
 **Notes:** Select edges, or select two adjacent quad faces to define direction. Use the Position slider before applying.
 
+**Example:** Add a supporting division around a quad-based object before changing its silhouette. A strip of quads gives the cut a predictable route.
+
 ### Edge Slide
+
+<ToolIcon name="edgeSlide" />
+
+**Selection modes:** Edge.
 
 Slide selected edges along adjacent faces.
 
@@ -344,7 +562,13 @@ Slide selected edges along adjacent faces.
 
 **Notes:** Best on edges with clear neighboring faces. Open chains and closed loops follow their neighboring topology rails, and active live-symmetry axes are respected.
 
+**Example:** Reposition an existing loop closer to a corner while keeping it on its neighboring mesh edges. It changes spacing along existing topology rather than adding a new cut.
+
 ### Triangulate
+
+<ToolIcon name="triangulate" />
+
+**Selection modes:** Face.
 
 Convert selected faces into triangles.
 
@@ -354,6 +578,10 @@ Convert selected faces into triangles.
 
 ### Flip Normals
 
+<ToolIcon name="flipNormals" />
+
+**Selection modes:** Face.
+
 Reverse selected face winding.
 
 **Use it for:** Use Flip Normals when a face appears inside-out or renders from the wrong side.
@@ -361,6 +589,10 @@ Reverse selected face winding.
 **Notes:** Only selected faces are affected.
 
 ### Recalculate Normals
+
+<ToolIcon name="recalculateNormals" />
+
+**Selection modes:** Object, Face.
 
 Orient face winding outward.
 
@@ -370,13 +602,23 @@ Orient face winding outward.
 
 ### Weld
 
+<ToolIcon name="weldVertices" />
+
+**Selection modes:** Object, Vertex.
+
 Merge vertices that occupy the same position.
 
 **Use it for:** Use Weld after joins, mirror operations, or manual edits that leave overlapping vertices.
 
 **Notes:** Object mode welds across selected objects; vertex mode welds the selected vertices.
 
+**Example:** Merge vertices that occupy the same position after joining overlapping pieces. Nearby but separated points need deliberate positioning or another merge operation first.
+
 ### Remove Degenerates
+
+<ToolIcon name="removeDegenerateFaces" />
+
+**Selection modes:** Object, Face.
 
 Delete collapsed or invalid faces.
 
@@ -386,13 +628,23 @@ Delete collapsed or invalid faces.
 
 ### Fill Holes
 
+<ToolIcon name="fillHoles" />
+
+**Selection modes:** Object, Edge.
+
 Fill simple open boundary loops.
 
 **Use it for:** Use Fill Holes to repair accidental openings, cap simple deleted regions, or fill the open loop containing a selected boundary edge.
 
 **Notes:** Complex or self-crossing holes may need manual cleanup first.
 
+**Example:** Close a simple open boundary at the end of a mesh. Inspect the new face before exporting; filling a boundary is different from making a through-opening.
+
 ### Cleanup Mesh
+
+<ToolIcon name="cleanupMesh" />
+
+**Selection modes:** Object.
 
 Run a basic repair pass on selected objects.
 
@@ -402,6 +654,10 @@ Run a basic repair pass on selected objects.
 
 ### Separate
 
+<ToolIcon name="separate" />
+
+**Selection modes:** Face.
+
 Move selected faces into a new object.
 
 **Use it for:** Use Separate when a detail should become its own object for transform, material, or CSG work.
@@ -410,15 +666,27 @@ Move selected faces into a new object.
 
 ### Join
 
+<ToolIcon name="join" />
+
+**Selection modes:** Object.
+
 Join selected objects into the active object's mesh.
 
 **Use it for:** Use Join to combine pieces after arranging modular parts or primitives.
 
 **Notes:** Transforms are baked into the active object's local mesh.
 
+**Example:** Combine separately modeled parts into one mesh object. Join does not by itself perform a boolean union or remove intersecting internal surfaces.
+
 ## Symmetry and object operations
 
+**Find Mirror and Sym commands:** open the **Live Symmetry** popover using the bottom toolbar's left/right-arrows button. Mirror commands require Object mode and a selected mesh. The local-axis descriptions below assume **Origin → Local**; World uses the scene world origin. [See the current controls and comparison](./choose-a-tool.md#mirror-versus-symmetrize).
+
 ### Mirror X
+
+<ToolIcon name="mirrorX" />
+
+**Selection modes:** Object.
 
 Mirror selected object meshes across local X.
 
@@ -428,6 +696,10 @@ Mirror selected object meshes across local X.
 
 ### Mirror Y
 
+<ToolIcon name="mirrorY" />
+
+**Selection modes:** Object.
+
 Mirror selected object meshes across local Y.
 
 **Use it for:** Use Mirror Y to flip vertical forms or create matched top/bottom variants.
@@ -435,6 +707,10 @@ Mirror selected object meshes across local Y.
 **Notes:** Mirroring changes mesh geometry, not just object scale.
 
 ### Mirror Z
+
+<ToolIcon name="mirrorZ" />
+
+**Selection modes:** Object.
 
 Mirror selected object meshes across local Z.
 
@@ -444,6 +720,10 @@ Mirror selected object meshes across local Z.
 
 ### Sym +X
 
+<ToolIcon name="symmetrizeX" />
+
+**Selection modes:** Object, Vertex, Edge, Face.
+
 Force local X symmetry from the positive side.
 
 **Use it for:** Use Symmetrize X after shaping one half of a model; it deletes the local -X half and mirrors local +X across the center plane.
@@ -451,6 +731,10 @@ Force local X symmetry from the positive side.
 **Notes:** Faces that cross the center plane are kept from the positive side and welded at the center.
 
 ### Sym -X
+
+<ToolIcon name="symmetrizeNegativeX" />
+
+**Selection modes:** Object, Vertex, Edge, Face.
 
 Force local X symmetry from the negative side.
 
@@ -460,6 +744,10 @@ Force local X symmetry from the negative side.
 
 ### Sym +Y
 
+<ToolIcon name="symmetrizeY" />
+
+**Selection modes:** Object, Vertex, Edge, Face.
+
 Force local Y symmetry from the positive side.
 
 **Use it for:** Use Symmetrize Y for top/bottom mirrored forms after modeling the upper half.
@@ -467,6 +755,10 @@ Force local Y symmetry from the positive side.
 **Notes:** Faces that cross the center plane are kept from the positive side and welded at the center.
 
 ### Sym -Y
+
+<ToolIcon name="symmetrizeNegativeY" />
+
+**Selection modes:** Object, Vertex, Edge, Face.
 
 Force local Y symmetry from the negative side.
 
@@ -476,6 +768,10 @@ Force local Y symmetry from the negative side.
 
 ### Sym +Z
 
+<ToolIcon name="symmetrizeZ" />
+
+**Selection modes:** Object, Vertex, Edge, Face.
+
 Force local Z symmetry from the positive side.
 
 **Use it for:** Use Symmetrize Z for front/back mirrored forms after modeling the front half.
@@ -483,6 +779,10 @@ Force local Z symmetry from the positive side.
 **Notes:** Faces that cross the center plane are kept from the positive side and welded at the center.
 
 ### Sym -Z
+
+<ToolIcon name="symmetrizeNegativeZ" />
+
+**Selection modes:** Object, Vertex, Edge, Face.
 
 Force local Z symmetry from the negative side.
 
@@ -492,19 +792,31 @@ Force local Z symmetry from the negative side.
 
 ### Duplicate
 
+<ToolIcon name="duplicate" />
+
+**Selection modes:** Object, Face.
+
 Duplicate selected objects or faces.
 
 **Use it for:** Use Duplicate for repeated parts like beams, planks, bolts, panels, and selected face details.
 
 **Notes:** Object duplicates stay in place with new mesh IDs. Face duplicates become a separate object without removing the original faces.
 
+**Example:** Make one extra bracket, then position it with Transform. For evenly spaced repetitions, use [Array](./round-and-repeat-a-part.md#2-repeat-the-block-with-array).
+
 ### Array
+
+<ToolIcon name="array" />
+
+**Selection modes:** Object, Face, Paint.
 
 Create repeated object or face copies.
 
 **Use it for:** Use Array for evenly spaced parts like fence posts and grille slats, or radial wheel and hub details around a center.
 
 **Notes:** Generated array copies are placed in one Array group in the Outliner so they stay organized while remaining editable.
+
+**Example:** Repeat a 2-unit-wide block with Count 4 and X offset 3 for four blocks separated by 1-unit gaps. Count includes the original. [See settings, preview, and result](./round-and-repeat-a-part.md#2-repeat-the-block-with-array). In Object mode, Apply Array returns to Transform.
 
 ## Scene organization
 
@@ -516,6 +828,8 @@ Create an organizational group from the selected objects.
 
 **Notes:** Group and Ungroup are organizational operations. Use Parent when child transforms should follow another object.
 
+**Example:** Keep a prop's pieces together in the scene hierarchy while retaining their separate meshes. Use Join when you need a single mesh object.
+
 ### Parent
 
 Parent the other selected objects to the active object.
@@ -523,6 +837,8 @@ Parent the other selected objects to the active object.
 **Use it for:** Build forward-kinematic hierarchies for segmented characters, articulated props, vehicles, and mechanical assemblies.
 
 **Notes:** The active object becomes the parent. World transforms are preserved, hierarchy depth is unrestricted, and cycles are rejected.
+
+**Example:** Make a wheel follow its axle: select the wheel, then make the axle active before parenting. Transforming the axle then carries the wheel with it.
 
 ### Unparent
 
@@ -532,7 +848,13 @@ Move selected objects to the scene root without flattening their children.
 
 **Notes:** Unparenting preserves descendants and world transforms.
 
+**Example:** Detach a child from an assembly while keeping its current world placement. Its descendants remain attached to it.
+
 ### CSG Subtract
+
+<ToolIcon name="csgSubtract" />
+
+**Selection modes:** Object.
 
 Subtract one selected object from the active object.
 
@@ -542,6 +864,10 @@ Subtract one selected object from the active object.
 
 ### Delete
 
+<ToolIcon name="delete" />
+
+**Selection modes:** Object, Edge, Face.
+
 Delete the current selection.
 
 **Use it for:** Use Delete to remove objects or faces; in edge mode, use it to dissolve clean internal edges during retopology.
@@ -549,6 +875,10 @@ Delete the current selection.
 **Notes:** Boundary edges delete connected faces or refuse cleanly when a safe dissolve is not possible.
 
 ### Rotate X 90
+
+<ToolIcon name="rotateX90" />
+
+**Selection modes:** Object.
 
 Rotate selected objects 90 degrees around X.
 
@@ -558,6 +888,10 @@ Rotate selected objects 90 degrees around X.
 
 ### Rotate Y 90
 
+<ToolIcon name="rotateY90" />
+
+**Selection modes:** Object.
+
 Rotate selected objects 90 degrees around Y.
 
 **Use it for:** Use quick axis rotations to turn repeated wall, cylinder, or cutter pieces into place.
@@ -565,6 +899,10 @@ Rotate selected objects 90 degrees around Y.
 **Notes:** Works in object mode.
 
 ### Rotate Z 90
+
+<ToolIcon name="rotateZ90" />
+
+**Selection modes:** Object.
 
 Rotate selected objects 90 degrees around Z.
 
@@ -576,13 +914,23 @@ Rotate selected objects 90 degrees around Z.
 
 ### Apply Material
 
+<ToolIcon name="applyMaterial" />
+
+**Selection modes:** Object, Face, Paint.
+
 Assign the active material to selected objects or faces.
 
 **Use it for:** Use Apply Material after picking a palette color/material, especially for face-level accents or whole-object coloring.
 
 **Notes:** In object mode it affects all faces on selected objects.
 
+**Example:** Give one panel a contrasting finish while the surrounding object keeps its existing appearance. [Try the Face painting walkthrough](./uv-and-first-paint.md#3-color-one-face).
+
 ### Clear Material
+
+<ToolIcon name="clearMaterial" />
+
+**Selection modes:** Object, Face, Paint.
 
 Remove material overrides from selected objects or faces.
 
@@ -592,7 +940,11 @@ Remove material overrides from selected objects or faces.
 
 ### Clear Paint
 
-Remove brush paint grids from selected objects or faces.
+<ToolIcon name="clearPaint" />
+
+**Selection modes:** Object, Face, Paint.
+
+Clear painted detail from selected objects or faces.
 
 **Use it for:** Use Clear Paint when a face-level paint pattern should be reset without changing the mesh.
 
@@ -600,7 +952,11 @@ Remove brush paint grids from selected objects or faces.
 
 ### Clear All
 
-Remove material overrides and brush paint grids from selected objects or faces.
+<ToolIcon name="clearAppearance" />
+
+**Selection modes:** Object, Face, Paint.
+
+Remove material overrides and painted detail from selected objects or faces.
 
 **Use it for:** Use Clear All when the selection should return to the default unpainted look.
 
@@ -662,6 +1018,8 @@ Build a seam-aware UV layout for the complete object.
 
 **Notes:** Box-like and curved meshes are unfolded into charts rather than projected onto one dominant plane.
 
+**Example:** Rebuild a complete object's texture layout after placing seams. Inspect the islands and then pack them; unwrapping creates the layout and packing arranges it.
+
 ### Planar / Box / Cylinder / Sphere / Smart UV
 
 Generate UVs using a projection suited to the selected form.
@@ -686,6 +1044,8 @@ Arrange every UV island in the active map inside the texture tile.
 
 **Notes:** Leave a suitable pixel margin to reduce texture bleeding between islands.
 
+**Example:** Arrange the whole active layout with Normalize Islands and Allow Rotation enabled and a 4 px margin. [See the cube example](./uv-and-first-paint.md#2-make-an-automatic-layout).
+
 ### Pack to Others
 
 Fit selected UV islands around the unselected islands already in the map.
@@ -696,6 +1056,10 @@ Fit selected UV islands around the unselected islands already in the map.
 
 ### Rotate UV 90
 
+<ToolIcon name="rotateUV90" />
+
+**Selection modes:** Vertex, Edge, Face, Paint.
+
 Rotate selected face UVs by 90 degrees.
 
 **Use it for:** Use Rotate UV 90 to align checker or painted patterns across neighboring faces.
@@ -703,6 +1067,10 @@ Rotate selected face UVs by 90 degrees.
 **Notes:** The viewport UV overlay shows the mapping direction. Multiple selected faces rotate around one shared pivot so an island stays together.
 
 ### Flip U
+
+<ToolIcon name="flipU" />
+
+**Selection modes:** Vertex, Edge, Face, Paint.
 
 Mirror selected face UVs horizontally.
 
@@ -712,6 +1080,10 @@ Mirror selected face UVs horizontally.
 
 ### Flip V
 
+<ToolIcon name="flipV" />
+
+**Selection modes:** Vertex, Edge, Face, Paint.
+
 Mirror selected face UVs vertically.
 
 **Use it for:** Use Flip V when a painted pattern is upside down on a face.
@@ -719,6 +1091,10 @@ Mirror selected face UVs vertically.
 **Notes:** Works on selected faces in Face or Paint mode.
 
 ### Reset UV
+
+<ToolIcon name="resetUV" />
+
+**Selection modes:** Vertex, Edge, Face, Paint.
 
 Reset selected face UVs to the default polygon layout.
 
@@ -728,13 +1104,23 @@ Reset selected face UVs to the default polygon layout.
 
 ### Fit UV To Face
 
+<ToolIcon name="fitUVToFace" />
+
+**Selection modes:** Vertex, Edge, Face, Paint.
+
 Fit selected face UVs to the face projection.
 
 **Use it for:** Use Fit UV To Face after cutting, beveling, or CSG when a face needs a stable projected paint layout.
 
 **Notes:** This is the general-purpose repair for most skewed face paint mapping.
 
+**Example:** Repair a selected cut face whose painted pattern has become skewed. Fit changes that face's mapping; it does not repack the rest of the object.
+
 ### Copy UV
+
+<ToolIcon name="copyUV" />
+
+**Selection modes:** Vertex, Edge, Face, Paint.
 
 Copy UVs from the first selected face.
 
@@ -743,6 +1129,10 @@ Copy UVs from the first selected face.
 **Notes:** Paste requires target faces with the same vertex count.
 
 ### Paste UV
+
+<ToolIcon name="pasteUV" />
+
+**Selection modes:** Vertex, Edge, Face, Paint.
 
 Paste copied UVs onto matching selected faces.
 
@@ -768,6 +1158,8 @@ Convert filled SVG artwork into extruded, watertight mesh geometry.
 
 **Notes:** Filled paths, shapes, Bézier curves, arcs, nested transforms, holes, CSS class styles, and solid fills are supported. Gradients use representative solid materials. Convert text and strokes to outlines first.
 
+**Example:** Import an outlined logo as a shallow solid. Set its width and extrusion depth, then inspect holes and material regions before continuing to mesh edits.
+
 ### Combine paths into one object
 
 Control whether an SVG import becomes one object or a set of separate objects.
@@ -780,6 +1172,8 @@ Control whether an SVG import becomes one object or a set of separate objects.
 
 ### Create Box
 
+<ToolIcon name="createBox" />
+
 Add a new box primitive.
 
 **Use it for:** Use boxes for blockouts, walls, floors, crates, and simple hard-surface forms.
@@ -787,6 +1181,8 @@ Add a new box primitive.
 **Notes:** New objects are selected immediately.
 
 ### Create Cylinder
+
+<ToolIcon name="createCylinder" />
 
 Add a cylinder using the project cylinder resolution.
 
@@ -796,6 +1192,8 @@ Add a cylinder using the project cylinder resolution.
 
 ### Create Sphere
 
+<ToolIcon name="createSphere" />
+
 Add a sphere using the project sphere resolution.
 
 **Use it for:** Use spheres for round parts or as CSG cutters for rounded cavities.
@@ -804,6 +1202,8 @@ Add a sphere using the project sphere resolution.
 
 ### Create Capsule
 
+<ToolIcon name="createCapsule" />
+
 Add a quad capsule primitive.
 
 **Use it for:** Use capsules for rounded posts, handles, rounded limbs, and soft end-cap forms.
@@ -811,6 +1211,8 @@ Add a quad capsule primitive.
 **Notes:** Set the capsule segment count from the primitive toolbar menu; it is independent from snap grid subdivision.
 
 ### Create Torus
+
+<ToolIcon name="createTorus" />
 
 Add a quad torus primitive.
 

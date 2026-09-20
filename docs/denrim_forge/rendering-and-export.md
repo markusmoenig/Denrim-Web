@@ -4,11 +4,26 @@ sidebar_position: 6
 
 # Rendering and export
 
-Render mode turns the editable scene into a clean presentation view. It supports real-time studio rendering and path-traced presentation output, with controls for ambient occlusion, bloom, textures, environment lighting, reflections, tone mapping, exposure, floor, and background.
+Enable **Studio/PBR** in the viewport display strip to preview materials and lighting. **Renderer Options** controls tone mapping, exposure, environment lighting, reflections, ambient occlusion, and bloom, and provides the settings for rendering an image.
 
 > **Native for macOS and iPadOS.** Inspect, render, and export Forge projects from either platform.
 
-![A rendered chest prop in Denrim Forge](/img/screenshots/forge/forge_mac_chest.png)
+[![Current Mac Studio/PBR preview with Renderer Options open, showing tone mapping, exposure, reflections, and the environment map.](/img/docs/forge/renderer-options.png)](/img/docs/forge/renderer-options.png)
+
+*Mac SwiftUI interface, v1.5.30. The transparent-cube Studio/PBR button reveals the additional renderer controls. The slider icon opens this popover.*
+
+## Find the renderer controls
+
+1. Turn on **Studio/PBR** using the transparent-cube button in the viewport's upper display strip. On Mac, **Mode → Toggle Studio/PBR** provides the same switch.
+2. Turn on **Environment** (sun icon) if you want HDR lighting. The Environment Map picker is disabled while Environment is off.
+3. Open **Renderer Options** with the slider icon in the same display strip.
+4. Adjust Exposure and the environment settings while inspecting the viewport.
+
+[![Close-up of Renderer Options, including the active Studio Small 01 Environment Map picker.](/img/docs/forge/renderer-options-detail.png)](/img/docs/forge/renderer-options-detail.png)
+
+*Renderer close-up. Enable Smooth normals to reveal Smooth angle; enable Environment to reveal its rotation control.*
+
+For a still image, scroll inside Renderer Options to **Path Tracing**, samples per pixel, Width, Height, and **Render Image**. Image rendering and model-file export are separate operations.
 
 ## Environment and shading
 
@@ -19,6 +34,8 @@ Use **Import HDR…** to add a Radiance HDR environment to the Forge library. Im
 Enable **Smooth normals** for interpolated viewport shading, then use **Smooth angle** to set the maximum angle across which normals are blended. Lower values preserve crisp hard-surface breaks; higher values smooth across broader curvature. The default is 70°.
 
 ## Export formats
+
+Open **Import and Export** using the up/down-arrow button in the top toolbar to choose a model export format. Select the format for the destination that will consume the file:
 
 | Format | Best for |
 | --- | --- |
@@ -43,3 +60,5 @@ GLB preserves visible objects as individual hierarchy nodes and exports translat
 6. For a smoothed result, use Sub-D preview or freeze it into editable geometry if the next workflow needs the dense mesh itself.
 
 For 3D printing, favor clean closed geometry and use STL. For game props and textured visual assets, OBJ or GLB will usually be the better starting point.
+
+Continue with [Export and check a game asset](./export-a-game-asset.md) for unit, material, hierarchy, and animation checks, with a checked painted-door GLB example.

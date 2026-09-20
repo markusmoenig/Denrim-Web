@@ -19,17 +19,31 @@ Denrim: Forge is a focused 3D modeler for making game props, stylized figurines,
   productName="Denrim: Forge"
 />
 
-![A castle prop made in Denrim Forge](/img/screenshots/forge/forge_mac_castle.png)
+[![A wall with a completed window opening in the current Mac interface.](/img/docs/forge/window-result.png)](/img/docs/forge/window-result.png)
+
+*Current Mac interface, v1.5.30. Build this result in [Make a window](./make-a-window.md).*
+
+## Set up your first document
+
+Follow [Before your first lesson](./before-you-start.md) to create a document, identify the main controls, select a face, and enter exact values. A new Mac document already contains one cube; keep it for the first exercise.
+
+## Find the right starting point
+
+[What do you want to do?](./choose-a-tool.md) maps common tasks to the right tool and explains confusing alternatives such as Join, Group, and Parent.
+
+## Learn with a complete example
+
+Start with [Learn by example](./learn-by-example.md). The illustrated lessons show how to make a raised panel, bevel and repeat a part, prepare UVs, and paint one face. Each includes the exact controls, a visible result, and troubleshooting.
 
 ## Your first prop
 
-1. Create a **Box**, **Cylinder**, **Sphere**, **Capsule**, or **Torus** from the action panel.
-2. In **Object** mode, use **Transform**, **Size**, and **Rotate** to establish the overall silhouette.
+1. Begin with the cube already in a new document. Use the top primitive controls to add a **Box**, **Cylinder**, **Sphere**, **Capsule**, or **Torus** only when you need another part.
+2. In **Object** mode, use **Transform** to establish the overall silhouette. Drag its move, size, or rotation handles, or expand **Detail** for numeric Position, Scale, and Rotation.
 3. Switch to **Face** mode for major shape changes. **Push/Pull**, **Extrude**, **Inset**, and **Bevel** cover most prop-modeling work.
 4. Open the **UV** workspace when the asset needs a texture layout. Mark seams, unwrap the object, and pack its islands.
 5. Use **Paint** mode to apply PBR materials, face-level color, or brush-painted texture details.
 6. For an articulated or moving asset, organize its parts with **Parent** and **Unparent**, then open **Animation** to key position, rotation, and scale.
-7. Inspect the result in **Render** mode, then export an OBJ, GLB, USDZ, STL, or PNG rendering.
+7. Inspect the result with **Studio/PBR**, then export an OBJ, GLB, USDZ, STL, or PNG rendering.
 
 ## Start from SVG artwork
 
