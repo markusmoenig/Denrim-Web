@@ -6,82 +6,25 @@ import useBrokenLinks from '@docusaurus/useBrokenLinks';
 import { translate } from '@docusaurus/Translate';
 import styles from './index.module.css';
 import {platformVersions} from '../data/platformVersions';
+import {videoTutorials} from '../data/videoTutorials';
 const store = 'https://apps.apple.com/app/denrim-forge/id6767993560';
 const forum = 'https://community.denrim.com';
 const media = '/img/screenshots/forge/';
 export default function Home() {
   const brokenLinks = useBrokenLinks();
-  ['get-forge', 'gallery', 'features'].forEach(id => brokenLinks.collectAnchor(id));
+  ['get-forge', 'gallery', 'videos', 'features'].forEach(id => brokenLinks.collectAnchor(id));
   const [filter, setFilter] = useState('all');
   const [selected, setSelected] = useState(null);
   const dialog = useRef(null);
-  const gallery = [{
-    file: 'forge_mac_robocat.png',
-    name: translate({
-      id: 'forge.home.robocat',
-      message: 'RoboCat'
-    }),
-    category: 'models',
-    detail: translate({
-      id: 'forge.home.robocatDetail',
-      message: 'A character with a little more character.'
-    })
-  }, {
-    file: 'forge_mac_ogre.png',
-    name: translate({
-      id: 'forge.home.ogre',
-      message: 'The friendly ogre'
-    }),
-    category: 'models',
-    detail: translate({
-      id: 'forge.home.ogreDetail',
-      message: 'Simple shapes. A big personality.'
-    })
-  }, {
-    file: 'forge_mac_chest.png',
-    name: translate({
-      id: 'forge.home.chest',
-      message: 'Treasure chest'
-    }),
-    category: 'models',
-    detail: translate({
-      id: 'forge.home.chestDetail',
-      message: 'A small prop, ready for a bigger adventure.'
-    })
-  }, {
-    file: 'forge_mac_castle.png',
-    name: translate({
-      id: 'forge.home.castle',
-      message: 'A pocket-sized kingdom'
-    }),
-    category: 'models',
-    detail: translate({
-      id: 'forge.home.castleDetail',
-      message: 'From a handful of shapes to a miniature castle.'
-    })
-  }, {
-    file: 'forge_mac_smartuv.png',
-    name: translate({
-      id: 'forge.home.uv',
-      message: 'Every face in its place'
-    }),
-    category: 'workflow',
-    detail: translate({
-      id: 'forge.home.uvDetail',
-      message: 'Unwrap, arrange, and paint your UVs.'
-    })
-  }, {
-    file: 'forge_castle_printed.jpg',
-    name: translate({
-      id: 'forge.home.print',
-      message: 'From screen to shelf'
-    }),
-    category: 'prints',
-    detail: translate({
-      id: 'forge.home.printDetail',
-      message: 'The Forge castle, brought to life as a 3D print.'
-    })
-  }];
+  const gallery = [
+    {file: 'v1.6/dragon-painting.webp', name: 'Dragon painting', category: 'models'},
+    {file: 'v1.6/robocat-grab-brush.webp', name: 'Grab Brush', category: 'workflow'},
+    {file: 'v1.6/robocat-modeling.webp', name: 'RoboCat', category: 'models'},
+    {file: 'v1.6/ogre-painting.webp', name: 'Ogre painting', category: 'models'},
+    {file: 'v1.6/treasure-chest.webp', name: 'Treasure chest', category: 'models'},
+    {file: 'v1.6/car-uv.webp', name: 'Car UV editing', category: 'workflow'},
+    {file: 'forge_castle_printed.jpg', name: 'Printed castle', category: 'prints'},
+  ];
   const filters = [['all', translate({
     id: 'forge.home.all',
     message: 'All work'
@@ -100,13 +43,13 @@ export default function Home() {
     message: 'Shape your idea'
   }), translate({
     id: 'forge.home.modelBody',
-    message: 'Start with primitives or SVG artwork. Extrude, inset, bevel, and refine directly in the viewport, with snapping and numeric controls when precision matters.'
+    message: 'Build live Union, Subtract, and Intersect stacks while keeping source objects editable. Refine with Extrude, Bevel, and Grab Brush, then place details with vertex and edge-midpoint snapping.'
   })], ['02', translate({
     id: 'forge.home.paint',
     message: 'Make it your own'
   }), translate({
     id: 'forge.home.paintBody',
-    message: 'Unwrap UVs, arrange islands, add PBR materials, and paint textures. Bring color and detail to your model in the same workspace.'
+    message: 'Paint in layers, protect details with pixel masks, and blend PBR materials. Add procedural brushes, bake ambient occlusion, and work directly on the model or its UV atlas.'
   })], ['03', translate({
     id: 'forge.home.animate',
     message: 'Set it in motion'
@@ -166,8 +109,8 @@ export default function Home() {
         description: 'Cross-platform 3D editing and low-poly modeling software with UV editing, texture painting, and object animation.',
         applicationCategory: 'DesignApplication',
         operatingSystem: ['Windows', 'Linux', 'macOS', 'iPadOS'],
-        image: 'https://denrim.com/img/forge-banner.png',
-        featureList: ['Low-poly 3D modeling', 'UV editing', 'Texture painting', 'Object animation', '3D printing exports'],
+        image: 'https://denrim.com/img/screenshots/forge/v1.6/dragon-painting.webp',
+        featureList: ['Non-destructive Boolean modeling', 'Low-poly 3D modeling', 'UV editing', 'Texture painting', 'Object animation', '3D printing exports'],
         author: {'@type': 'Person', name: 'Markus Moenig'}
       })}</script>
     </Head>
@@ -193,6 +136,10 @@ export default function Home() {
               id: 'forge.home.lead',
               message: 'Denrim: Forge brings low-poly 3D modeling, UV editing, painting, and animation to Windows, Linux, Mac, and iPad. Create game props, playful characters, and models for 3D printing.'
             })}</p>
+          <p className={styles.releaseLink}><Link to="/blog/denrim-forge-v1-6">{translate({
+              id: 'forge.home.release16',
+              message: 'Explore Forge 1.6: non-destructive Booleans and layered painting'
+            })} <span aria-hidden="true">↗</span></Link></p>
           <div className={styles.actions}><a className={styles.primary} href="#get-forge">{translate({
                 id: 'forge.home.get',
                 message: 'Get Forge'
@@ -206,6 +153,16 @@ export default function Home() {
             })}</p>
         </div>
       </section>
+
+      <figure className={styles.heroShowcase}>
+        <a href={`${media}v1.6/dragon-painting.webp`} aria-label={translate({
+          id: 'forge.home.dragonFullSize', message: 'View the dragon painting screenshot at full size'
+        })}>
+          <img src={`${media}v1.6/dragon-painting.webp`} width="2880" height="1800" alt={translate({
+            id: 'forge.home.dragonAlt', message: 'A green dragon painted in Forge 1.6, with editable paint layers, glowing eyes, and PBR material controls'
+          })} fetchPriority="high" />
+        </a>
+      </figure>
 
       <section className={`${styles.section} ${styles.downloadSection}`} id="get-forge" aria-labelledby="download-title">
         <div className={styles.motion}>
@@ -289,7 +246,7 @@ export default function Home() {
         <div className={styles.gallery}>{gallery.filter(item => filter === 'all' || item.category === filter).map(item => <button className={styles.galleryItem} key={item.file} onClick={() => openImage(item)} aria-label={`${translate({
             id: 'forge.home.view',
             message: 'View'
-          })} ${item.name}`}><div className={styles.imageWrap}><img src={`${media}${item.file}`} alt={item.name} loading="lazy" width="960" height="600" /><span aria-hidden="true">↗</span></div><div className={styles.galleryCaption}><h3>{item.name}</h3><p>{item.detail}</p></div></button>)}</div>
+          })} ${item.name}`}><div className={styles.imageWrap}><img src={`${media}${item.file}`} alt={item.name} loading="lazy" width="960" height="600" /><span aria-hidden="true">↗</span></div></button>)}</div>
         <p className={styles.galleryNote}>{translate({
             id: 'forge.home.galleryNote',
             message: 'Your next project belongs here. Share what you make on the Forum.'
@@ -297,6 +254,27 @@ export default function Home() {
               id: 'forge.home.join',
               message: 'Join the community'
             })} ↗</a></p>
+      </section>
+
+      <section className={`${styles.section} ${styles.videosSection}`} id="videos" aria-labelledby="videos-title">
+        <div className={styles.sectionHeading}><div>
+          <p className={styles.eyebrow}>{translate({id: 'forge.home.videosEyebrow', message: 'Watch. Learn. Create.'})}</p>
+          <h2 id="videos-title">{translate({id: 'forge.home.videosTitle', message: 'Videos / Tutorials'})}</h2>
+        </div></div>
+        <p className={styles.videosIntro}>{translate({id: 'forge.home.videosIntro', message: 'See Forge in action, learn a technique, and follow along with creators from the community.'})}</p>
+        <div className={styles.videoGrid}>
+          {videoTutorials.map(video => <a className={styles.videoCard} key={video.id} href={video.url}>
+            <div className={styles.videoThumbnail}>
+              <img src={video.thumbnail} alt="" loading="lazy" width="480" height="360" />
+              <span className={styles.videoPlay} aria-hidden="true">▶</span>
+            </div>
+            <div className={styles.videoDetails}>
+              <p>{video.creator}</p>
+              <h3>{video.title}</h3>
+              <span className={styles.videoCta}>{translate({id: 'forge.home.watchOnYoutube', message: 'Watch on YouTube'})} <span aria-hidden="true">↗</span></span>
+            </div>
+          </a>)}
+        </div>
       </section>
 
       <section className={`${styles.section} ${styles.features}`} id="features" aria-labelledby="features-title"><div className={styles.sectionHeading}><div><p className={styles.eyebrow}>{translate({
@@ -350,12 +328,12 @@ export default function Home() {
               id: 'forge.home.supportShort',
               message: 'Support'
             })}</Link></nav><small>© {new Date().getFullYear()} Markus Moenig</small></footer>
-      <dialog className={styles.lightbox} ref={dialog} aria-labelledby="image-title" onClick={event => {
+      <dialog className={styles.lightbox} ref={dialog} aria-label={selected ? selected.name : translate({id: 'forge.home.imagePreview', message: 'Image preview'})} onClick={event => {
         if (event.target === event.currentTarget) dialog.current.close();
       }}><button autoFocus className={styles.close} onClick={() => dialog.current.close()} aria-label={translate({
           id: 'forge.home.close',
           message: 'Close image'
-        })}>×</button>{selected && <figure><img src={`${media}${selected.file}`} alt={selected.name} /><figcaption id="image-title">{selected.name} <span>{selected.detail}</span></figcaption></figure>}</dialog>
+        })}>×</button>{selected && <figure><img src={`${media}${selected.file}`} alt={selected.name} /></figure>}</dialog>
     </main>
   </Layout>;
 }

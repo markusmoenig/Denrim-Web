@@ -10,6 +10,8 @@ Turn the top of a box into a smaller raised block. This teaches the difference b
 
 New to the controls? [Match the starting state and learn selection/number entry](./before-you-start.md) before continuing.
 
+**Current numeric setup:** In Forge 1.6.38+, select **Import and Export → Project units → Meters** before entering this lesson’s position/length values. The old screenshots retain their capture version; changing display units does not rescale geometry.
+
 ## 1. Select the top face
 
 1. Choose **Face** mode in the bottom toolbar: the diagonally divided square.

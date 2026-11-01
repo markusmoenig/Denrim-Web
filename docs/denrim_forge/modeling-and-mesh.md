@@ -22,11 +22,19 @@ Unsure which operation fits? Start with [What do you want to do?](./choose-a-too
 - [Round and repeat a part](./round-and-repeat-a-part.md): bevel a cube and create an evenly spaced row with Array.
 - [Center and align objects](./center-and-align-objects.md): match object positions without confusing alignment with pivot placement.
 
+## Non-destructive Booleans
+
+Use editable **Union**, **Subtract**, and **Intersect** stacks in Model. Open Booleans explicitly, select the operand first and target last, then choose the operation. Hidden operands stay selectable in the Outliner and can be transformed while the result updates. Effect is independent of eye visibility. Apply on a selected operand bakes that operation; Apply on the target bakes the stack. Save the source to retain editability, and apply before final UV mapping.
+
+[Build a Boolean socket](./boolean-socket.md) shows source selection and the effect off/on checkpoints in the current app.
+
 ## Shape first
 
 Start with a primitive or an imported SVG solid, then use the move, size, and rotation handles of **Transform** to set its proportions. Expand **Detail** for exact Position, Scale, and Rotation values. For attached volume, choose **Extrude**. For a raised or recessed surface without creating a separate object, use **Push/Pull**. **Inset** creates borders, frames, panels, doors, windows, and recessed details.
 
 **Arc**, **Knife**, **Cut Through**, and **Lathe** make more specific forms without introducing a separate modeling system. **Bevel** softens hard edges, while **Sub-D** gives you a reversible smooth preview over the original editable cage. Use **Subdivide** when you want real editable faces instead; in Object mode it subdivides every face on each selected object.
+
+**Grab Brush** moves visible mesh vertices with a circular falloff; Smooth/Relax changes that brush into a smoothing stroke. Subdivide first when the mesh lacks vertices. Freeze Sub-D and apply Booleans before brushing their evaluated geometry. [Try Grab Brush and snapping](./shape-and-snap.md).
 
 **Relax** evens out selected mesh vertices with one conservative smoothing pass. Select distorted vertices or faces to move interior vertices toward the average of their connected neighbors. Boundary vertices remain fixed, and you can repeat the undoable command deliberately for stronger smoothing.
 
@@ -38,6 +46,10 @@ Start with a primitive or an imported SVG solid, then use the move, size, and ro
 **Offset** moves selected objects, vertices, edges, or faces by an exact signed distance along world X, Y, or Z. Choose the axis, enter a distance in the current project unit, preview the change, then apply it. Multiple selections retain their relative spacing.
 
 Use **Selection** transform orientation when a gizmo should follow the active component, or **View** when a move, size, or rotation should be screen-relative. The active grid step controls slider increments for world-space modeling tools, while direct numeric entry remains exact.
+
+### Snap to existing geometry
+
+Enable Vertices and Edge Midpoints in Snapping. Transform uses the active last-selected vertex as the source. Point at a target while moving the point or a gizmo arrow; captured geometry overrides axis and grid while held. Uncaptured arrow motion stays on its axis. Other selected vertices follow together. This places points without welding them. [Follow the snapping exercise](./shape-and-snap.md#2-snap-a-vertex-to-another-object).
 
 ### Align one part to another
 
@@ -61,6 +73,8 @@ When a model has been heavily edited, use **Recalculate Normals**, **Weld**, **R
 ## Symmetry and repeated parts
 
 For a symmetrical prop or figurine, model one half then use **Mirror**, live symmetry, or **Symmetrize** across the required local axis. **Duplicate** and **Array** are useful for repeated beams, planks, bolts, fence posts, wheels, and other modular details.
+
+Ellipse arrays add two radii, an axis, and a center for equally spaced copies around an oval, with tangent orientation. Count includes the original, which moves to the first ellipse position. [Extend the array lesson](./round-and-repeat-a-part.md#ellipse-array).
 
 ## Hierarchies for articulated assets
 

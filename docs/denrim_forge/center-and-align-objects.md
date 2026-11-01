@@ -8,6 +8,8 @@ To center two objects on an axis, give their centers the same **Position** value
 
 There is no dedicated “align selected object centers” button in Transform. **Align to Face** attaches mesh faces and only appears with a suitable Face-mode selection. **Origin → Center** changes an object's pivot without moving its geometry.
 
+**Current numeric setup:** In Forge 1.6.38+, select **Import and Export → Project units → Meters** before entering this lesson’s position/length values. The old screenshots retain their capture version; changing display units does not rescale geometry.
+
 ## Find the Position controls
 
 1. Choose **Object** mode: the cube icon in the bottom toolbar.

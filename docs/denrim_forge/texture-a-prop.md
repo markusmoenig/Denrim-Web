@@ -8,6 +8,8 @@ import DocScreenshot from '@site/src/components/DocScreenshot';
 
 Give a simple box prop a charcoal base and a gold identification mark. You will mark a seam, unwrap and inspect the UVs, pack the layout, and paint directly on the surface.
 
+The seam screenshots below retain the labeled v1.5.30 interface. For the current paint panels and a new illustrated layer exercise, see [Paint a prop in layers](./paint-in-layers.md).
+
 **Start with:** a new document containing the default cube, in the **Model** workspace. Keep its default shape for this first pass. This lesson was performed in the Mac SwiftUI app, v1.5.30. Screenshots are real captures with the title bar cropped; click them to enlarge.
 
 New to the controls? [Match the starting state and learn selection/number entry](./before-you-start.md) before continuing.
@@ -64,6 +66,8 @@ For an easier alternative on a box, **Smart UV** can create separate face island
 
 ## 4. Apply the base material
 
+In v1.6, select the prop and use **Layers → Add layer** first. Existing paint is preserved as Base Paint; fill the new active layer with the base color. Keep that layer separate from the identification mark.
+
 1. Choose **Paint** using the bottom-toolbar paintbrush.
 2. If UV controls remain visible, click the **UV** button again to reveal the Paint panel.
 3. In the floating paint palette, choose **Object** scope: the cube icon beside Brush and Face.
@@ -73,6 +77,8 @@ For an easier alternative on a box, **Smart UV** can create separate face island
 The base material is applied immediately. If you color only a face or leave a small mark, check the separate paint-scope buttons. Object selection mode and Object paint scope are different controls.
 
 ## 5. Paint the identification mark
+
+Add another layer and rename it **Marking**. Paint the strokes on this layer. Its eye, lock, opacity, and blend mode let you revise the marking without refilling the base. Choose **Pencil** for a continuous stroke; the square and cube icons are Fill face and Fill object.
 
 1. Choose **Brush** scope: the pointed paintbrush in the floating palette.
 2. Choose **Gold** in the Material Library.
@@ -108,3 +114,7 @@ For a lighting check, enable **Studio/PBR** with the transparent-cube button nea
 Continue with [material properties and UV adjustments](./paint-and-materials.md), or choose another task in [Learn by example](./learn-by-example.md).
 
 Continue with [Export and check a game asset](./export-a-game-asset.md) for unit, material, hierarchy, and animation checks, with a checked painted-door GLB example.
+
+## Extend the finish in v1.6
+
+Protect a small region with Mask Brush, rectangle, or lasso, then add wear on a separate layer. Clear Mask removes protection, not paint. Smooth blends the active layer; Erase reveals lower layers. Try Poly Haven on a new layer, using Use for painting before a stroke or Fill layer for a complete pass. Bake AO creates a separate color-only Multiply layer. Inspect it with its eye and opacity before saving. Follow [the current layer screenshots](./paint-in-layers.md) and [procedural brush exercise](./procedural-brush.md).

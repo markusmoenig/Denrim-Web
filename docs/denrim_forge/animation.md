@@ -31,6 +31,12 @@ Forge animates ordinary scene objects by keying their position, rotation, and sc
 
 Follow [Animate a hinged door](./animate-a-hinged-door.md) to place a hinge origin, parent a handle, record two poses, and export a checked GLB example.
 
+## Cameras and lights in Scene
+
+Scene cameras and lights support transform animation as well as separate property keys. Use **Add Transform Key** for movement and **Key Properties** in the selected node's inspector for lens settings, light color/intensity, and other camera/light properties. Select or create a clip first. Property-key frames appear in the inspector; the Position, Rotation, and Scale tracks show transform keys.
+
+Follow [Compose and animate a scene](./scene-cameras-and-lights.md) for a complete camera and animated-light exercise with current screenshots, then use Preview All Items to play their selected clips together.
+
 ## Open the animation workspace
 
 Select the film button in the top toolbar to open **Animation**. The timeline replaces the lower modeling controls while it is active, and the Outliner stays available for choosing the item whose animation you want to edit.

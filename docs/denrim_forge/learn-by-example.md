@@ -4,7 +4,7 @@ sidebar_position: 1.5
 
 # Learn by example
 
-Start with a small, complete task. Each lesson shows the selection, the controls, and what you should see after applying the tool. Screenshots are captured from the **Mac SwiftUI app, v1.5.30**; click any screenshot to open it at full size. On iPad, look for the same tool names; the layout changes with screen space. Windows and Linux layouts may differ.
+Start with a small, complete task. Each lesson shows the selection, the controls, and what you should see after applying the tool. The new Boolean, Grab Brush, snapping, layered-paint, and ellipse screenshots are direct **Mac v1.6.39** captures. Earlier lessons retain explicitly labeled v1.5.30 images where their controls remain relevant; click a screenshot to enlarge it. On iPad, look for the same tool names; the layout changes with screen space. Windows and Linux layouts may differ.
 
 Not sure which tool name to look for? Use [What do you want to do?](./choose-a-tool.md), including comparisons of similar tools.
 
@@ -14,16 +14,21 @@ First, use [Before your first lesson](./before-you-start.md) to match the starti
 
 | What you want to make | Tools you will learn | Start here |
 | --- | --- | --- |
+| A socket that stays adjustable | Editable Boolean sources, effect toggling, Apply | [Boolean socket](./boolean-socket.md) |
+| A softer mesh and exact detail placement | Grab Brush, Smooth/Relax, vertex/midpoint snapping | [Shape and snap](./shape-and-snap.md) |
+| A prop with independent surface passes | Paint layers, masks, emissive panel, Atlas | [Paint in layers](./paint-in-layers.md) |
+| A reusable patterned brush | Slots, tiles, repetition, output channels | [Procedural brush](./procedural-brush.md) |
 | Two parts with matching centers | Object selection, Position, origins | [Center and align objects](./center-and-align-objects.md) |
 | A window through a wall | Knife, Apply Cut, Cut Through | [Make a window](./make-a-window.md) |
 | A raised panel or stepped pedestal | Face selection, Inset, Extrude, Apply/Done | [Make a raised panel](./make-a-raised-panel.md) |
 | Rounded blocks in an evenly spaced row | Bevel, segments, Array, offset | [Round and repeat a part](./round-and-repeat-a-part.md) |
 | A cube with a texture layout and a colored face | Smart UV, Pack All, Paint scope, material palette | [UVs and your first painted face](./uv-and-first-paint.md) |
 | A dark prop with a painted identification mark | Mark Seam, Unwrap All, UV inspection, packing, Object and Brush scopes | [Texture a prop](./texture-a-prop.md) |
+| A composition with a moving camera and changing light | Scene instances, camera view, light types, transform and property keys | [Compose and animate a scene](./scene-cameras-and-lights.md) |
 | A swinging door with an attached handle | Origin Reset, Parent, Auto Key, timeline, GLB | [Animate a hinged door](./animate-a-hinged-door.md) |
 | An asset checked before delivery | GLB, units, textures, hierarchy, animation checks | [Export and check a game asset](./export-a-game-asset.md) |
 
-If this is your first session, start with the raised panel. Each modeling and UV lesson starts with **File → New and its untouched default cube**; their links suggest a learning order, not edits to apply to the previous result. The game-asset export lesson explicitly continues the completed hinged door.
+If this is your first session, start with the raised panel. Most modeling and UV lessons start with **File → New and its untouched default cube**; the shape-and-snap page uses separate fresh documents for its two exercises. For numeric dimensions choose **Project units → Meters** first, unless the lesson explicitly uses another unit. Their links suggest a learning order, not edits to apply to the previous result. The game-asset export lesson explicitly continues the completed hinged door.
 
 A useful first-session order is: **raised panel → new document → round and repeat → new document → UVs and first painted face**. Try alignment whenever positioning parts is your immediate problem.
 
@@ -61,6 +66,9 @@ For the modeling tools in these lessons, the floating card holds the settings; t
 | Apply Array in Object mode | Creates the copies and returns to Transform |
 | Edit Transform Position and press Return | Commits the numeric edit without a separate Apply button |
 | Smart UV, Pack All, or a paint click | Executes directly; no modeling Apply/Done step |
+| Grab Brush / painting stroke | Edits immediately; one gesture is an Undo step, with no separate Apply |
+| Boolean operation | Remains an editable source stack until Apply Boolean |
+| Bake AO | Adds an undoable paint layer when background work completes |
 | Undo | Reverses a committed edit |
 
 For a one-time edit, click **Apply once**, then **Done** if the tool is still active. Extrude intentionally allows another Apply to continue from the newly selected face. Avoid repeatedly clicking Apply because the tool remains highlighted.
@@ -80,3 +88,5 @@ For a one-time edit, click **Apply once**, then **Done** if the tool is still ac
 | A preview disappeared after Done | Done exits. Apply is the step that commits these modeling previews. |
 
 For tool-by-tool selection modes, constraints, and more examples, use the [tool reference](./tool-reference.md).
+
+See [Keyboard shortcuts](./keyboard-shortcuts.md) for default selection keys and tool assignments.

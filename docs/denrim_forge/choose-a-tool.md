@@ -10,6 +10,11 @@ Start with the result you want. Choose the selection mode first, select the geom
 
 | I want to… | Start with | Instructions |
 | --- | --- | --- |
+| Keep a cutout adjustable | Object mode → Booleans → Subtract | [Boolean socket](./boolean-socket.md) |
+| Reshape a visible mesh by hand | Grab Brush → Radius / Smooth/Relax | [Shape a mesh](./shape-and-snap.md#1-reshape-an-editable-mesh) |
+| Place a point onto geometry | Vertex → Snapping → Vertices / Edge Midpoints → Transform | [Geometry snapping](./shape-and-snap.md#2-snap-a-vertex-to-another-object) |
+| Paint separate surface passes | Paint → Layers → Add layer | [Paint in layers](./paint-in-layers.md) |
+| Create a repeating paint pattern | Paint → Procedural → slot / Add Tile | [Procedural brush](./procedural-brush.md) |
 | Center two objects | Object mode → Transform → Detail → Position | [Align object centers](./center-and-align-objects.md) |
 | Resize or rotate a whole part | Object mode → Transform gizmo or Detail → Scale / Rotation | [Transform controls](./tool-reference.md#transform) |
 | Move something an exact distance | Select objects or components → Offset | [Offset](./tool-reference.md#offset) |
@@ -26,6 +31,7 @@ Start with the result you want. Choose the selection mode first, select the geom
 | Paint a freehand detail | Paint mode → Brush scope | [Continuous brush painting](./paint-and-materials.md#paint-continuous-brush-strokes) |
 | Color a whole face | Paint mode → Face scope | [Paint one face](./uv-and-first-paint.md#3-color-one-face) |
 | Prepare a texture layout | UV → seams/unwrap or projection → packing | [First UV layout](./uv-and-first-paint.md) |
+| Compose a shot with animated lights and cameras | Scene → Add → Camera / Light → Animation and Key Properties | [Compose and animate a scene](./scene-cameras-and-lights.md) |
 | Animate a moving assembly | Parent parts → Animation → transform keys | [Animation](./animation.md) |
 | Export a model or render an image | Import and Export, or Studio/PBR → Renderer Options | [Rendering and export](./rendering-and-export.md) |
 
@@ -36,7 +42,7 @@ Start with the result you want. Choose the selection mode first, select the geom
 | Join | Combines selected meshes into one mesh object | You want to edit several pieces as one mesh |
 | Group | Adds an organizational container while keeping separate objects | You want to organize a collection of parts |
 | Parent | Makes the active object the transform parent of the others | An axle should carry its wheel, or an arm should carry its hand |
-| CSG Subtract | Removes the cutter's volume from the target | You need a solid cutout shaped by a second object |
+| Booleans | Keeps Union, Subtract, and Intersect operations editable until Apply | You need adjustable cutouts, joined solids, or overlapping volumes |
 
 Join does not remove intersecting internal surfaces or automatically make a watertight union. Group is an organizational container; Parent uses an actual selected object as the parent. Make the intended parent active last and check the Outliner before applying Parent. Unparent keeps the child's current world placement.
 
@@ -96,3 +102,5 @@ Set **Origin → Local** for the local-axis examples below. **World** instead us
 ## A tool is missing or nothing happens
 
 Check [selection and troubleshooting](./learn-by-example.md#when-something-seems-wrong). The most common causes are the wrong selection mode, no component selected after switching modes, or another tool still waiting for Apply/Done or Cancel.
+
+For default bindings and custom assignments, see [Keyboard shortcuts](./keyboard-shortcuts.md).

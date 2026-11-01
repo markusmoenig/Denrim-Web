@@ -8,7 +8,9 @@ import ToolIcon from '@site/src/components/ForgeToolIcon';
 
 Every Forge action includes contextual guidance in the app. This reference brings together the same practical information: what the action does, when to reach for it, and the important constraint to remember.
 
-> **Native for macOS and iPadOS.** Every tool documented here is part of the Forge workflow on both platforms.
+> The shared Model tools are available in the Apple and Rust versions. Screenshots below are labeled by capture version; the new v1.6 screenshots show the current editor.
+
+See [Keyboard shortcuts](./keyboard-shortcuts.md) for current defaults, Ctrl+digit topology selections, and custom bindings.
 
 > Selection matters. If an action is unavailable or has no effect, switch to the component type named in its notes and make the required selection first.
 
@@ -32,6 +34,8 @@ The symbols below are the same SF Symbols used by the Apple app. In the right-ha
 
 ### Transform
 
+**Default shortcut:** `M`.
+
 <ToolIcon name="move" />
 
 **Selection modes:** Object, Vertex, Edge, Face.
@@ -50,6 +54,8 @@ Move, size, or rotate selected objects, or move selected components.
 
 ### Size
 
+**Default shortcut:** `S`.
+
 <ToolIcon name="resize" />
 
 Resize a selected object with the **Transform** gizmo's size handles, or use **Transform → Detail → Scale** for exact factors. Scale 2 doubles the corresponding original dimension.
@@ -58,13 +64,27 @@ Resize a selected object with the **Transform** gizmo's size handles, or use **T
 
 ### Rotate
 
+**Default shortcut:** `R`.
+
 <ToolIcon name="rotate" />
 
 Rotate selected objects with **Transform**'s rotation handles, or enter angles in **Transform → Detail → Rotation**. The axis orientation menu changes how the gizmo is oriented.
 
 **Find it:** In the current modeling Actions panel, use Transform. Rotate is not a separate action there. Use the Rotation fields for exact angles and press Return after editing.
 
+### Grab Brush
+
+**Selection modes:** Object, Vertex, Edge, Face. No preselection is required to start it. **Default shortcut:** none.
+
+Choose Grab Brush in Actions, adjust Radius, and drag the visible mesh with a circular falloff. Smooth/Relax evens the surface instead of moving it. Only visible vertices in the circle are affected; each stroke is an Undo step. Apply Boolean geometry and Freeze Sub-D before editing those evaluated results. Done returns to Transform; there is no extra Apply for strokes.
+
+[Follow the Grab Brush lesson](./shape-and-snap.md#1-reshape-an-editable-mesh).
+
+[![Grab Brush active on an editable cube subdivided into 384 faces, showing Radius, Smooth/Relax, and Done.](/img/docs/forge/v1.6/grab-brush-controls.webp)](/img/docs/forge/v1.6/grab-brush-controls.webp)
+
 ### Offset
+
+For the independent grid, vertex, and midpoint settings, see [geometry snapping](./shape-and-snap.md#2-snap-a-vertex-to-another-object).
 
 <ToolIcon name="offset" />
 
@@ -79,6 +99,8 @@ Move the current selection by an exact signed distance on one world axis.
 **Example:** Raise a selected shelf by 0.5 on world Y without changing its X or Z position. With several objects selected, Offset moves the group of selected parts together; it does not close the gaps between them.
 
 ### Flatten
+
+**Default shortcut:** `Shift+F`.
 
 <ToolIcon name="flatten" />
 
@@ -122,6 +144,8 @@ Turn a selected loop or face-region boundary into a circle.
 
 ### Push/Pull
 
+**Default shortcut:** `U`.
+
 <ToolIcon name="pushPull" />
 
 **Selection modes:** Face.
@@ -135,6 +159,8 @@ Move selected faces along their face normal.
 **Example:** Move the top face of an existing block to adjust its height. Use Extrude when you want an additional connected section with new side faces, as in the [raised-panel lesson](./make-a-raised-panel.md).
 
 ### Extrude
+
+**Default shortcut:** `E`.
 
 <ToolIcon name="extrude" />
 
@@ -150,6 +176,8 @@ Create new connected geometry from selected faces.
 
 ### Inset
 
+**Default shortcut:** `I`.
+
 <ToolIcon name="inset" />
 
 **Selection modes:** Face.
@@ -164,6 +192,8 @@ Create a smaller region inside selected faces.
 
 ### Arc
 
+**Default shortcut:** `A`.
+
 <ToolIcon name="arc" />
 
 **Selection modes:** Face.
@@ -177,6 +207,8 @@ Round a selected quad face into a segmented arch.
 **Example:** Select one quad face for the top of a doorway, then preview a segmented arch. Increase the segment count only enough to describe the curve you need.
 
 ### Knife
+
+**Default shortcut:** `C`.
 
 <ToolIcon name="cut" />
 
@@ -193,6 +225,8 @@ Draw a knife polygon on the selected face.
 **Example:** Draw a smaller window-shaped region on a wall face, commit the cut, and select that new region before using Cut Through. Drawing cut lines alone does not make a hole through the wall.
 
 ### Lathe
+
+**Default shortcut:** `L`.
 
 <ToolIcon name="lathe" />
 
@@ -224,6 +258,8 @@ Attach a selected mesh region to another face using the active face as the sourc
 
 ### Cut Through
 
+**Default shortcut:** `T`.
+
 <ToolIcon name="cutThrough" />
 
 **Selection modes:** Face.
@@ -237,6 +273,8 @@ Turn a selected cut face into a tunnel through the object.
 **Example:** After Knife creates a window region on a solid wall, select that region and use Cut Through to connect an opening through the wall. Use Delete only when removing a face without building tunnel walls is the intended result.
 
 ### Bevel
+
+**Default shortcut:** `-`.
 
 <ToolIcon name="bevel" />
 
@@ -252,6 +290,8 @@ Chamfer selected objects, edges, or face borders.
 
 ### Solidify
 
+**Default shortcut:** `H`.
+
 <ToolIcon name="solidify" />
 
 **Selection modes:** Object, Face.
@@ -265,6 +305,8 @@ Add thickness to selected faces.
 **Example:** Give a thin roof panel a wall thickness. Check the offset direction in the preview so the new surface extends toward the intended side.
 
 ### Subdivide
+
+**Default shortcut:** `K`.
 
 <ToolIcon name="subdivide" />
 
@@ -280,6 +322,8 @@ Split selected faces into smaller faces.
 
 ### Sub-D
 
+**Default shortcut:** `Shift+S`.
+
 <ToolIcon name="subdivisionPreview" />
 
 **Selection modes:** Object, Vertex, Edge, Face, Paint, Scene.
@@ -291,6 +335,10 @@ Preview a smooth subdivision surface while keeping the original object editable.
 **Notes:** Sub-D preview can be toggled while editing the original cage. Freeze is still a separate object-mode step for turning the smoothed result into real mesh faces.
 
 **Example:** Preview a smoother prop at level 1, compare with level 2, and choose Off to return to the original cage appearance. Freeze is only needed when you want to bake the preview.
+
+### Edge Crease
+
+**Selection modes:** Edge. Open the Sub-D settings with its slider button. Set Edge Crease from 0% to 100% and choose Apply to store that sharpness on the selected edges. Higher values retain sharper edges through subdivision. This is independent of Smooth normals, which changes shading rather than subdivision topology. Creases survive saving and support Undo.
 
 ### Freeze Sub-D
 
@@ -308,6 +356,8 @@ Bake the current Sub-D preview into ordinary editable mesh geometry.
 
 ### Ruler
 
+**Default shortcut:** `9`.
+
 <ToolIcon name="ruler" />
 
 **Selection modes:** Vertex.
@@ -324,6 +374,8 @@ Measure the point-to-point distance between two selected vertices.
 
 ### Select Loop
 
+**Default shortcut:** `Ctrl+1`.
+
 <ToolIcon name="selectEdgeLoop" />
 
 **Selection modes:** Vertex, Edge, Face.
@@ -336,6 +388,8 @@ Extend two adjacent components into a loop.
 
 ### Select Edge Ring
 
+**Default shortcut:** `Ctrl+2`.
+
 <ToolIcon name="selectEdgeRing" />
 
 **Selection modes:** Edge.
@@ -347,6 +401,8 @@ Select opposite edges across a quad strip.
 **Notes:** Works best on connected quad strips.
 
 ### Select Boundary
+
+**Default shortcut:** `Ctrl+3`.
 
 <ToolIcon name="selectBoundary" />
 
@@ -362,6 +418,8 @@ Select the boundary around selected faces.
 
 ### Select Connected
 
+**Default shortcut:** `Ctrl+4`.
+
 <ToolIcon name="selectConnected" />
 
 **Selection modes:** Vertex, Edge, Face.
@@ -375,6 +433,8 @@ Select the connected island for the current component type.
 **Example:** Select one component of an isolated mesh island, then expand to the connected part rather than manually selecting each element.
 
 ### Select Coplanar
+
+**Default shortcut:** `Ctrl+5`.
 
 <ToolIcon name="selectCoplanar" />
 
@@ -390,6 +450,8 @@ Select faces on the same plane as the current face.
 
 ### Select Hard Edges
 
+**Default shortcut:** `Ctrl+6`.
+
 <ToolIcon name="selectHardEdges" />
 
 **Selection modes:** Edge.
@@ -401,6 +463,8 @@ Select edges between sharply angled faces.
 **Notes:** Requires edge mode and visible mesh topology.
 
 ### Select Open Edges
+
+**Default shortcut:** `Ctrl+7`.
 
 <ToolIcon name="selectOpenEdges" />
 
@@ -422,6 +486,8 @@ Expand the current selection to the complete seam-delimited UV island.
 
 ### Grow Selection
 
+**Default shortcut:** `+`.
+
 <ToolIcon name="growSelection" />
 
 **Selection modes:** Vertex, Edge, Face.
@@ -436,6 +502,8 @@ Expand the current component selection outward.
 
 ### Shrink Selection
 
+**Default shortcut:** `_`.
+
 <ToolIcon name="shrinkSelection" />
 
 **Selection modes:** Vertex, Edge, Face.
@@ -449,6 +517,8 @@ Contract the current component selection inward.
 **Example:** Select a broad face patch, then shrink to remove its outer ring and work on the interior.
 
 ### Hide Selected
+
+The Face-only **Hide Faces** action uses `{`; Object visibility is controlled separately through the visibility menu.
 
 Hide the current object or face selection without deleting it.
 
@@ -466,6 +536,8 @@ Isolate the current object or face selection by hiding everything else.
 
 ### Reveal All
 
+The Face-only **Unhide Faces** action uses `}`. Object visibility uses the menu's Reveal All.
+
 Show all hidden objects or faces again.
 
 **Use it for:** Restore the complete scene after a focused editing pass.
@@ -475,6 +547,8 @@ Show all hidden objects or faces again.
 ## Topology and repair
 
 ### Split Edge
+
+**Default shortcut:** `J`.
 
 <ToolIcon name="splitEdge" />
 
@@ -488,6 +562,8 @@ Insert midpoint vertices on selected edges.
 
 ### Merge
 
+**Default shortcut:** `G`.
+
 <ToolIcon name="merge" />
 
 **Selection modes:** Vertex, Edge, Face.
@@ -499,6 +575,8 @@ Merge selected vertices, edges, or faces.
 **Notes:** The viewport previews mergeable selections before commit.
 
 ### Connect
+
+**Default shortcut:** `8`.
 
 <ToolIcon name="connect" />
 
@@ -512,6 +590,8 @@ Connect two selected vertices with a new edge path.
 
 ### Fill
 
+**Default shortcut:** `F`.
+
 <ToolIcon name="fill" />
 
 **Selection modes:** Vertex, Edge.
@@ -523,6 +603,8 @@ Create a face from selected boundary vertices or edges.
 **Notes:** When an open boundary edge is selected, Fill caps the whole boundary loop that contains it.
 
 ### Bridge
+
+**Default shortcut:** `N`.
 
 <ToolIcon name="bridge" />
 
@@ -538,6 +620,8 @@ Create bridge faces between two compatible selections.
 
 ### Loop Cut
 
+**Default shortcut:** `X`.
+
 <ToolIcon name="loopCut" />
 
 **Selection modes:** Edge, Face.
@@ -551,6 +635,8 @@ Cut a quad strip through selected edges or adjacent faces.
 **Example:** Add a supporting division around a quad-based object before changing its silhouette. A strip of quads gives the cut a predictable route.
 
 ### Edge Slide
+
+**Default shortcut:** `:`.
 
 <ToolIcon name="edgeSlide" />
 
@@ -566,6 +652,8 @@ Slide selected edges along adjacent faces.
 
 ### Triangulate
 
+**Default shortcut:** `Y`.
+
 <ToolIcon name="triangulate" />
 
 **Selection modes:** Face.
@@ -577,6 +665,8 @@ Convert selected faces into triangles.
 **Notes:** Paint and UV information is carried onto the generated triangles.
 
 ### Flip Normals
+
+**Default shortcut:** `Z`.
 
 <ToolIcon name="flipNormals" />
 
@@ -590,6 +680,8 @@ Reverse selected face winding.
 
 ### Recalculate Normals
 
+**Default shortcut:** `Shift+N`.
+
 <ToolIcon name="recalculateNormals" />
 
 **Selection modes:** Object, Face.
@@ -601,6 +693,8 @@ Orient face winding outward.
 **Notes:** Works on selected faces or selected objects.
 
 ### Weld
+
+**Default shortcut:** `W`.
 
 <ToolIcon name="weldVertices" />
 
@@ -616,6 +710,8 @@ Merge vertices that occupy the same position.
 
 ### Remove Degenerates
 
+**Default shortcut:** `!`.
+
 <ToolIcon name="removeDegenerateFaces" />
 
 **Selection modes:** Object, Face.
@@ -627,6 +723,8 @@ Delete collapsed or invalid faces.
 **Notes:** Useful after aggressive CSG or bevel experiments.
 
 ### Fill Holes
+
+**Default shortcut:** `?`.
 
 <ToolIcon name="fillHoles" />
 
@@ -642,6 +740,8 @@ Fill simple open boundary loops.
 
 ### Cleanup Mesh
 
+**Default shortcut:** `~`.
+
 <ToolIcon name="cleanupMesh" />
 
 **Selection modes:** Object.
@@ -654,6 +754,8 @@ Run a basic repair pass on selected objects.
 
 ### Separate
 
+**Default shortcut:** `;`.
+
 <ToolIcon name="separate" />
 
 **Selection modes:** Face.
@@ -665,6 +767,8 @@ Move selected faces into a new object.
 **Notes:** The new object is selected after the command.
 
 ### Join
+
+**Default shortcut:** `'`.
 
 <ToolIcon name="join" />
 
@@ -684,6 +788,8 @@ Join selected objects into the active object's mesh.
 
 ### Mirror X
 
+**Default shortcut:** `,`.
+
 <ToolIcon name="mirrorX" />
 
 **Selection modes:** Object.
@@ -695,6 +801,8 @@ Mirror selected object meshes across local X.
 **Notes:** Mirroring changes mesh geometry, not just object scale.
 
 ### Mirror Y
+
+**Default shortcut:** `.`.
 
 <ToolIcon name="mirrorY" />
 
@@ -708,6 +816,8 @@ Mirror selected object meshes across local Y.
 
 ### Mirror Z
 
+**Default shortcut:** `/`.
+
 <ToolIcon name="mirrorZ" />
 
 **Selection modes:** Object.
@@ -719,6 +829,8 @@ Mirror selected object meshes across local Z.
 **Notes:** Mirroring changes mesh geometry, not just object scale.
 
 ### Sym +X
+
+**Default shortcut:** `^`.
 
 <ToolIcon name="symmetrizeX" />
 
@@ -732,6 +844,8 @@ Force local X symmetry from the positive side.
 
 ### Sym -X
 
+**Default shortcut:** `@`.
+
 <ToolIcon name="symmetrizeNegativeX" />
 
 **Selection modes:** Object, Vertex, Edge, Face.
@@ -743,6 +857,8 @@ Force local X symmetry from the negative side.
 **Notes:** Faces that cross the center plane are kept from the negative side and welded at the center.
 
 ### Sym +Y
+
+**Default shortcut:** `&`.
 
 <ToolIcon name="symmetrizeY" />
 
@@ -756,6 +872,8 @@ Force local Y symmetry from the positive side.
 
 ### Sym -Y
 
+**Default shortcut:** `#`.
+
 <ToolIcon name="symmetrizeNegativeY" />
 
 **Selection modes:** Object, Vertex, Edge, Face.
@@ -767,6 +885,8 @@ Force local Y symmetry from the negative side.
 **Notes:** Faces that cross the center plane are kept from the negative side and welded at the center.
 
 ### Sym +Z
+
+**Default shortcut:** `*`.
 
 <ToolIcon name="symmetrizeZ" />
 
@@ -780,6 +900,8 @@ Force local Z symmetry from the positive side.
 
 ### Sym -Z
 
+**Default shortcut:** `$`.
+
 <ToolIcon name="symmetrizeNegativeZ" />
 
 **Selection modes:** Object, Vertex, Edge, Face.
@@ -791,6 +913,8 @@ Force local Z symmetry from the negative side.
 **Notes:** Faces that cross the center plane are kept from the negative side and welded at the center.
 
 ### Duplicate
+
+**Default shortcut:** `D`.
 
 <ToolIcon name="duplicate" />
 
@@ -810,11 +934,11 @@ Duplicate selected objects or faces.
 
 **Selection modes:** Object, Face, Paint.
 
-Create repeated object or face copies.
+Create repeated object or face copies using Offset, Radial, or Ellipse.
 
 **Use it for:** Use Array for evenly spaced parts like fence posts and grille slats, or radial wheel and hub details around a center.
 
-**Notes:** Generated array copies are placed in one Array group in the Outliner so they stay organized while remaining editable.
+**Notes:** Generated array copies are placed in one Array group in the Outliner so they stay organized while remaining editable. Ellipse uses two radii, an axis, and a center; positions are equally spaced along the oval and copies follow its tangent. Count includes the original, which moves to the first ellipse position. Apply commits the preview; in Object mode the tool then returns to Transform. [Try an ellipse array](./round-and-repeat-a-part.md#ellipse-array).
 
 **Example:** Repeat a 2-unit-wide block with Count 4 and X offset 3 for four blocks separated by 1-unit gaps. Count includes the original. [See settings, preview, and result](./round-and-repeat-a-part.md#2-repeat-the-block-with-array). In Object mode, Apply Array returns to Transform.
 
@@ -850,19 +974,27 @@ Move selected objects to the scene root without flattening their children.
 
 **Example:** Detach a child from an assembly while keeping its current world placement. Its descendants remain attached to it.
 
-### CSG Subtract
+### Booleans {#csg-subtract}
+
+[Build an editable socket step by step](./boolean-socket.md).
 
 <ToolIcon name="csgSubtract" />
 
-**Selection modes:** Object.
+**Selection modes:** Object, in Model mode.
 
-Subtract one selected object from the active object.
+Build non-destructive Union, Subtract, and Intersect stacks while keeping source objects editable.
 
-**Use it for:** Use CSG Subtract for object-shaped cutouts, holes, sockets, and large boolean edits before refining the result.
+**Use it for:** Join solid forms, cut holes or sockets, and isolate overlapping volumes. Keep cutters adjustable while developing the model.
 
-**Notes:** Select two objects. The active object is the target; the other object is removed as the cutter.
+**Workflow:** Open Booleans, select the operand first and the target last, then choose Union, Subtract, or Intersect. Select an existing operand to change its operation, toggle its effect, remove it from the stack, or transform it. Effect and visibility are independent; hidden operands remain selectable in the Outliner and can be moved, rotated, and scaled while the live result updates.
+
+**Notes:** Stacks survive save/reopen and support Undo. Only Apply bakes the geometry: select an operand to apply that operation, or the target to apply the full stack. Applying can change UVs, so bake before final UV mapping. The editable stack replaces the old destructive CSG Subtract command.
+
+**Example:** Subtract a cylinder from a box to create a socket. Hide the cylinder's solid display, select it in the Outliner, and adjust its position or scale until the opening fits. Apply when the shape is ready for final UV work.
 
 ### Delete
+
+**Default shortcut:** `Del`.
 
 <ToolIcon name="delete" />
 
@@ -876,6 +1008,8 @@ Delete the current selection.
 
 ### Rotate X 90
 
+**Default shortcut:** `[`.
+
 <ToolIcon name="rotateX90" />
 
 **Selection modes:** Object.
@@ -888,6 +1022,8 @@ Rotate selected objects 90 degrees around X.
 
 ### Rotate Y 90
 
+**Default shortcut:** `]`.
+
 <ToolIcon name="rotateY90" />
 
 **Selection modes:** Object.
@@ -899,6 +1035,8 @@ Rotate selected objects 90 degrees around Y.
 **Notes:** Works in object mode.
 
 ### Rotate Z 90
+
+**Default shortcut:** `\`.
 
 <ToolIcon name="rotateZ90" />
 
@@ -914,6 +1052,8 @@ Rotate selected objects 90 degrees around Z.
 
 ### Apply Material
 
+**Default shortcut:** `Shift+M`.
+
 <ToolIcon name="applyMaterial" />
 
 **Selection modes:** Object, Face, Paint.
@@ -928,6 +1068,8 @@ Assign the active material to selected objects or faces.
 
 ### Clear Material
 
+**Default shortcut:** `Shift+C`.
+
 <ToolIcon name="clearMaterial" />
 
 **Selection modes:** Object, Face, Paint.
@@ -940,6 +1082,8 @@ Remove material overrides from selected objects or faces.
 
 ### Clear Paint
 
+**Default shortcut:** `Shift+P`.
+
 <ToolIcon name="clearPaint" />
 
 **Selection modes:** Object, Face, Paint.
@@ -951,6 +1095,8 @@ Clear painted detail from selected objects or faces.
 **Notes:** Material overrides remain unless you also use Clear Material.
 
 ### Clear All
+
+**Default shortcut:** `Shift+A`.
 
 <ToolIcon name="clearAppearance" />
 
@@ -1056,6 +1202,8 @@ Fit selected UV islands around the unselected islands already in the map.
 
 ### Rotate UV 90
 
+**Default shortcut:** `Shift+R`.
+
 <ToolIcon name="rotateUV90" />
 
 **Selection modes:** Vertex, Edge, Face, Paint.
@@ -1067,6 +1215,8 @@ Rotate selected face UVs by 90 degrees.
 **Notes:** The viewport UV overlay shows the mapping direction. Multiple selected faces rotate around one shared pivot so an island stays together.
 
 ### Flip U
+
+**Default shortcut:** `Shift+U`.
 
 <ToolIcon name="flipU" />
 
@@ -1080,6 +1230,8 @@ Mirror selected face UVs horizontally.
 
 ### Flip V
 
+**Default shortcut:** `Shift+V`.
+
 <ToolIcon name="flipV" />
 
 **Selection modes:** Vertex, Edge, Face, Paint.
@@ -1092,6 +1244,8 @@ Mirror selected face UVs vertically.
 
 ### Reset UV
 
+**Default shortcut:** `0`.
+
 <ToolIcon name="resetUV" />
 
 **Selection modes:** Vertex, Edge, Face, Paint.
@@ -1103,6 +1257,8 @@ Reset selected face UVs to the default polygon layout.
 **Notes:** After resetting, use Fit UV To Face for a projection matched to the face shape.
 
 ### Fit UV To Face
+
+**Default shortcut:** `=`.
 
 <ToolIcon name="fitUVToFace" />
 
@@ -1118,6 +1274,8 @@ Fit selected face UVs to the face projection.
 
 ### Copy UV
 
+**Default shortcut:** `<`.
+
 <ToolIcon name="copyUV" />
 
 **Selection modes:** Vertex, Edge, Face, Paint.
@@ -1129,6 +1287,8 @@ Copy UVs from the first selected face.
 **Notes:** Paste requires target faces with the same vertex count.
 
 ### Paste UV
+
+**Default shortcut:** `>`.
 
 <ToolIcon name="pasteUV" />
 
@@ -1172,6 +1332,8 @@ Control whether an SVG import becomes one object or a set of separate objects.
 
 ### Create Box
 
+**Default shortcut:** `B`.
+
 <ToolIcon name="createBox" />
 
 Add a new box primitive.
@@ -1181,6 +1343,8 @@ Add a new box primitive.
 **Notes:** New objects are selected immediately.
 
 ### Create Cylinder
+
+**Default shortcut:** `V`.
 
 <ToolIcon name="createCylinder" />
 
@@ -1192,6 +1356,8 @@ Add a cylinder using the project cylinder resolution.
 
 ### Create Sphere
 
+**Default shortcut:** `Shift+O`.
+
 <ToolIcon name="createSphere" />
 
 Add a sphere using the project sphere resolution.
@@ -1201,6 +1367,8 @@ Add a sphere using the project sphere resolution.
 **Notes:** Set the sphere segment count from the primitive toolbar menu; it is independent from snap grid subdivision.
 
 ### Create Capsule
+
+**Default shortcut:** `Shift+K`.
 
 <ToolIcon name="createCapsule" />
 
@@ -1212,6 +1380,8 @@ Add a quad capsule primitive.
 
 ### Create Torus
 
+**Default shortcut:** `Shift+T`.
+
 <ToolIcon name="createTorus" />
 
 Add a quad torus primitive.
@@ -1219,3 +1389,43 @@ Add a quad torus primitive.
 **Use it for:** Use torus primitives for rings, tires, handles, rims, and donut-shaped cutters.
 
 **Notes:** Set the torus segment count and thickness from the primitive toolbar menu; it is independent from snap grid subdivision.
+
+## Paint and texture tools in v1.6
+
+These controls live in Paint rather than the mesh-action list. See [Paint, materials, and UVs](./paint-and-materials.md) and [the layered-paint lesson](./paint-in-layers.md).
+
+### Pencil, Airbrush, Erase, and Smooth
+
+Pencil paints one opacity-limited stroke; Airbrush builds up with Flow while held. Erase reveals lower layers. Smooth blends neighboring active-layer paint and coverage; Shift temporarily selects smoothing while brushing on desktop. These edit paint, while Grab Brush's Smooth/Relax edits mesh vertices.
+
+### Paint layers and folders
+
+Add, name, reorder, hide, lock, or group layers. Opacity, blend mode, material mixing, and channel controls change the resolved finish without flattening the stack. Add layer preserves existing paint as Base Paint on first use. The final layer cannot be deleted.
+
+### Pixel protection masks
+
+Mask Brush, rectangle, and lasso protect texture pixels across all layers, including Atlas painting. Clear Mask removes protection and the face restriction, preserving paint. Masks support Undo and save with the project; the dark overlay is not exported.
+
+### Poly Haven
+
+Open the globe on a layer or the Materials entry. Search and preview a PBR material, choose resolution, then Use for painting or Fill layer. Downloaded maps embed in the document. Filling is undoable and respects other layers and protection.
+
+### Bake AO
+
+Bake self-occlusion in the background into a new color-only Multiply layer. UV/atlas preparation is automatic on unpainted objects. Existing paint and resolution are preserved; stale results are discarded. This is separate from viewport AO radius/strength.
+
+### Texture Resolution
+
+In Atlas, choose 512, 1024, 2048, or 4096 pixels per side. All layers resize together without moving UVs. The change is undoable, runs in the background, and is limited by paint-buffer memory and mobile headroom.
+
+### Procedural brushes
+
+Select a saved slot in Procedural, add shape/distress/combination tiles, and edit their settings and output channels. Filled preview marks indicate coverage; transparency leaves gaps. Valid edits save immediately. See [Create a procedural brush](./procedural-brush.md).
+
+### Auto Generate UVs
+
+Generate separated, packed charts for the whole object. Existing paint is reprojected, geometry stays unchanged, and Undo restores the previous UVs and paint. Find it under Unwrap in the UV panel. Finish topology and Boolean Apply before detailed painting.
+
+### Scale factor
+
+In Object mode, open Transform → Detail. Enter desired size divided by current size and choose Apply scale. The undoable uniform scaling changes real geometry/assembly size; changing Project units only changes display and numeric input. See [Units and export](./rendering-and-export.md#units-in-forge-1638-and-newer).

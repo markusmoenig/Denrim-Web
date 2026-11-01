@@ -34,6 +34,12 @@ Scroll back to the top of the panel to inspect the layout:
 
 *The default cube has six faces. In this example, the UV preview shows six square islands, separated by margins. The pink mesh edges show UV boundaries; they are not cracks in the cube.*
 
+## Auto Generate UVs in v1.6
+
+For an automatic whole-object alternative, choose **Auto Generate UVs** under Unwrap. It generates separated packed charts and reprojects existing paint, with Undo restoring both. It is a different method from Smart UV, so do not expect the same layout as the older screenshots. Apply Boolean geometry before preparing the final layout.
+
+In Paint, **Atlas → Texture Resolution** chooses the authored paint size. The default is not a permanent 1024² limit; supported 512–4096 options depend on layer memory and mobile headroom. See [current Atlas controls](./paint-and-materials.md#atlas-and-texture-resolution).
+
 ## What the packing settings mean
 
 | Setting | Purpose |
@@ -48,6 +54,8 @@ Scroll back to the top of the panel to inspect the layout:
 An **island** is a connected patch of faces in UV space. A **seam** is an edge where the texture layout can split. Smart UV is a quick start; deliberate seam placement gives you more control over where a texture breaks on an important surface.
 
 ## 3. Color one face
+
+For the editable v1.6 workflow, choose **Add layer** in Layers first. The square paint-tool button is **Fill face**; the cube is **Fill object**. Pencil and Airbrush are separate brush tools. [The current layer lesson](./paint-in-layers.md) shows these controls.
 
 1. Choose **Paint** mode using the paintbrush in the bottom toolbar.
 2. If the UV panel is still open, click the **UV** button again to return to Paint controls.

@@ -209,6 +209,7 @@ const config = {
         items: [
           { to: "/blog", label: "News", position: "right" },
           { to: "/#gallery", label: "Gallery", position: "right" },
+          { to: "/#videos", label: "Videos", position: "right" },
           { to: "/#features", label: "Features", position: "right" },
           { to: "/docs/denrim_forge/getting-started", label: "Manual", position: "right" },
           { href: "https://community.denrim.com", label: "Forum", position: "right", className: "forge-community-link" },

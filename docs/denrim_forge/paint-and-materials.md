@@ -4,73 +4,80 @@ sidebar_position: 4
 
 # Paint, materials, and UVs
 
-Forge lets you finish a model in the same workspace where you created it. Create a reusable texture layout in the UV workspace, then choose a palette material in **Paint** mode and use brush, face, or object scope depending on the kind of detail you need.
+Forge 1.6 combines editable paint layers, PBR materials, pixel protection, and UV tools. Use **Paint** in the bottom toolbar to enter painting; **Outliner**, **Materials**, **Atlas**, and **Procedural** select the right sidebar. The Layers panel and floating paint tools remain available while switching tabs.
 
-> **Native for macOS and iPadOS.** Paint, materials, and UV tools are part of the same Forge workflow on both platforms.
+Follow [Paint a prop in layers](./paint-in-layers.md) for a complete current-interface exercise. The older [seam-to-brush lesson](./texture-a-prop.md) remains useful for UV planning and now includes the layer workflow.
 
-[![Continuous gold brush strokes forming an F on a cube, with Brush scope selected and Brush Size set to 40 px in the current Mac painting interface.](/img/docs/forge/brush-painting.png)](/img/docs/forge/brush-painting.png)
+## Layers, folders, and material channels
 
-*Brush painting in the Mac SwiftUI app, v1.5.30. The gold strokes are painted directly onto the surface with a 40 px brush. Click the screenshot to view it at full size.*
+Select the object to paint. **Add layer (+)** preserves existing paint as **Base Paint** on first use and creates a new active layer above it. Click a layer name to select it; the pencil renames it. Eye and lock controls change visibility and paint eligibility. Hidden or locked layers cannot receive paint.
 
-## Try it on a cube
+Layer opacity changes the contribution of the entire layer. **Normal**, **Multiply**, **Screen**, and **Overlay** determine how it blends with lower paint. Layer material mixing and channel controls determine which surface properties contribute; inspect Color, Roughness, Metallic, Height, and other available channels rather than treating every layer as a color-only overlay.
 
-Follow [UVs and your first painted face](./uv-and-first-paint.md) to find the UV controls, create and pack a layout, choose Face paint scope, and color the top of a cube. The lesson includes screenshots of the actual controls and result.
+Use the folder menu to organize layers or group them all. Folders preserve separate editable paint. Reorder within a folder or move a layer into another folder; these edits participate in Undo and save with the document. The final layer cannot be deleted.
 
-## Paint continuous brush strokes
+[![Forge 1.6.39 with separate Base Paint, Layer 1, and Panel paint layers, an emissive face, and material controls.](/img/docs/forge/v1.6/paint-layers-panel.webp)](/img/docs/forge/v1.6/paint-layers-panel.webp)
 
-1. Choose **Paint** mode using the paintbrush in the bottom toolbar. If the UV panel is open, toggle its toolbar button off to show the Paint controls.
-2. In the floating palette, choose **Brush** scope—the pointed paintbrush beside the Face and Object buttons.
-3. Choose a material from the palette or Material Library. The example above uses **Gold**.
-4. Adjust **Brush Size**. The screenshot uses **40 px** for broad strokes; reduce it for finer details.
-5. Drag across the model surface to paint. Strokes follow the pointer or Pencil continuously, and each gesture applies immediately. Use Undo to remove a stroke.
+## Brush, fill, erase, and smooth {#paint-continuous-brush-strokes}
 
-Brush Size controls the texture brush footprint; the modeling snap-grid spacing does not limit painting to blocks. Use **Face** scope to assign a material to an entire face in one click, or **Object** scope for a whole object. Those scopes are separate from freehand brush painting.
+| Tool or control | What it changes |
+| --- | --- |
+| **Pencil** | Paints a stroke on the active layer; overlapping dabs stay within Brush Opacity |
+| **Airbrush** | Builds up paint while held; Flow sets build-up speed and Opacity caps strength |
+| **Erase** | Removes active-layer paint to reveal lower layers or the underlying surface |
+| **Smooth** | Blends neighboring active-layer paint and coverage; hold Shift while brushing on desktop for temporary smoothing |
+| **Fill face** | Fills one surface on the active layer, respecting the paint mask |
+| **Fill object** | Fills the object on the active layer, respecting the paint mask |
+| **Eyedropper** | Picks the visible painted material and layer; this can change the active layer |
 
-## Materials and paint
+Choose the brush tool separately from the Face/Object fill buttons. They are not the bottom-toolbar mesh selection modes. Rectangle and Lasso with brush painting fill clipped texture regions; they are not limited to complete polygons. **Ignore Back Faces** restricts selection to visible surfaces; disable it deliberately for through selection. Live symmetry mirrors supported painting in object space.
 
-- **Apply Material** assigns the active material to selected faces or objects.
-- **Clear Material** removes a face-level material override without deleting the material from the palette.
-- Brush painting uses the object's full-resolution 1024² material atlas. **Brush Size** ranges from single-texel details to broad strokes, and fast Pencil or pointer input is interpolated into continuous lines.
-- **Clear Paint** resets the brush pattern while leaving the mesh intact.
-- Use **Clear All** to remove both paint and material overrides from the selection.
+**Size**, **Hardness**, and **Opacity** shape a stroke. Airbrush starts with zero hardness and remembers its own setting. **Screen Size** keeps viewport brush diameter consistent as you zoom. Size and opacity pressure switches are independent; mouse/finger input uses the configured full size. Atlas painting uses texture sizing.
 
-Face and object paint scopes support lasso and box painting. **Ignore Back Faces** controls whether those gestures stop at visible surfaces or paint through the model.
+## Protect texture pixels
 
-When live symmetry is enabled, brush strokes are mirrored across the active axes. Forge resolves the geometrically mirrored counterpart even on twisted and non-planar faces.
+Use **Mask Brush**, rectangle, or lasso to protect texture pixels across all layers. This is different from a face restriction. The dark protection overlay is an editing aid and is excluded from exported materials. Mask edits support Undo and persist through saving and texture resizing.
 
-## UV maps
+Use **Clear Mask** to remove pixel protection and clear the face restriction; it does not delete paint layers. If a stroke does nothing, inspect the mask, back-face option, layer visibility, lock, and opacity before repainting.
 
-Each object can contain multiple named UV maps. Add a map, duplicate one as a variation, rename it, delete maps you no longer need, and choose which map is active for painting and export. Existing projects with legacy overlapping UVs remain compatible.
+[![Pixel-mask brush controls active while painting an independent panel layer in Forge 1.6.39.](/img/docs/forge/v1.6/paint-pixel-mask.webp)](/img/docs/forge/v1.6/paint-pixel-mask.webp)
 
-## Seams and islands
+## Atlas and texture resolution
 
-UV seams tell Forge where the surface may split during unwrapping.
+The **Atlas** tab shows the object's paint texture. Paint with Pencil, Airbrush, or Erase using the active layer and protection. Toggle UV Outlines to inspect island edges. Reset View restores the texture framing.
 
-1. Switch to Edge mode and select the edges where the texture should separate.
-2. Use **Mark Seam**, or use **Mark Edge Loop** to expand the selected edges into complete loops and mark them at once.
-3. Use **Clear Seam**, **Clear Edge Loop**, or **Clear All Seams** to revise the cuts.
-4. Toggle **Show UV Seams** when you want to hide the viewport overlay without changing the stored seams.
+**Texture Resolution** offers 512, 1024, 2048, or 4096 pixels per side. It resizes all layers without moving UVs and is undoable. Enlarging existing paint does not invent detail. Availability depends on authored layer memory; mobile 4K also requires sufficient device headroom. Conversion runs in the background.
 
-**Select UV Island** expands the current vertex, edge, or face selection to every face in the same seam-delimited island.
+[![Atlas tab showing the active texture, UV outlines, and the 1024 by 1024 Texture Resolution selector.](/img/docs/forge/v1.6/paint-atlas-resolution.webp)](/img/docs/forge/v1.6/paint-atlas-resolution.webp)
 
-## Unwrap and project
+## Poly Haven materials
 
-**Unwrap Selection** unfolds the selected faces using marked seams or the selection boundary. **Unwrap All** rebuilds the layout for the complete object. Seam-aware chart unfolding is the best general workflow for connected box-like and curved meshes.
+Open **Poly Haven** from Materials or the globe on a layer. Search by name, tags, or category, select a preview, and choose a texture resolution. **Use for painting** selects the material without repainting existing work. **Fill layer** fills the active layer in one undoable edit while preserving the others and protection. Downloads require a connection; imported maps are embedded in the saved Forge project.
 
-Projection commands provide faster starting points for suitable forms:
+Studio and path rendering can use the imported color, roughness, metallic, opacity, and normal maps. A simple matte swatch and an image-backed PBR material are different kinds of input; check the active material before painting.
 
-- **Planar** for flat panels and surfaces viewed from one direction.
-- **Box** for hard-surface and box-like objects.
-- **Cylinder** for pipes, columns, and wrapped side walls.
-- **Sphere** for rounded forms.
-- **Smart UV** for automatic chart creation.
+## Bake ambient occlusion
 
-## Pack and adjust islands
+**Bake AO** runs in the background and adds self-occlusion as a new **color-only Multiply layer**. It prepares an unpainted object's UV atlas if needed, preserves existing layers/resolution, and discards a result if its source changed during the bake. It does not change mesh geometry, roughness, or metallic values. Adjust the AO layer's opacity or toggle its eye to compare. A convex cube can show very little self-occlusion; cavities and adjoining parts give a clearer example.
 
-Use **Pack Selection** or **Pack All** to arrange islands inside the texture tile. **Pack to Others** fits selected islands around the unselected layout. Set a **Pixel Margin** to leave safe spacing between islands, enable **Normalize Islands** for consistent texel scale, and use **Allow Rotation** when islands may turn for a tighter fit.
+Viewport AO in Renderer Options is a separate live display effect. It has radius and strength controls and is not the same as baking a paint layer.
 
-Selected faces show a live UV preview and axis overlay in the viewport. Use **Rotate 90**, **Flip U**, **Flip V**, **Reset**, and **Fit** to repair or orient the mapping. A multi-face 90-degree rotation uses one pivot for the complete selection, keeping the island together. **Copy** and **Paste** speed up repeated parts with matching face layouts.
+## Procedural brushes
 
-The active UV layout and baked base-color/PBR textures are retained for textured OBJ, GLB, and USDZ exports.
+Choose a saved slot in **Procedural**, then use **Add Tile** to build its graph. Shapes, repetition, noise/distress, imported stamps, and combination operators create reusable masks or surface channels. Click a tile to edit its settings and channel outputs; valid changes save into the project without an extra Apply step. Filled shapes in the preview show coverage, and transparent areas leave gaps. Selecting a slot binds it to the active unlocked layer. Deleting a slot removes its bindings; Undo restores it.
 
-For a complete seam-to-brush workflow with inspection checkpoints, follow [Texture a prop](./texture-a-prop.md).
+Follow [Create a procedural brush](./procedural-brush.md) for a small exercise, then test strokes on a separate layer before applying a pattern to finished work.
+
+## UV maps and automatic layouts
+
+Open **UV** beside Paint. An object can have multiple named maps; choose, add, duplicate, rename, or delete them using the map controls. Keep the intended map active for painting and export.
+
+For deliberate seams, use Edge mode and select the cuts, then **Mark Seam** or **Mark Edge Loop**. Clear Seam stitches selected imported splits as appropriate; Clear All Seams removes authored marks. **Show UV Seams** hides the overlay without changing the stored cuts. **Select UV Island** expands a component selection to its seam-delimited island.
+
+**Unwrap Selection / All** use seams or selection boundaries. **Auto Generate UVs** creates separated, packed charts for the whole object, reprojects existing paint, and supports Undo. Planar, Box, Cylinder, Sphere, and Smart UV provide alternative projections.
+
+**Pack Selection / All** arrange islands in the texture tile. Normalize Islands, Allow Rotation, Pixel Margin, and Pack to Others control that arrangement. Rotate 90, Flip U/V, Reset, Fit, Copy, and Paste adjust UVs. Prefer finishing topology and applying Boolean results before detailed mapping and paint.
+
+## Export the finish
+
+Textured OBJ, GLB, and USDZ retain the supported active UV layout and baked material textures. 3MF exports painted color for printing, not the full PBR shading model. Keep the editable Forge document to retain paint layers, masks, and procedural settings. See [Rendering and export](./rendering-and-export.md).

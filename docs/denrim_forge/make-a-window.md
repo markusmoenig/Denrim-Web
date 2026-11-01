@@ -12,6 +12,8 @@ This lesson uses a fresh default cube in the **Model** workspace of the Mac Swif
 
 New to the controls? [Match the starting state and learn selection/number entry](./before-you-start.md) before continuing.
 
+**Current numeric setup:** In Forge 1.6.38+, select **Import and Export → Project units → Meters** before entering this lesson’s position/length values. The old screenshots retain their capture version; changing display units does not rescale geometry.
+
 ## 1. Turn the cube into a wall
 
 Choose **Transform** in Actions and expand **Detail**. Set these values, pressing Return after editing each field:
@@ -85,3 +87,7 @@ Use **Deselect All**, then drag the View Cube slightly to inspect the thickness 
 | The front surface vanished but no tunnel was built | Undo the deletion and use Cut Through instead of Delete. |
 
 For a recess that does not pass through the wall, use a small negative **Extrude** on the inner face instead. See [the raised/recessed panel lesson](./make-a-raised-panel.md).
+
+## Keep a cutter adjustable instead
+
+Knife and Cut Through edit the wall topology directly. For a rounded socket or a cutout you want to move later, use [editable Boolean subtraction](./boolean-socket.md). Keep its operand as a separate source, revise its transform, and apply only before final UV mapping. Join and deleting a face do not create the same solid cutout workflow.

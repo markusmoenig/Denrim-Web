@@ -39,9 +39,9 @@ Start with [Learn by example](./learn-by-example.md). The illustrated lessons sh
 
 1. Begin with the cube already in a new document. Use the top primitive controls to add a **Box**, **Cylinder**, **Sphere**, **Capsule**, or **Torus** only when you need another part.
 2. In **Object** mode, use **Transform** to establish the overall silhouette. Drag its move, size, or rotation handles, or expand **Detail** for numeric Position, Scale, and Rotation.
-3. Switch to **Face** mode for major shape changes. **Push/Pull**, **Extrude**, **Inset**, and **Bevel** cover most prop-modeling work.
+3. Use [editable Booleans](./boolean-socket.md) for Union, Subtract, and Intersect while retaining source objects. Use [Grab Brush](./shape-and-snap.md) for local mesh reshaping. Switch to **Face** mode for major shape changes. **Push/Pull**, **Extrude**, **Inset**, and **Bevel** cover most prop-modeling work.
 4. Open the **UV** workspace when the asset needs a texture layout. Mark seams, unwrap the object, and pack its islands.
-5. Use **Paint** mode to apply PBR materials, face-level color, or brush-painted texture details.
+5. Use **Paint** for [layered textures, masks, and materials](./paint-in-layers.md). Add procedural brushes or Poly Haven materials without flattening the source layers.
 6. For an articulated or moving asset, organize its parts with **Parent** and **Unparent**, then open **Animation** to key position, rotation, and scale.
 7. Inspect the result with **Studio/PBR**, then export an OBJ, GLB, USDZ, STL, or PNG rendering.
 
@@ -55,14 +55,18 @@ Filled paths, shapes, transforms, holes, and solid colors are supported. Convert
 
 Forge is designed to be learned while working. Turn on contextual help from the toolbar, then select a tool or command to see what it does, when to use it, and any selection requirements. Tool-specific controls also describe their purpose directly in the interface.
 
+For a camera-and-light composition, follow [Compose and animate a scene](./scene-cameras-and-lights.md). Arrange model instances, add lights and cameras, then key their movement and properties.
+
 For a guided overview, start with [the interface and navigation](./interface-and-navigation.md), continue with [animation](./animation.md) when an asset needs motion, then use the [tool reference](./tool-reference.md) whenever you need a particular operation.
 
 ## A few useful habits
 
 - Begin with large, simple forms. Add detail only after the silhouette reads well.
-- Choose the document's **Units** before precision work. Units change how measurements are interpreted and exported without rescaling existing geometry.
-- Keep the grid snap active for clean proportions, and use **Offset** when a selection must move by an exact signed distance.
+- Choose **Project units** for readable measurements and numeric input. Geometry stays in meters; switching units does not resize it or change export size. See [units and scaling](./rendering-and-export.md#units-in-forge-1638-and-newer).
+- Use grid snapping for regular increments and [vertex/edge-midpoint snapping](./shape-and-snap.md#2-snap-a-vertex-to-another-object) for geometry targets. Offset moves by an exact signed distance.
 - Use organizational **Groups** for scene structure and **Parent** relationships when a child should follow another object's transform.
 - Use **Sub-D** as a reversible smooth preview; use **Freeze Sub-D** only when you need real editable faces.
 - Run **Cleanup Mesh** before export if you have made several topology changes.
 - Use **STL** for printable geometry, and OBJ, GLB, or USDZ for broader asset pipelines.
+
+For current defaults, including the changed digit and topology bindings, see [Keyboard shortcuts](./keyboard-shortcuts.md).

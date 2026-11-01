@@ -10,19 +10,14 @@ Use this setup when an example says **start with a new document**. It gives you 
 
 ## Start with one cube
 
-On Mac, choose **File → New** (**Command-N**). A new document already contains **one cube**, selected in Object mode. Keep it for the beginner lessons. Clicking the box primitive in the top toolbar creates an additional object.
+On Mac, choose **File → New** (**Command-N**). A new document already contains **one cube**, selected in Object mode. Keep it for the beginner lessons. Use **Add → Create Box** only when you want an additional object.
 
-Stay in **Model**, the workspace selected at the top left. The default cube is 2 units wide, high, and deep; its Position is **0, 1, 0**, Scale **1, 1, 1**, and Rotation **0, 0, 0**. The units setting determines the physical meaning of those numbers.
+Stay in **Model**, the workspace selected at the top left. The default cube is 2 units wide, high, and deep; its Position is **0, 1, 0**, Scale **1, 1, 1**, and Rotation **0, 0, 0**. In Forge 1.6.38+, that cube is always 2 m wide. Set **Import and Export → Project units → Meters** before using the numeric values in these lessons. Changing units changes measurement display and input only.
 
-<DocScreenshot src="/img/docs/forge/beginner-start.png" alt="Fresh Mac Forge document with one default cube, Model workspace, bottom selection modes, and the right Actions panel." markers={[{x:4,y:3.2,label:'1'},{x:12.8,y:95.4,label:'2'},{x:79,y:17,label:'3'},{x:78,y:39.7,label:'4'},{x:70.4,y:95.4,label:'5'}]} />
 
-1. **Model** — the workspace used for these lessons.
-2. **Object** — the bottom cube button selects whole objects. Face is the diagonally divided square immediately to its left.
-3. **Actions** — tools appear here according to what is selected.
-4. **Detail** — expand this section for numeric Position, Scale, and Rotation.
-5. **Replace Selection** — the checked square lets you select one target without keeping the old selection.
+[![Fresh Forge v1.6.39 Model document, default cube, bottom selection toolbar, and Actions panel with Grab Brush, Bevel, Array, and Subdivide.](/img/docs/forge/v1.6/workspace-start.webp)](/img/docs/forge/v1.6/workspace-start.webp)
 
-*Actual Mac SwiftUI capture, v1.5.30. Click to enlarge. iPad and other desktop layouts can place controls differently; the numbered positions refer to this Mac screenshot.*
+Use **Object** (cube) for whole meshes, or the neighboring Vertex, Edge, and Face controls for components. **Detail** expands numeric transform fields. The checked square at the lower right chooses Replace Selection; plus/minus choose Add/Remove. The top Model/Scene switch is separate from the bottom Outliner.
 
 ## Select the thing you want to edit
 
@@ -43,7 +38,7 @@ For preview tools such as Inset, Extrude, and Bevel, Return accepts the amount; 
 | What you see | How to continue |
 | --- | --- |
 | A timeline instead of the bottom modeling buttons | Close Animation with the highlighted film button in the top toolbar. |
-| UV or Scene instead of Actions on the right | Toggle the matching bottom-toolbar UV or Scene Outliner button off, then choose the required selection mode. The top Scene workspace switch is a different control. |
+| UV or Outliner instead of Actions on the right | Toggle the matching bottom-toolbar UV or Outliner button off, then choose the required selection mode. The top Scene workspace switch is a different control. |
 | Only tool icons | Cycle the small layout button in the Actions header until names and descriptions appear. |
 | A tool or Apply is farther down the list | Scroll with the pointer **inside the right panel**. Scrolling over the viewport changes the view instead. |
 | Other tools are dimmed | Finish the current tool. Apply first if you want to commit its preview, then Done. Knife uses Apply Cut or Cancel Cut. |

@@ -10,6 +10,8 @@ Make a rounded block, then create four evenly spaced blocks with **Array**. This
 
 New to the controls? [Match the starting state and learn selection/number entry](./before-you-start.md) before continuing.
 
+**Current numeric setup:** In Forge 1.6.38+, select **Import and Export → Project units → Meters** before entering this lesson’s position/length values. The old screenshots retain their capture version; changing display units does not rescale geometry.
+
 ## 1. Soften the block with Bevel
 
 1. In the right **Actions** panel, choose **Bevel** under Mesh Edit.
@@ -57,6 +59,22 @@ Use **1 segment** for a single flat chamfer. More segments make the transition r
 | Radial mode | Copies distributed around an axis and center |
 
 For a radial arrangement, first place a part away from the desired center of rotation. Choose **Radial**, then choose the axis, center, count, and angle. **World** uses world zero; **Selection** uses the selection center. A part centered on the chosen axis may overlap its rotated copies, so inspect the preview before applying.
+
+## Ellipse array
+
+Start a **new default cube** for this variant, with Project units set to Meters. In Transform → Detail set Scale X/Y/Z to **0.2**. The source cube measures 0.4 m on each side; leave Position at **0, 1, 0**.
+
+1. Start Array. Set **Count 8**, choose **Ellipse**, **Axis Y**, and **Center Selection**.
+2. Set **Radius A 2 m** and **Radius B 1 m**. These are radii, so the oval spans approximately 4 m by 2 m before accounting for the cube's size.
+3. Inspect the preview. Copies have equal spacing measured along the ellipse and follow its tangent. They are not evenly spaced by polar angle.
+
+[![Eight-position ellipse array preview with Count 8, Axis Y, Center Selection, Radius A 2 m and Radius B 1 m.](/img/docs/forge/v1.6/ellipse-array-preview.webp)](/img/docs/forge/v1.6/ellipse-array-preview.webp)
+
+4. Choose **Apply Array once**. Object mode returns to Transform. The original moves to the first ellipse position; the seven new copies are selected.
+
+[![Applied ellipse array with eight solid cubes and seven generated copies selected; the Outliner also counts the Array group.](/img/docs/forge/v1.6/ellipse-array-result.webp)](/img/docs/forge/v1.6/ellipse-array-result.webp)
+
+Count includes the original, so eight means eight mesh objects, not nine. The Array group can make the scene object count nine. Axis X uses the Y/Z plane, Y uses X/−Z, and Z uses X/Y. Undo restores the pre-array state; Done before applying discards the preview.
 
 ## Bevel, Sub-D, Subdivide, or Duplicate?
 

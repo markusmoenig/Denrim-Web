@@ -5,11 +5,11 @@ description: How Denrim handles your data and privacy.
 
 # Privacy Policy
 
-_Last updated: September 9, 2026_
+_Last updated: October 20, 2026_
 
 Denrim is built to keep your creative work local to your devices. This policy explains what we collect, how we use it, and your choices.
 
-**Platform scope:** The Apple App Store versions use Apple iCloud/CloudKit for their cloud features. Google sign-in and Supabase apply only to the optional public library in the Rust desktop versions for Windows and Linux. These services are not used by the Apple App Store versions.
+**Platform scope:** The Apple App Store versions use Apple iCloud/CloudKit for their cloud features. Google sign-in and Supabase apply to the optional public library in the Rust versions for Windows, Linux, and Android. These services are not used by the Apple App Store versions.
 
 ## What we collect
 
@@ -33,12 +33,12 @@ Denrim is built to keep your creative work local to your devices. This policy ex
 
 We do not sell or rent your data. We may share limited data with:
 
-- **Platform providers** (Apple) for distribution, payments, and diagnostics.
+- **Platform providers** (Apple and Google Play) for distribution, payments, and platform diagnostics.
 - **Service providers** we use for support or hosting, bound by confidentiality and data protection terms.
 
-## Optional Rust public library (Windows and Linux)
+## Optional Rust public library (Windows, Linux, and Android)
 
-This section applies only to the Rust desktop public library. It does not change how the Apple App Store versions use iCloud/CloudKit.
+This section applies to the Rust public library on Windows, Linux, and Android. It does not change how the Apple App Store versions use iCloud/CloudKit.
 
 ### Sign-in and account data
 
@@ -56,11 +56,17 @@ The Rust library provides public sharing only, not private cloud storage or clou
 
 You can remove your own uploads through the library. Removal withdraws the listing and deletes its hosted files when the deletion completes. If a transfer or deletion fails, the app allows you to retry cleanup. Removal cannot recall copies that others have already downloaded.
 
-Contact privacy@denrim.com to request deletion of your publisher account and associated uploads. Signing out alone does not make this request.
+Use [Delete Library Account](/account-deletion) from the public-library sign-in controls, or visit the [account deletion page](/account-deletion) directly, to request deletion of your publisher account and associated uploads. You can also contact privacy@denrim.com. Signing out alone does not make this request.
 
 ### Service providers
 
 We use Google for sign-in and Supabase for authentication, database storage and public file hosting. See [Google's Privacy Policy](https://policies.google.com/privacy) and [Supabase's Privacy Policy](https://supabase.com/privacy) for their handling of service and authentication data. The public-sharing disclosures above apply only when using this optional Rust library.
+
+## Android network services and local diagnostics
+
+Android projects, exports, recovery snapshots, and the local crash log remain on the device unless you choose to share or export them. Forge does not automatically upload the local crash log and does not include advertising or behavioral analytics SDKs. Google Play may provide platform-managed distribution and stability reports.
+
+Browsing public projects sends requests to Supabase. Browsing and downloading Poly Haven materials sends requests to Poly Haven and its content hosts. These network services receive connection information such as your IP address and the requested resources to deliver their services. Project contents are not sent to Poly Haven. Files selected through Android’s document picker are accessed for the import or export you request; Forge does not request broad storage access.
 
 ## Children
 

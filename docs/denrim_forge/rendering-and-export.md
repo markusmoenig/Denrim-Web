@@ -4,61 +4,61 @@ sidebar_position: 6
 
 # Rendering and export
 
-Enable **Studio/PBR** in the viewport display strip to preview materials and lighting. **Renderer Options** controls tone mapping, exposure, environment lighting, reflections, ambient occlusion, and bloom, and provides the settings for rendering an image.
+Enable **Studio/PBR** in the viewport display strip. Renderer Options controls tone mapping, exposure, environment lighting, reflections, ambient occlusion, bloom, and still-image rendering. Closing or switching the preview does not delete geometry, layers, or animation.
 
-> **Native for macOS and iPadOS.** Inspect, render, and export Forge projects from either platform.
+## Authored scene lighting and cameras
 
-[![Current Mac Studio/PBR preview with Renderer Options open, showing tone mapping, exposure, reflections, and the environment map.](/img/docs/forge/renderer-options.png)](/img/docs/forge/renderer-options.png)
+In the top **Scene** workspace, use **Add** to create Directional, Point, Spot, or Area Lights and cameras. Enable **Use Scene Lights** for authored lighting in Studio; each light also has its own Enabled and Cast Shadows controls. Environment illumination remains available alongside scene lights. Camera View selects the shot; Editor Camera returns to the inspection view. Camera/light transforms and properties can be animated separately. Follow the [Scene tutorial](./scene-cameras-and-lights.md) for the complete workflow.
 
-*Mac SwiftUI interface, v1.5.30. The transparent-cube Studio/PBR button reveals the additional renderer controls. The slider icon opens this popover.*
+## Studio lighting and ambient occlusion
 
-## Find the renderer controls
+Turn on Environment for environment-map lighting, then open the slider-shaped **Renderer Options** control. Choose a built-in map, including Neutral Studio, or use **Import HDR…** for a Radiance HDR file retained in your Forge library. Exposure, intensity, and rotation help judge materials under different lighting. HDR reflections controls the map's appearance in reflective response.
 
-1. Turn on **Studio/PBR** using the transparent-cube button in the viewport's upper display strip. On Mac, **Mode → Toggle Studio/PBR** provides the same switch.
-2. Turn on **Environment** (sun icon) if you want HDR lighting. The Environment Map picker is disabled while Environment is off.
-3. Open **Renderer Options** with the slider icon in the same display strip.
-4. Adjust Exposure and the environment settings while inspecting the viewport.
+Enable Smooth normals and adjust Smooth angle to keep hard breaks while smoothing curved surfaces. Studio lighting refines while the viewport is idle; navigating or painting restarts the refinement. The quick interactive view can therefore differ from the settled preview.
 
-[![Close-up of Renderer Options, including the active Studio Small 01 Environment Map picker.](/img/docs/forge/renderer-options-detail.png)](/img/docs/forge/renderer-options-detail.png)
+**AO radius** controls the reach of ambient occlusion and **AO strength** controls its darkening. New projects start with AO off. Older projects keep their saved AO appearance until radius or strength changes migrate that calculation. This live display effect is separate from **Bake AO**, which writes an editable paint layer.
 
-*Renderer close-up. Enable Smooth normals to reveal Smooth angle; enable Environment to reveal its rotation control.*
+For an image, use Renderer Options → Path Tracing, samples per pixel, Width, Height, and **Render Image**. Rendering an image and exporting a model are separate operations.
 
-For a still image, scroll inside Renderer Options to **Path Tracing**, samples per pixel, Width, Height, and **Render Image**. Image rendering and model-file export are separate operations.
+## Units in Forge 1.6.38 and newer
 
-## Environment and shading
+**Geometry is stored in meters. Project units change measurement display and numeric input only.** Switching units never resizes the model or changes its exported physical size. The default cube is always 2 m wide. A cube scaled by 0.1 measures 0.2 m, 20 cm, 200 mm, or approximately 7.874016 inches.
 
-Choose an **Environment Map** in Renderer Options to light the model with one of six built-in HDR environments. Environment intensity and rotation adjust how that map illuminates the asset, while HDR reflections control whether it appears in reflective material response. Environment choices are stored per document; existing documents continue to use Studio Small 01 by default.
+Open **Import and Export** to inspect Project units and the current guidance. For the numeric tutorials in this manual, select **Meters** before entering values, unless a lesson explicitly gives another displayed unit.
 
-Use **Import HDR…** to add a Radiance HDR environment to the Forge library. Imported maps appear by filename in the Environment Map menu and remain available across documents and launches. Selecting a custom map changes the current document's environment without altering its geometry or materials.
+[![Forge 1.6.39 Import and Export popover stating that project units affect display and input, with meter-based OBJ and STL export guidance.](/img/docs/forge/v1.6/export-units.webp)](/img/docs/forge/v1.6/export-units.webp)
 
-Enable **Smooth normals** for interpolated viewport shading, then use **Smooth angle** to set the maximum angle across which normals are blended. Lower values preserve crisp hard-surface breaks; higher values smooth across broader curvature. The default is 70°.
+**OBJ, STL, GLB, and USDZ export meter coordinates.** The earlier OBJ/STL export-unit selector has been removed. Do not switch the unit preference to compensate for a size mismatch. Imports convert their declared or chosen source unit to meters once; inspect the result before applying another scale.
 
-## Export formats
+To correct geometry that was previously scaled to compensate for old exports, use **Transform → Detail → Scale factor**:
 
-Open **Import and Export** using the up/down-arrow button in the top toolbar to choose a model export format. Select the format for the destination that will consume the file:
+1. Measure the current size and decide the desired size in the same unit.
+2. Calculate **desired size ÷ current size**. For 2 m to 0.2 m, use 0.1.
+3. Select the intended objects, enter that factor, and choose **Apply scale** once.
+4. Recheck dimensions. The undoable edit scales the selection uniformly, including assembly spacing.
 
-| Format | Best for |
+Existing saved coordinates are retained. Some exports from older nonmeter projects consequently differ from the old export scale; fix an intentionally compensated model rather than altering its display units.
+
+## Choose an export format
+
+| Format | Use it for / what to check |
 | --- | --- |
-| **STL** | Printable geometry and fabrication workflows. The export uses visible evaluated geometry, including Sub-D preview, and converts project units to millimeters. |
-| **OBJ texture bundle** | Broad DCC and game-art workflows. It exports geometry, material data, and a baked paint texture atlas. |
-| **OBJ vertex colors** | Slicers and pipelines that prefer per-vertex RGB data. |
-| **GLB** | Portable animated assets for game engines and viewers, with object hierarchies, transform clips, PBR materials, texture atlases, metallic/roughness, glass, and emissive data where available. Geometry and animated positions are converted to meters. |
-| **USDZ** | Apple-oriented 3D viewing and sharing workflows, with geometry converted to meters. |
-| **PNG** | A presentation snapshot using the current scene, camera, and render settings. |
+| **STL** | Visible evaluated geometry in meters, including the current Sub-D preview. Many slicers assume millimeters for unitless files: use an explicit meter import or prefer 3MF. |
+| **3MF** | Printing with declared units and supported painted colors; this does not preserve PBR materials. |
+| **OBJ texture bundle** | Geometry plus linked MTL and baked paint textures. Keep all files together. Coordinates use meters. |
+| **OBJ vertex colors** | Per-vertex RGB workflows. Choose Preserve Topology, Triangulate with sharp color boundaries, or Triangulate (welded) according to the receiver. Welded output keeps shared indices but OBJ's one-color-per-vertex interpolation limit still applies. |
+| **GLB** | Hierarchy, PBR textures, and object transform animation in meters. Compatible clips also produce an All Items take. |
+| **USDZ** | Supported geometry/materials for Apple viewing and sharing, in meters. |
+| **Viewport PNG / Render Image** | Presentation images. Use Render Image for the renderer's still settings. |
 
-OBJ coordinates remain in the selected project unit, and the exported file identifies that unit. Changing the unit preference does not rescale the scene itself.
+Ping-pong GLB clips contain the forward-and-reverse cycle. Visible objects retain their hierarchy and pivots. A normal mesh export is not a substitute for the editable Forge document: retain the source for Boolean stacks, layers, UVs, and future edits.
 
-GLB preserves visible objects as individual hierarchy nodes and exports translation, rotation, and scale animation channels with their object pivots. Ping-pong clips become complete forward-and-reverse cycles. Compatible per-item clips are also combined into an **All Items** take for viewers that play the first animation, while the individual takes remain available.
+## Before delivery
 
-## Before exporting
+- Inspect topology and normals. Use targeted repairs or Cleanup Mesh where needed.
+- Decide whether Boolean operations should remain editable in the source. Apply them before final UV mapping; the exported asset uses evaluated geometry.
+- Inspect UVs, materials, and paint in a settled Studio view.
+- Check visible objects and hierarchy; a selection alone does not define the entire export scope.
+- Import the result into the receiving application and measure a known dimension. Check colors, textures, and animation there as well.
 
-1. Inspect the model for open boundaries, intersecting faces, or normal issues.
-2. Use **Cleanup Mesh** or the targeted repair tools when needed.
-3. Check the active UV map and pack its islands before exporting a textured asset.
-4. Hide any scene objects you do not want to export; hidden objects are skipped by OBJ export.
-5. Confirm the document's Units setting, especially before STL, GLB, or USDZ export.
-6. For a smoothed result, use Sub-D preview or freeze it into editable geometry if the next workflow needs the dense mesh itself.
-
-For 3D printing, favor clean closed geometry and use STL. For game props and textured visual assets, OBJ or GLB will usually be the better starting point.
-
-Continue with [Export and check a game asset](./export-a-game-asset.md) for unit, material, hierarchy, and animation checks, with a checked painted-door GLB example.
+Follow [Export and check a game asset](./export-a-game-asset.md) for a delivery checklist.

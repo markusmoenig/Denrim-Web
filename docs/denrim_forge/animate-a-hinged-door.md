@@ -22,7 +22,7 @@ Choose **Transform**, expand **Detail**, and enter these values. Press Return af
 | Scale | 1 | 1.5 | 0.1 |
 | Rotation | 0 | 0 | 0 |
 
-The default cube becomes a panel **2 units wide, 3 high, and 0.2 thick**. Its lower-left edge lies along the world Y axis, with the thickness centered around Z = 0. These are practice dimensions in your document's units, not a life-size door specification.
+For the current app, set **Import and Export → Project units → Meters** before entering these values. The default cube becomes a panel **2 m wide, 3 m high, and 0.2 m thick**. Its lower-left edge lies along the world Y axis, with the thickness centered around Z = 0. These are practice dimensions; choose the real asset's size deliberately.
 
 <DocScreenshot src="/img/docs/forge/hinge-setup.png" alt="Door panel before pivot placement, with Position 1, 1.5, 0 and Scale 1, 1.5, 0.1 in Transform Detail." markers={[{x:78,y:46,label:'1'},{x:78,y:53,label:'2'}]} />
 
@@ -104,9 +104,9 @@ Save the editable Forge document with **File → Save**, then open **Import and 
 
 <DocScreenshot src="/img/docs/forge/hinge-export.png" alt="Import and Export popover showing Export GLB Scene while the hinged door is previewed halfway through its motion." markers={[{x:77,y:34.3,label:'1'}]} />
 
-**1 — Export GLB Scene.** GLB carries the hierarchy and transform animation. STL is geometry-only and cannot preserve this motion. Export uses visible scene objects, so keep both Door and Handle visible. Check document units for the intended physical size; Forge converts GLB positions to meters.
+**1 — Export GLB Scene.** GLB carries the hierarchy and transform animation. STL is geometry-only and cannot preserve this motion. Export uses visible scene objects, so keep both Door and Handle visible. Measure the intended physical size; current Forge geometry and GLB positions use meters. Changing display units does not rescale the model.
 
-[Download the example GLB](/downloads/forge/hinged-door.glb). This small practice model uses the capture document's centimeter units, so its door is 0.02 m wide. Its exported data contains Door as the parent of Handle and the keyed transform channels. The file was exported from this lesson and its hierarchy and animation samples were checked; playback controls and animation selection vary between external viewers.
+[Download the example GLB](/downloads/forge/hinged-door.glb). This **legacy v1.5 sample export** is 0.02 m wide. It preserves the old capture document's export scale and is not the expected size of a fresh v1.6.38+ model made with the meter-valued steps above. Its exported data contains Door as the parent of Handle and the keyed transform channels. The file was exported from this lesson and its hierarchy and animation samples were checked; playback controls and animation selection vary between external viewers.
 
 ## Troubleshooting
 

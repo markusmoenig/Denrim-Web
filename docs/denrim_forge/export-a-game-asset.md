@@ -32,11 +32,9 @@ Open **Preferences** with the gear in the top toolbar. Under **Units**, choose *
 
 [![Close-up of the Units control set to Meters.](/img/docs/forge/game-units.png)](/img/docs/forge/game-units.png)
 
-The door's numeric dimensions are **2 × 3 × 0.2**. With Meters selected, the exported panel should measure **2 m wide, 3 m high, and 0.2 m thick**. These are simple demonstration dimensions; set the actual dimensions your project needs.
+For a new current-version document with Project units set to Meters, the lesson's door is **2 m wide, 3 m high, and 0.2 m thick**. Geometry stays in meters regardless of the display preference. The screenshot above predates the corrected unit workflow; **Import and Export → Project units** is the current control.
 
-**Changing Units does not rescale the mesh coordinates.** It changes what one scene unit means for measurements and export. The earlier hinge lesson used centimeters, so its sample exports at 0.02 × 0.03 × 0.002 meters. Reusing those numbers with Meters deliberately makes this example 100 times larger physically.
-
-If your object already has the correct physical size, preserve its unit setting. Decide the intended dimensions before compensating with an import-scale multiplier in another application.
+Changing from centimeters to meters does **not** make a current document 100 times larger. For an older model that was deliberately compensated, measure its current dimensions and use **Transform → Detail → Scale factor = desired size ÷ current size**, then Apply scale. [Current unit/export guidance](./rendering-and-export.md#units-in-forge-1638-and-newer) includes a fresh popover capture.
 
 ## 3. Check objects and motion
 

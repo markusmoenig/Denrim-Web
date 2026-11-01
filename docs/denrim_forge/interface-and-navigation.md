@@ -6,7 +6,9 @@ sidebar_position: 2
 
 Forge keeps the core workflow visible: the viewport is where you model, the action panel provides the next relevant tools, and the toolbar controls modes, snapping, help, and project actions.
 
-> **Native for macOS and iPadOS.** Forge provides the same focused modeling workflow on both platforms.
+> Forge shares its Model workflows across Apple and Rust versions. These screenshots use the Apple interface; control positions can differ on Windows, Linux, and tablets.
+
+[Keyboard shortcuts](./keyboard-shortcuts.md) lists current defaults, custom assignments, and the Ctrl+digit topology selections.
 
 For a first session, [Before your first lesson](./before-you-start.md) provides a labeled starting screenshot and recovery steps.
 
@@ -16,16 +18,16 @@ For a first session, [Before your first lesson](./before-you-start.md) provides 
 
 ## Model workspace, Scene workspace, and selection modes
 
-The **Model / Scene** control at the top selects the workspace. Model is where you edit a model's mesh; Scene is where model instances can be arranged into a composition. The tutorials begin in **Model**.
+The **Model / Scene** control at the top selects the workspace. Model is where you edit a model's mesh; Scene is where model instances can be arranged into a composition. The modeling tutorials begin in **Model**. In Scene, use **Add** for cameras and lights, **Camera View** to look through a scene camera, and **Use Scene Lights** to enable authored lighting. Select scene items in the browser to edit their transforms, camera/light properties, parents, and targets. Follow [Compose and animate a scene](./scene-cameras-and-lights.md) to animate movement, a lens change, and light intensity.
 
-The **Scene** button in the bottom selection toolbar opens the Outliner for the current modeling context. It is separate from the top Scene workspace button. Use the Outliner for object selection and hierarchy operations.
+The **Outliner** button in the bottom toolbar opens the object list for the current modeling context. It is separate from the top Scene workspace button. Use the Outliner for object selection and hierarchy operations.
 
 ## Modes
 
 - **Edit** is the modeling workspace. It includes selection, mesh tools, materials, paint, references, and the scene hierarchy.
 - **Studio/PBR** switches viewport shading to the Studio renderer. Turn it on with the transparent-cube button in the viewport display strip; the environment and renderer-options controls then appear. This does not require leaving the modeling workspace.
 - **Animation** replaces the lower modeling controls with the timeline. Closing it restores the normal modeling controls without deleting clips or keys.
-- Selection modes include **Object**, **Vertex**, **Edge**, **Face**, **Paint**, **Camera**, and **Scene**. Choose the mode that matches the kind of thing you want to change.
+- Use **Object**, **Vertex**, **Edge**, and **Face** for mesh selections. **Paint** opens the painting workspace; Camera and Outliner controls serve other editing contexts. Choose the mode that matches the kind of thing you want to change.
 
 ## Action panel layouts
 
@@ -56,11 +58,17 @@ The viewport can show selected components, face normals, open boundaries, non-ma
 
 Use the visibility menu to **Hide Selected**, **Hide Unselected**, or **Reveal All**. In Object mode it works on objects and preserves selected hierarchies when isolating them; in Face mode it works on faces. Visibility changes are undoable.
 
+## Toolbars, help, and recording
+
+Customize Model and Scene toolbars independently. Right-click a tool/action to assign its shortcut, or long-press with a hardware keyboard on a touch device. Resolve conflicts and use Reset to Default to remove an override. See [the default table](./keyboard-shortcuts.md).
+
+Help mode explains a control without applying its edit. Preferences also offers Video Feedback for tutorial recordings: pointer/hover and held-contact rings, tap/click feedback, and keyboard badges. It observes input without changing paint pressure or navigation.
+
 ## Grid and transforms
 
 Grid subdivisions range from 1 to 64, and the active snap affects many direct tools, including transforms, Offset, extrusion, inset, cuts, lathing, bevel, and solidify. Modeling sliders that operate in world space use the current grid step while typed numeric values remain exact.
 
-The Grid popover also has a persistent visibility switch. Hiding the modeling grid does not disable position or rotation snapping.
+The Snapping popover separates **Grid and Rotation**, **Vertices**, **Edge Midpoints**, and grid visibility. Disabling grid/rotation allows free transforms while retaining the stored increments; geometry target snapping remains independent. Hiding the grid changes only the display. See [geometry snapping](./shape-and-snap.md#2-snap-a-vertex-to-another-object).
 
 The transform gizmo moves components and can move, size, or rotate selected objects. Choose the axis orientation that matches the task:
 
@@ -79,8 +87,10 @@ The bottom-toolbar **Scene Outliner** button opens the Outliner, where you can s
 
 Project metadata and the library live in the Project Database. **Load** replaces the open project with a stored project. **Merge** appends a stored project's objects, hierarchy, layers, materials, UV maps, paint, and animation clips to the current project. Imported content is selected, project-unit differences are converted automatically, and the complete merge can be undone.
 
-Each document has a **Units** setting for millimeters, centimeters, meters, or inches. Changing it does not rescale scene geometry; it determines how Forge displays measurements and how supported exports interpret the scene.
+Each document has **Project units** for millimeters, centimeters, meters, or inches in Import and Export. In 1.6.38+, geometry stays in meters; this setting controls measurement display and numeric input only. It never resizes geometry or changes export size. Use Transform → Detail → Scale factor to resize an assembly uniformly.
 
 Reference images can be imported from **Photos** or **Files**, shown or hidden, locked, resized, recentered, replaced, or removed. They are saved with the project so a visual guide remains available the next time you open the model.
 
 On iPad, optional two- and three-finger tap gestures can be assigned in Preferences to **Undo**, **Clear Selection**, or toggle **Add/Replace** selection. They are off by default, and assigning a gesture to one action removes it from the others.
+
+On iPad, Preferences lets you use automatic saving or explicit Save. In manual mode save before leaving and wait for successful completion; a failed save keeps the editor open. Save Backup creates a separate copy and does not replace the active document.

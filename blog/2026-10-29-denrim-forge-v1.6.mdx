@@ -1,0 +1,76 @@
+---
+title: "Denrim: Forge 1.6 — Non-Destructive Booleans and Layered Painting"
+description: "Forge 1.6 introduces non-destructive Boolean modeling with editable Union, Subtract, and Intersect stacks, alongside layered painting, richer materials, and Scene compositions with animated cameras and lights."
+slug: denrim-forge-v1-6
+authors: [markusm]
+tags: [releases]
+image: /img/screenshots/forge/v1.6/dragon-painting.webp
+---
+
+Denrim: Forge 1.6 introduces a non-destructive Boolean modeling workflow. Combine shapes while keeping their source objects editable, then build the finish with layered painting, richer materials, and precise placement tools.
+
+![A green dragon with layered paint, glowing eyes, and PBR material controls in Forge 1.6](/img/screenshots/forge/v1.6/dragon-painting.webp)
+
+<!-- truncate -->
+
+## Model with non-destructive Booleans
+
+The main modeling addition in Forge 1.6 is an **editable Boolean stack**. Combine solid objects with **Union**, carve openings with **Subtract**, or keep their shared volume with **Intersect**, while retaining the original shapes for further editing.
+
+Open **Booleans** in Model mode. Select the operand first, then the target, and choose an operation. The result stays live: move, rotate, or scale an operand to adjust the shape, change its operation, or toggle its effect independently of its visibility. Hidden cutters remain selectable in the Outliner, so you can refine a cutout without displaying the cutter's solid surface.
+
+Build up several operations and revise them as the model develops. The stack survives saving, reopening, and Undo. Geometry is baked only when you choose **Apply**: select an operand to apply that operation, or select the target to apply the full stack. Because baking can change UVs, apply the result before final UV mapping.
+
+This makes holes, sockets, joined forms, and intersecting shapes an adjustable part of the modeling process. You can keep refining the source objects until the result is ready.
+
+## Paint in layers
+
+Build up color and surface detail without committing everything to one texture. Paint layers have their own opacity, blend modes, locks, and channel controls, so you can revisit one part of a finish while keeping the rest intact. Organize your work in folders and choose how materials mix across the surface.
+
+Paint directly on the model or in the UV Atlas. Pencil, Airbrush, Erase, and Smooth cover everything from crisp marks to soft transitions. Screen Size keeps the viewport brush diameter consistent as you zoom, with separate pressure controls for size and opacity.
+
+## Protect the details
+
+Pixel masks let you protect part of a texture across all paint layers. Use Mask Brush, a rectangle, or a lasso to isolate an area, then paint around it. Masks follow the saved project and support Undo. Lasso and Box painting also fill clipped texture regions rather than limiting every edit to an entire polygon.
+
+![Painting an ogre with Forge's brush and material controls](/img/screenshots/forge/v1.6/ogre-painting.webp)
+
+## Build richer materials
+
+Browse **Poly Haven** materials from the Materials panel or a paint layer. Search by name or category, preview a surface, and import its PBR textures into your project. Use a material for painting or fill a layer while preserving the layers below it. Downloaded textures are embedded in the saved project.
+
+The Procedural editor adds reusable brush slots built from shapes, repetition, noise, and combinations. Work with color, roughness, metallic, height, and brush masks to create a surface that belongs to your model.
+
+**Bake AO** adds self-occlusion as a separate color-only Multiply layer. Adjust its contribution alongside the rest of your paint. Studio preview also gains an AO radius control for tuning the reach of contact shading.
+
+![A treasure chest modeled and previewed in Forge 1.6](/img/screenshots/forge/v1.6/treasure-chest.webp)
+
+## Shape freely, place precisely
+
+**Grab Brush** reshapes the visible mesh with a circular brush and smooth falloff. Adjust the radius, enable Smooth/Relax when needed, and return to Transform with Done.
+
+![Reshaping a robot character with Grab Brush](/img/screenshots/forge/v1.6/robocat-grab-brush.webp)
+
+For precise placement, enable **Vertices** and **Edge Midpoints** independently in the snapping controls. With Transform, move the active vertex onto a target under the pointer; the rest of the selection follows. A captured geometry target takes precedence over grid increments, without welding the points together.
+
+**Ellipse arrays** arrange copies at equal distances around an ellipse, with two radii, axis and center controls, and optional tangent orientation. **Auto Generate UVs** provides a packed layout for an entire object, preserving existing paint through reprojection.
+
+![RoboCat in Forge 1.6's modeling workspace](/img/screenshots/forge/v1.6/robocat-modeling.webp)
+
+## Compose a scene with cameras and animated lights
+
+Forge 1.6 also adds a **Scene workspace** for arranging reusable model instances into a composition. Keep the shared model editable in Model, place and transform its instances independently in Scene, and save multiple models and scenes together in one project.
+
+Add cameras and **Directional, Point, Spot, and Area Lights** from Scene's Add menu. Choose perspective or orthographic camera projection, adjust the lens and clipping, and switch between the editor view and a scene camera. Parent cameras and lights to other items, or set an aim target to keep them pointing at a subject.
+
+Animate camera and light movement with transform keys, then use **Key Properties** for lens changes, light color and intensity, range, spot angles, area dimensions, and light/shadow switches. Enable **Use Scene Lights** to preview authored lighting in Studio, including shadows, alongside environment lighting.
+
+[Follow the illustrated Scene, camera, and light tutorial](/docs/denrim_forge/scene-cameras-and-lights) to build a composition, animate a light, and add a moving camera with a changing lens.
+
+## Carry the right size into other tools
+
+Forge now uses meters consistently for geometry and OBJ/STL/GLB/USDZ exports. Project units control measurement display and numeric input without resizing the model. Use Transform's Scale factor to correct a deliberately compensated older model, and prefer unit-aware 3MF for printing. Vertex-color OBJ export offers sharp-color and welded triangulation options.
+
+The release includes further fixes to paint boundaries, symmetry, saved paint, document closing, and layered material previews. Video Feedback adds visible input rings and key badges for recording tutorials.
+
+[Explore Forge and its downloads](/#get-forge), or visit the [manual](/docs/denrim_forge/getting-started) to learn the tools.
