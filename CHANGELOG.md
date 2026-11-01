@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Expand the v1.6 release post from the changelog to cover material mixing/coatings and channels, procedural height/stamps, Atlas painting and resolution, desktop path tracing/image rendering, UV/import/export additions, and workspace/document improvements. Clarify desktop-only tracing in both the blog and rendering manual.
+
+- Rewrite the v1.6 release post with explicit Grab Brush and geometry-snapping headings, concise feature coverage, tutorial links, and only the main dragon screenshot.
+
 - Cover Scene compositions, reusable model instances, cameras, four light types, and animated camera/light properties in the v1.6 release blog. Add a Scene tutorial with two direct app screenshots and verified camera/light keyframe examples; link it from the manual overview, lesson index, animation, tool chooser, and rendering guidance.
 
 - Update Windows and Linux desktop version labels to v1.6.39 on the homepage and download page.

@@ -1,76 +1,132 @@
 ---
-title: "Denrim: Forge 1.6 — Non-Destructive Booleans and Layered Painting"
-description: "Forge 1.6 introduces non-destructive Boolean modeling with editable Union, Subtract, and Intersect stacks, alongside layered painting, richer materials, and Scene compositions with animated cameras and lights."
+title: "Denrim: Forge 1.6 — Modeling, Layered Painting, Scenes, and Path Tracing"
+description: "Non-destructive Booleans, Grab Brush, vertex and edge-midpoint snapping, layered painting, material coatings, scenes with animated cameras and lights, and desktop path tracing in Forge 1.6."
 slug: denrim-forge-v1-6
 authors: [markusm]
 tags: [releases]
 image: /img/screenshots/forge/v1.6/dragon-painting.webp
 ---
 
-Denrim: Forge 1.6 introduces a non-destructive Boolean modeling workflow. Combine shapes while keeping their source objects editable, then build the finish with layered painting, richer materials, and precise placement tools.
+Forge 1.6 brings **non-destructive Booleans, Grab Brush, vertex and edge-midpoint snapping, layered painting, a Scene workspace with animated cameras and lights, and desktop path tracing**. It also expands the material system, UV workflow, import/export options, and workspace controls. Here’s a closer look at the release.
 
-![A green dragon with layered paint, glowing eyes, and PBR material controls in Forge 1.6](/img/screenshots/forge/v1.6/dragon-painting.webp)
+![A dragon painted in Forge 1.6 with paint layers and material controls visible](/img/screenshots/forge/v1.6/dragon-painting.webp)
 
 <!-- truncate -->
 
-## Model with non-destructive Booleans
+## Non-destructive Booleans
 
-The main modeling addition in Forge 1.6 is an **editable Boolean stack**. Combine solid objects with **Union**, carve openings with **Subtract**, or keep their shared volume with **Intersect**, while retaining the original shapes for further editing.
+The main new modeling feature is an **editable Boolean stack**. Union joins shapes, Subtract carves openings, and Intersect keeps their shared volume. The original objects stay editable, so you can move, rotate, or scale a cutter and see the result update.
 
-Open **Booleans** in Model mode. Select the operand first, then the target, and choose an operation. The result stays live: move, rotate, or scale an operand to adjust the shape, change its operation, or toggle its effect independently of its visibility. Hidden cutters remain selectable in the Outliner, so you can refine a cutout without displaying the cutter's solid surface.
+Stack several operations, change their type, or switch individual effects on and off. Hidden cutters remain selectable in the Outliner. The stack is saved with your project; **Apply** bakes an individual operation or the complete result when you’re ready.
 
-Build up several operations and revise them as the model develops. The stack survives saving, reopening, and Undo. Geometry is baked only when you choose **Apply**: select an operand to apply that operation, or select the target to apply the full stack. Because baking can change UVs, apply the result before final UV mapping.
+[Try the Boolean socket tutorial](/docs/denrim_forge/boolean-socket).
 
-This makes holes, sockets, joined forms, and intersecting shapes an adjustable part of the modeling process. You can keep refining the source objects until the result is ready.
+## Grab Brush
 
-## Paint in layers
+Pull and reshape the visible mesh directly with **Grab Brush**. Its circular brush uses smooth falloff to move a region rather than a single point. Adjust the radius for broad shape changes or smaller corrections, and enable **Smooth/Relax** to even out the surface.
 
-Build up color and surface detail without committing everything to one texture. Paint layers have their own opacity, blend modes, locks, and channel controls, so you can revisit one part of a finish while keeping the rest intact. Organize your work in folders and choose how materials mix across the surface.
+## Vertex and edge-midpoint snapping
 
-Paint directly on the model or in the UV Atlas. Pencil, Airbrush, Erase, and Smooth cover everything from crisp marks to soft transitions. Screen Size keeps the viewport brush diameter consistent as you zoom, with separate pressure controls for size and opacity.
+Snap to **vertices** and **edge midpoints** when positioning mesh components with Transform. Enable either target type independently for accurate alignment. Snapping moves the selection into place without welding the geometry.
 
-## Protect the details
+[Learn Grab Brush and geometry snapping](/docs/denrim_forge/shape-and-snap).
 
-Pixel masks let you protect part of a texture across all paint layers. Use Mask Brush, a rectangle, or a lasso to isolate an area, then paint around it. Masks follow the saved project and support Undo. Lasso and Box painting also fill clipped texture regions rather than limiting every edit to an entire polygon.
+## More control over modeling and placement
 
-![Painting an ogre with Forge's brush and material controls](/img/screenshots/forge/v1.6/ogre-painting.webp)
+**Ellipse arrays** distribute copies at equal distances around an ellipse. Set two radii, choose an axis and center, and optionally orient the copies along the tangent. Count includes the original selection, and the live preview lets you check the arrangement before applying it.
 
-## Build richer materials
+An independent **Transform Snapping** switch lets you turn snapping off without hiding the grid or losing your chosen increments. Vertex deletion now removes selected vertices and their incident geometry directly. An optional **Double-tap Connected** preference selects a connected mesh part with a double-click or double-tap.
 
-Browse **Poly Haven** materials from the Materials panel or a paint layer. Search by name or category, preview a surface, and import its PBR textures into your project. Use a material for painting or fill a layer while preserving the layers below it. Downloaded textures are embedded in the saved project.
+## Layered painting and masks
 
-The Procedural editor adds reusable brush slots built from shapes, repetition, noise, and combinations. Work with color, roughness, metallic, height, and brush masks to create a surface that belongs to your model.
+Build up a finish with independent **paint layers**, folders, opacity, blend modes, locks, and channel controls. Keep base colors, markings, and surface effects separate so you can revisit them later.
 
-**Bake AO** adds self-occlusion as a separate color-only Multiply layer. Adjust its contribution alongside the rest of your paint. Studio preview also gains an AO radius control for tuning the reach of contact shading.
+Paint on the model or in the UV Atlas with Pencil, Airbrush, Erase, and Smooth. **Pixel masks** protect texture regions across layers, with brush, rectangle, and lasso controls. Separate pressure settings for brush size and opacity give you more control over each stroke.
 
-![A treasure chest modeled and previewed in Forge 1.6](/img/screenshots/forge/v1.6/treasure-chest.webp)
+[Paint a prop in layers](/docs/denrim_forge/paint-in-layers).
 
-## Shape freely, place precisely
+Paint layers support **Normal, Multiply, Screen, and Overlay** blending. Drag layers to reorder them, group them in collapsible folders, and control visibility and locking independently. Erasing reveals the layers underneath rather than destroying the whole finish.
 
-**Grab Brush** reshapes the visible mesh with a circular brush and smooth falloff. Adjust the radius, enable Smooth/Relax when needed, and return to Transform with Done.
+### Brushes and direct Atlas painting
 
-![Reshaping a robot character with Grab Brush](/img/screenshots/forge/v1.6/robocat-grab-brush.webp)
+**Airbrush** builds up paint while held, with Flow controlling the rate. Pencil and Erase have adjustable hardness for crisp or soft edges. **Smooth Paint** blends neighboring paint on the active layer; desktop users can hold Shift while brushing.
 
-For precise placement, enable **Vertices** and **Edge Midpoints** independently in the snapping controls. With Transform, move the active vertex onto a target under the pointer; the rest of the selection follows. A captured geometry target takes precedence over grid increments, without welding the points together.
+The **Screen Size** option keeps brush size consistent on screen as you zoom. Size and opacity have independent pen-pressure controls. Lasso and Box painting fill precisely clipped texture regions, while the brush footprint previews the surface area you will affect.
 
-**Ellipse arrays** arrange copies at equal distances around an ellipse, with two radii, axis and center controls, and optional tangent orientation. **Auto Generate UVs** provides a packed layout for an entire object, preserving existing paint through reprojection.
+Paint directly in the **2D Atlas** with Pencil, Airbrush, Erase, Fill, and material picking while the model updates. Choose **512, 1024, 2048, or 4096** texture resolution without moving the UV layout; layers and masks resize together. Higher resolutions depend on device memory.
 
-![RoboCat in Forge 1.6's modeling workspace](/img/screenshots/forge/v1.6/robocat-modeling.webp)
+## A richer material system
 
-## Compose a scene with cameras and animated lights
+Layers can **Blend Properties**, **Mix Materials** with separate material responses, or act as a **Coating** over a preserved substrate. Coatings expose index of refraction and optical tint thickness, allowing finishes such as clear or tinted coatings over painted or metallic surfaces.
 
-Forge 1.6 also adds a **Scene workspace** for arranging reusable model instances into a composition. Keep the shared model editable in Model, place and transform its instances independently in Scene, and save multiple models and scenes together in one project.
+Control each layer's contribution to **Color, Roughness, Metallic, Transmission, Subsurface, and Emission** with independent switches and strengths. Material presets include Matte, Plastic, Metal, Glass, Wax, and Emission. Image materials support normal, roughness, metallic, and opacity maps, including alpha cutout.
 
-Add cameras and **Directional, Point, Spot, and Area Lights** from Scene's Add menu. Choose perspective or orthographic camera projection, adjust the lens and clipping, and switch between the editor view and a scene camera. Parent cameras and lights to other items, or set an aim target to keep them pointing at a subject.
+The shared **Materials & Textures** library works across Model and Scene. Import an image once, adjust UV repetition, and apply or drag a material onto geometry. Scene material overrides change an instance while preserving its source, and shared images are embedded in the project.
 
-Animate camera and light movement with transform keys, then use **Key Properties** for lens changes, light color and intensity, range, spot angles, area dimensions, and light/shadow switches. Enable **Use Scene Lights** to preview authored lighting in Studio, including shadows, alongside environment lighting.
+### Poly Haven materials
 
-[Follow the illustrated Scene, camera, and light tutorial](/docs/denrim_forge/scene-cameras-and-lights) to build a composition, animate a light, and add a moving camera with a changing lens.
+Browse materials by name or category, inspect previews, and import their PBR maps at **1K, 2K, or 4K**. Choose **Use for painting** to activate a material or **Fill layer** to apply it while retaining the rest of the stack. Downloaded textures remain in the saved project.
 
-## Carry the right size into other tools
+### Procedural brushes and height detail
 
-Forge now uses meters consistently for geometry and OBJ/STL/GLB/USDZ exports. Project units control measurement display and numeric input without resizing the model. Use Transform's Scale factor to correct a deliberately compensated older model, and prefer unit-aware 3MF for printing. Vertex-color OBJ export offers sharp-color and welded triangulation options.
+Build reusable brush slots from circles, rounded rectangles, capsules, rings, polygons, stars, and torn shapes. Add grid or brick repetition, seeded noise, imported image stamps, and union, subtraction, intersection, or smooth blending.
 
-The release includes further fixes to paint boundaries, symmetry, saved paint, document closing, and layered material previews. Video Feedback adds visible input rings and key badges for recording tutorials.
+Tiles can feed the brush mask or output **Color, Roughness, Metallic, and Height**. Height adds surface-normal detail in Studio and the path tracer without changing the mesh. Saved slots let you switch between custom brushes without rebuilding them.
 
-[Explore Forge and its downloads](/#get-forge), or visit the [manual](/docs/denrim_forge/getting-started) to learn the tools.
+### Bake ambient occlusion
+
+**Bake AO** computes self-occlusion in the background and adds it as a new color-only Multiply layer. Existing paint stays intact, and the result can be hidden, reordered, or reduced in opacity. This is separate from live viewport AO, which now has radius and strength controls.
+
+[Create a procedural brush](/docs/denrim_forge/procedural-brush).
+
+## Scene composition, cameras, and animated lights
+
+Arrange **reusable model instances** in Scene while keeping their shared source editable in Model. A project can hold multiple models and scenes, with independent instance placement.
+
+Add **perspective or orthographic cameras** and **Directional, Point, Spot, or Area Lights**. Frame a shot through a scene camera, set aim targets, parent items, and enable authored lighting and shadows in Studio.
+
+Animate camera and light movement with transform keys. Separate **property keys** animate lens settings, light color and intensity, range, spot angles, area dimensions, and light/shadow switches. Preview the animated items together to judge the complete composition.
+
+[Compose and animate a scene](/docs/denrim_forge/scene-cameras-and-lights).
+
+## Desktop path tracing and image rendering
+
+Forge now includes a **progressive path tracer on Mac, Windows, and Linux**. It previews indirect lighting with HDR environments and authored scene lights, including soft shadows from area lights.
+
+The tracer supports rough metallic reflections, emissive materials, glass transmission and refraction, and subsurface scattering inside closed wax-like meshes. Painted UV textures and their material channels participate in the rendered result, along with layered materials, coatings, and height detail. Exposure and tone mapping follow the Studio settings.
+
+Use the viewport preview to inspect a finish, or choose output dimensions and samples with **Render Image**, then save the resulting PNG. Path tracing remains experimental: glass uses a fixed IOR of 1.5, and nested media and refractive shadow caustics are not supported.
+
+**Path tracing is desktop-only in the current release. iPad and Android use Studio/PBR rendering.**
+
+[Read about rendering and export](/docs/denrim_forge/rendering-and-export).
+
+## UVs, imports, and export options
+
+**Auto Generate UVs** creates separated, packed charts for an object while preserving existing paint through reprojection. Geometry imports warn about overlapping UVs and let you retain the original layout or generate a new one. OBJ/STL imports offer source-unit choices so incoming geometry can be interpreted at the right scale.
+
+Import **OBJ, STL, and 3MF** as editable geometry in Model, or as a new model asset placed in Scene. 3MF component assemblies are supported. Textured OBJ imports can seed editable paint while retaining their UVs.
+
+Export choices now include:
+
+- **3MF with painted colors** for compatible printing workflows, retaining hard color boundaries. This carries color rather than the full PBR material response.
+- **OBJ Preserve Topology** for authored polygon faces, plus triangulated vertex-color choices with sharp color boundaries or welded geometry.
+- **Textured OBJ, GLB, and USDZ** with baked appearance; GLB also carries supported normal, metallic/roughness, and emissive maps and alpha-mask settings.
+
+Geometry and OBJ/STL/GLB/USDZ exports use **meters consistently**. Project units change measurement display and numeric input without resizing a model. **Scale factor** provides an explicit, undoable way to resize geometry and assembly spacing. Prefer unit-aware 3MF when sending a model to a slicer.
+
+## Workspace, documents, and everyday improvements
+
+Customize Model and Scene toolbars independently. Assign a shortcut directly by right-clicking a Model tool or action; on touch devices, long-press and use a hardware keyboard. Conflict detection and Reset to Default help keep bindings manageable. The [shortcut reference](/docs/denrim_forge/keyboard-shortcuts) lists the revised defaults.
+
+Choose **Automatic, Light, or Dark** appearance. **Video Feedback** adds click/tap ripples, hover and drag rings, and key badges for recording tutorials; Pencil hover is available on supported iPads.
+
+Projects use compact, compressed storage while retaining editable sources, layers, UVs, and scene data. Loading, saving, painting, and viewport navigation have received substantial performance work. Studio refines lighting while idle, with a responsive interaction preview during editing.
+
+Windows and Linux packages include document-thumbnail integration. Rust desktop and Android gain **Save Backup**, and iPad gains an automatic-save preference with Save/Discard handling when automatic saving is off. The release also includes fixes for paint seams, symmetry, UV boundaries, material export, document recovery, and closing documents.
+
+## Learn the new workflows
+
+The [manual](/docs/denrim_forge/getting-started) includes dedicated lessons for [editable Booleans](/docs/denrim_forge/boolean-socket), [Grab Brush and snapping](/docs/denrim_forge/shape-and-snap), [layered painting](/docs/denrim_forge/paint-in-layers), [procedural brushes](/docs/denrim_forge/procedural-brush), and [animated cameras and lights](/docs/denrim_forge/scene-cameras-and-lights).
+
+Visit [Videos / Tutorials](/#videos) for video walkthroughs, or [get Forge](/#get-forge) to start creating.

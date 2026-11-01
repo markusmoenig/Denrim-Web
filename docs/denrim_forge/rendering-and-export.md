@@ -18,7 +18,13 @@ Enable Smooth normals and adjust Smooth angle to keep hard breaks while smoothin
 
 **AO radius** controls the reach of ambient occlusion and **AO strength** controls its darkening. New projects start with AO off. Older projects keep their saved AO appearance until radius or strength changes migrate that calculation. This live display effect is separate from **Bake AO**, which writes an editable paint layer.
 
-For an image, use Renderer Options → Path Tracing, samples per pixel, Width, Height, and **Render Image**. Rendering an image and exporting a model are separate operations.
+## Desktop path tracing and still images
+
+**Path tracing is available on Mac, Windows, and Linux. It is unavailable on iPad and Android; use Studio/PBR on those devices.**
+
+On desktop, enable Studio/PBR and open Renderer Options → **Path Tracing** for a progressive preview. It supports HDR environment and scene lighting, rough metallic reflections, emissive materials, glass transmission/refraction, painted textures, layered materials, and subsurface scattering inside closed meshes. The experimental tracer uses a fixed glass IOR of 1.5; nested media and refractive shadow caustics are unsupported. Navigation and edits restart accumulation.
+
+For a still, choose samples per pixel, Width, Height, and **Render Image**, then save the resulting PNG. Exposure and tone mapping follow the renderer settings. Rendering an image and exporting a model are separate operations; a mesh export does not include a path-traced image.
 
 ## Units in Forge 1.6.38 and newer
 
