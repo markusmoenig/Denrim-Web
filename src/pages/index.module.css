@@ -724,14 +724,70 @@
 }
 
 
-.releaseLink {
-  max-width:650px;
-  margin:0 auto 24px;
-  font-size:.9rem;
+.home .releaseLink {
+  display:flex;
+  align-items:center;
+  gap:22px;
+  max-width:800px;
+  margin:0 auto 28px;
+  padding:24px 28px;
+  border:1px solid var(--accent);
+  border-radius:14px;
+  background:linear-gradient(110deg,#332519,#191a1b);
+  color:#f4f1eb;
+  text-align:left;
+  transition:background .18s ease,border-color .18s ease;
 }
 
-.home .releaseLink a {
+.home .releaseLink:hover {
+  background:linear-gradient(110deg,#45301c,#25211b);
+  border-color:#ffd095;
+  color:#fff;
+}
+
+.releaseBadge {
+  flex-shrink:0;
+  padding:8px 12px;
+  border-radius:7px;
+  background:var(--accent);
+  color:#17110a;
+  font-size:.85rem;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.releaseCopy {
+  display:grid;
+  gap:6px;
+}
+
+.releaseCopy strong {
+  font-size:clamp(1.2rem,2.3vw,1.5rem);
+  line-height:1.25;
+}
+
+.releaseCopy>span {
+  color:#d0c6b9;
+  font-size:.95rem;
+  line-height:1.5;
+}
+
+.releaseArrow {
+  margin-left:auto;
   color:var(--accent);
+  font-size:2rem;
+}
+
+@media(max-width:600px) {
+  .home .releaseLink {
+    flex-wrap:wrap;
+    gap:14px;
+    padding:20px;
+  }
+  .releaseCopy {
+    order:3;
+    flex-basis:100%;
+  }
 }
 
 .heroShowcase {

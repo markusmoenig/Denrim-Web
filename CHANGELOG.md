@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Make the homepage v1.6 blog link a prominent, fully clickable orange release card with a larger headline, feature summary, and responsive mobile layout.
+
 - Audit all five new v1.6 tutorials and the ellipse extension against their actual images. Remove redundant Boolean imagery, add geometry/settings close-ups, replace idle Grab Brush and empty procedural examples with verified native results, and add camera-view plus warm-light comparisons. Clarify the limits of mask/snapping control images and rewrite the procedural lesson around the captured Ring brush.
 
 - Expand the v1.6 release post from the changelog to cover material mixing/coatings and channels, procedural height/stamps, Atlas painting and resolution, desktop path tracing/image rendering, UV/import/export additions, and workspace/document improvements. Clarify desktop-only tracing in both the blog and rendering manual.

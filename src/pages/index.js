@@ -136,10 +136,21 @@ export default function Home() {
               id: 'forge.home.lead',
               message: 'Denrim: Forge brings low-poly 3D modeling, UV editing, painting, and animation to Windows, Linux, Mac, and iPad. Create game props, playful characters, and models for 3D printing.'
             })}</p>
-          <p className={styles.releaseLink}><Link to="/blog/denrim-forge-v1-6">{translate({
-              id: 'forge.home.release16',
-              message: 'Explore Forge 1.6: non-destructive Booleans and layered painting'
-            })} <span aria-hidden="true">↗</span></Link></p>
+          <Link className={styles.releaseLink} to="/blog/denrim-forge-v1-6">
+            <span className={styles.releaseBadge}>{translate({
+              id: 'forge.home.release16.badge', message: 'Forge 1.6'
+            })}</span>
+            <span className={styles.releaseCopy}>
+              <strong>{translate({
+                id: 'forge.home.release16.title', message: 'See what’s new in Forge 1.6'
+              })}</strong>
+              <span>{translate({
+                id: 'forge.home.release16.summary',
+                message: 'Non-destructive Booleans, Grab Brush, layered painting, scenes, and much more.'
+              })}</span>
+            </span>
+            <span className={styles.releaseArrow} aria-hidden="true">→</span>
+          </Link>
           <div className={styles.actions}><a className={styles.primary} href="#get-forge">{translate({
                 id: 'forge.home.get',
                 message: 'Get Forge'
