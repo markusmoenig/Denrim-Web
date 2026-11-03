@@ -4,7 +4,7 @@ sidebar_position: 1.5
 
 # Learn by example
 
-Start with a small, complete task. Each lesson shows the selection, the controls, and what you should see after applying the tool. The new Boolean, Grab Brush, snapping, layered-paint, and ellipse screenshots are direct **Mac v1.6.39** captures. Earlier lessons retain explicitly labeled v1.5.30 images where their controls remain relevant; click a screenshot to enlarge it. On iPad, look for the same tool names; the layout changes with screen space. Windows and Linux layouts may differ.
+Start with a small, complete task. Each lesson explains the selection, controls, and expected result. Image descriptions distinguish settings close-ups from completed results. The new Boolean, Grab Brush, snapping, layered-paint, procedural, Scene, and ellipse screenshots are direct **Mac v1.6.39** captures. Earlier lessons retain explicitly labeled v1.5.30 images where their controls remain relevant; click a screenshot to enlarge it. On iPad, look for the same tool names; the layout changes with screen space. Windows and Linux layouts may differ.
 
 Not sure which tool name to look for? Use [What do you want to do?](./choose-a-tool.md), including comparisons of similar tools.
 

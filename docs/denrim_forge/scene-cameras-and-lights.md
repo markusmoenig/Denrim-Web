@@ -31,7 +31,9 @@ Select **Camera** beneath Scene 1. To add another, choose **Add → Camera**.
 
 Use the top **Camera View** button to look through a scene camera. With multiple cameras, use its arrow to choose one. The button changes to **Editor Camera**, which returns to the preserved editor view. Navigation while looking through a scene camera edits that camera, so return to Editor Camera when you only want to inspect the composition.
 
-For this exercise keep the default perspective camera at **Position 0, 2, 6** and Rotation **0, 0, 0**. Later, try **Target** on a distinctively named scene item to keep the camera aimed at it as it moves. Remove the constraint with **Free Rotation** before experimenting with manual rotation.
+For the initial framing check, keep the camera at **Position 0, 2, 6** and set Rotation **X −10°, Y 0°, Z 0°** to tilt toward the cube. Reset rotation to 0, 0, 0 for the later movement exercise.
+
+[![Scene-camera view of the cube with Camera selected in the scene browser, lens controls visible, and the camera-view button enabled.](/img/docs/forge/v1.6/scene-camera-view.webp)](/img/docs/forge/v1.6/scene-camera-view.webp) Later, try **Target** on a distinctively named scene item to keep the camera aimed at it as it moves. Remove the constraint with **Free Rotation** before experimenting with manual rotation.
 
 ## 3. Add a light
 
@@ -47,6 +49,16 @@ For the default cube, start with the point light at **Position 0, 3, 3**, white 
 | Area | Position and direction, width and height |
 
 **Cast Shadows** controls each light's shadows. Authored scene lights can be combined with environment illumination; a bright environment may make a subtle intensity change harder to see. Check both the toolbar's Use Scene Lights state and the individual Light Enabled switch if a light appears to have no effect.
+
+### Make the lighting change easy to see
+
+For a clear comparison, temporarily turn **Environment** off in the viewport strip and set the point light color to **R 1, G 0.2, B 0.1**. Keep the camera's −10° tilt for this lighting check. Compare Intensity 1 with 8 without moving the camera or light:
+
+[![Camera view with warm Point Light selected, Environment off, and Intensity 1.](/img/docs/forge/v1.6/scene-light-dim.webp)](/img/docs/forge/v1.6/scene-light-dim.webp)
+
+[![The same view and warm Point Light at Intensity 8, visibly brightening the cube.](/img/docs/forge/v1.6/scene-light-bright.webp)](/img/docs/forge/v1.6/scene-light-bright.webp)
+
+This is a lighting comparison, not painted color. Restore white light and Environment if preferred before continuing. The older animation-control screenshots below use the editor view and white light; they identify the key controls rather than showing this warm-light comparison.
 
 ## 4. Animate the light's intensity
 

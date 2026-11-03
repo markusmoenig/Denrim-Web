@@ -24,6 +24,8 @@ The dark paint belongs to Layer 1. Base Paint remains below it. Object fill is a
 
 [![A bright cube face on the named Panel layer above Layer 1 and Base Paint, with Glow active in Materials.](/img/docs/forge/v1.6/paint-layers-panel.webp)](/img/docs/forge/v1.6/paint-layers-panel.webp)
 
+[![Close-up of the named Panel, Layer 1, and Base Paint rows, with opacity, blend mode, shading, visibility, and lock controls.](/img/docs/forge/v1.6/paint-layer-stack-detail.webp)](/img/docs/forge/v1.6/paint-layer-stack-detail.webp)
+
 Set **Panel opacity to 60%** and compare it with 100%. This changes the entire layer. Brush Opacity instead controls a stroke's strength; it does not retroactively change earlier strokes. Glow is emissive, so its brightness also depends on the renderer and emission settings.
 
 You can lock Panel before painting another layer. A locked layer is visible but cannot receive paint. Use the folder menu to organize layers without flattening them.
@@ -37,6 +39,8 @@ You can lock Panel before painting another layer. A locked layer is visible but 
 
 [![Mask Brush selected with the independent Panel layer at 60% opacity and paint protection controls visible.](/img/docs/forge/v1.6/paint-pixel-mask.webp)](/img/docs/forge/v1.6/paint-pixel-mask.webp)
 
+The screenshot shows the mask tool and a small protected dab. It is not a before/after demonstration of an Erase stroke; perform step 3 to check that protected pixels stay unchanged.
+
 Protection applies across layers, not only the active one. Rectangle and lasso masks are useful for larger regions. Check Ignore Back Faces before selecting through a surface.
 
 ## 4. Inspect the same paint in Atlas
@@ -44,6 +48,8 @@ Protection applies across layers, not only the active one. Rectangle and lasso m
 Open **Atlas**. The active layer, brush tool, and protection stay available. Enable UV Outlines to inspect the surface boundaries; Reset View restores the framing.
 
 [![The same layered cube in the Atlas tab, showing its paint texture and Texture Resolution selector.](/img/docs/forge/v1.6/paint-atlas-resolution.webp)](/img/docs/forge/v1.6/paint-atlas-resolution.webp)
+
+[![Atlas close-up showing the yellow painted UV face, protected dab, and Texture Resolution control.](/img/docs/forge/v1.6/paint-atlas-detail.webp)](/img/docs/forge/v1.6/paint-atlas-detail.webp)
 
 Keep **1024 × 1024** for this exercise. On a larger asset, choose a supported Texture Resolution before fine detail. Resizing preserves UV positions and layers and can be undone; it does not create missing painted detail.
 

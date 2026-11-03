@@ -4,37 +4,44 @@ sidebar_position: 4.4
 
 # Create a procedural brush
 
-Build a reusable pattern on a separate paint layer. Procedural brushes live in the saved Forge document, so you can return to the same slot and adjust it later.
+Make a ring-shaped paint brush and test it on a separate layer. The images below show an actual Ring tile and the stroke it produced in Mac Forge **v1.6.39**.
 
-Start with the cube from [Paint a prop in layers](./paint-in-layers.md), or another UV-ready object. Add an unlocked layer for experiments and leave any finished layers below it.
+## 1. Start a separate brush test
 
-[![The Procedural sidebar in Forge v1.6.39 with Add Tile, a brush preview, and saved-slot positions.](/img/docs/forge/v1.6/procedural-brush-editor.webp)](/img/docs/forge/v1.6/procedural-brush-editor.webp)
+Start a fresh Model document with its default cube. Choose **Paint**, then **Add layer (+)**. Keep the new Layer 1 active and unlocked, above Base Paint. Choose a contrasting material; the screenshots use the brown Clay swatch on the unpainted gray cube. This is a separate test from the emissive Panel lesson.
 
-The screenshot shows an empty slot before adding its tiles.
-
-## 1. Choose a slot and build a mask
+## 2. Add a Ring tile
 
 1. Open **Procedural** in the Paint sidebar.
-2. Select an empty brush slot. A default circle can represent an empty slot; select the slot before editing.
-3. Open **Add Tile** and add a shape, such as a circle or rounded rectangle.
-4. Click the tile to open its settings and adjust Size.
-5. Add a Repeat tile for a repeated pattern. Start with a low Number and a Size that leaves gaps.
-6. Inspect Brush Preview. Filled shapes indicate coverage; transparent gaps leave the lower layer visible.
+2. Select an empty brush slot at the bottom. A plain circle can represent an empty slot.
+3. Open **Add Tile → Shapes → Ring**. Confirm the row says **1. Ring**, its destination is **Brush Shape**, and the preview has a transparent center.
+4. Click the tile row to open its settings. Start with **Size 0.60** and **Rounding / ring thickness 0.04**, as shown below.
+5. Choose **Done** to close settings. Changes are already saved in the graph; Done is not a separate Apply command.
 
-Tiles evaluate in order. Distress/noise and combine operations can change the preceding shape; start with one shape and one repeat so you can see each change clearly. Valid settings save immediately; there is no additional Apply step for the graph.
+[![Ring tile settings with Size 0.60 and Rounding / ring thickness 0.04, above a stroke made with this brush.](/img/docs/forge/v1.6/procedural-ring-settings.webp)](/img/docs/forge/v1.6/procedural-ring-settings.webp)
 
-## 2. Choose what the graph controls
+The black ring in Brush Shape previews the coverage mask. It does not set the paint color; the active material supplies that.
 
-Tile outputs can feed Brush, Color, Roughness, Metallic, Height, or Source channels as available. Begin with the Brush output to understand the footprint before combining surface channels. A change to the brush mask and a change to material roughness have different effects even if they use the same graph.
+## 3. Test the brush on the model
 
-Select the saved slot to bind its brush to the active unlocked layer. Choose a contrasting material, switch to Pencil, and test a short stroke on the model or in Atlas. Undo that stroke if the coverage is wrong, revise the tile, and try again.
+Select Pencil. Use **Brush Size 44**, **Hardness 50%**, and **Opacity 100%** for this test, with pressure toggles off so mouse and pen tests use the same maximum settings. Drag a short diagonal stroke on a visible cube face.
 
-## 3. Keep the experiment reversible
+[![The Ring tile and saved slot show a hollow mask; a brown diagonal stroke on Layer 1 has open space between its painted sides.](/img/docs/forge/v1.6/procedural-ring-stroke.webp)](/img/docs/forge/v1.6/procedural-ring-stroke.webp)
 
-- Change the layer's opacity or eye to compare with the base.
-- Lock completed layers before selecting another slot or painting a new pass.
-- Duplicate a saved slot before making a variant if you want to keep its earlier recipe.
-- Deleting a slot removes its bindings; Undo can restore them.
-- Save the Forge project to retain slots and layers. Texture/model exports contain the supported resolved appearance, not an editable procedural authoring graph for another app.
+The ring footprint leaves an open center. During a drag, successive rings overlap to form the two-sided mark shown here. A single dab should resemble a ring; a continuous stroke need not look like a row of isolated rings. Undo the stroke before changing the graph if you want to compare recipes on a clean surface.
 
-For image-backed materials, [Poly Haven](./paint-and-materials.md#poly-haven-materials) is a separate source of PBR textures; a procedural brush controls how you place or modify paint.
+## 4. Extend the recipe
+
+After verifying the simple ring, try a Circle, rounded rectangle, or another shape in a different slot. Add **Repeat** for a pattern, starting with a low Number and a Size that leaves gaps. Inspect the preview after each change before testing another stroke.
+
+Tile outputs can feed Brush Shape, Color, Roughness, Metallic, Height, or Source channels as available. A brush mask controls where paint lands; a material-channel output changes the surface response. Keep the first test on Brush Shape so those effects are easy to distinguish.
+
+## 5. Keep the experiment reversible
+
+- Hide Layer 1 to compare the painted mark with Base Paint, or reduce its opacity.
+- Lock completed layers before painting another pass.
+- Duplicate a saved brush slot before making a variant.
+- Deleting a tile reconnects following tiles; deleting the last tile clears the slot. Undo restores it.
+- Save the Forge document to retain brush slots and layers. Texture/model exports contain the supported resolved appearance, rather than an editable procedural graph for another app.
+
+For image-backed materials, [Poly Haven](./paint-and-materials.md#poly-haven-materials) is a separate source of PBR textures. Continue with [Paint a prop in layers](./paint-in-layers.md) for masks and independent surface passes.

@@ -15,7 +15,7 @@ These are two independent exercises: use Grab Brush for a softer silhouette, the
 5. Turn on **Smooth/Relax** to even the visible vertices rather than translating them. Use a small stroke first.
 6. Undo any unwanted stroke. Choose **Done** to return to Transform.
 
-[![Grab Brush on a cube subdivided to 384 faces, with Radius, Smooth/Relax, and Done controls visible.](/img/docs/forge/v1.6/grab-brush-controls.webp)](/img/docs/forge/v1.6/grab-brush-controls.webp)
+[![A completed Grab Brush stroke pulls a ridge from the subdivided cube; the brush circle, Radius, Smooth/Relax, and Done remain visible.](/img/docs/forge/v1.6/grab-result.webp)](/img/docs/forge/v1.6/grab-result.webp)
 
 Grab Brush does not add topology, and only visible vertices inside the circular falloff are affected. A cube with only eight corners cannot produce a detailed brush deformation. This is mesh editing, not texture paint and not a separate sculpt mode.
 
@@ -31,7 +31,9 @@ Start again with a fresh cube. Add a second box and move it aside using Transfor
 4. Drag the selected point or a gizmo arrow, and point at a stationary target vertex on the other object. Inspect the source/target feedback before releasing.
 5. Undo and repeat with an edge midpoint as the target.
 
-[![Snapping popover with separate Grid and Rotation, Vertices, Edge Midpoints, and Grid visibility controls in Vertex mode.](/img/docs/forge/v1.6/geometry-snapping.webp)](/img/docs/forge/v1.6/geometry-snapping.webp)
+[![Close-up of the snapping options: separate Vertices and Edge Midpoints switches.](/img/docs/forge/v1.6/snapping-options-detail.webp)](/img/docs/forge/v1.6/snapping-options-detail.webp)
+
+The image identifies the settings only; use the two-object exercise above to test source/target capture.
 
 A captured target under the pointer places the source exactly in 3D, overriding the gizmo axis and grid while captured. Away from a target, an arrow retains its axis constraint. Offset handles can also capture reachable anchors near the moving source. Other selected vertices follow the active source together.
 

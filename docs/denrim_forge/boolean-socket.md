@@ -35,7 +35,7 @@ Open **Booleans** beside Paint in the bottom toolbar. It keeps the Outliner avai
 
 Choose **Subtract** in the floating vertical controls. The cylinder's solid display is hidden and the block shows a live hole. The cylinder remains in the Outliner beneath the target; it has not been deleted or baked.
 
-[![Live cylindrical opening through the block, with the hidden Cylinder retained in the Outliner.](/img/docs/forge/v1.6/boolean-live-cut.webp)](/img/docs/forge/v1.6/boolean-live-cut.webp)
+[![Close-up: Subtract enabled, with a cylindrical hole in the block.](/img/docs/forge/v1.6/boolean-enabled-detail.webp)](/img/docs/forge/v1.6/boolean-enabled-detail.webp)
 
 ## 4. Keep the operation editable
 
@@ -48,9 +48,9 @@ Select **Cylinder by its name in the Outliner**. Its row can be dimmed because i
 
 Effect and eye visibility are independent. Revealing the cutter's solid display does not disable its operation; turning the effect off does not delete its source.
 
-[![Selected hidden Cylinder with its Boolean effect off; the block is whole again.](/img/docs/forge/v1.6/boolean-effect-off.webp)](/img/docs/forge/v1.6/boolean-effect-off.webp)
+[![Close-up: the same block with the Boolean effect disabled, restoring its solid top.](/img/docs/forge/v1.6/boolean-disabled-detail.webp)](/img/docs/forge/v1.6/boolean-disabled-detail.webp)
 
-[![The same operand with Subtract enabled again, restoring the live opening without Apply.](/img/docs/forge/v1.6/boolean-editable-stack.webp)](/img/docs/forge/v1.6/boolean-editable-stack.webp)
+Compare the solid top above with the enabled Subtract result in step 3. These are two states of the same editable stack, not separate baked models.
 
 Save the Forge source if you want to revisit the stack later. Boolean sources and operations survive save/reopen and participate in Undo.
 
