@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Update Windows and Linux download version labels to v1.6.43 on the homepage and desktop page.
+
 - Update Windows and Linux download version labels to v1.6.40 on the homepage and desktop page.
 
 - Make the homepage v1.6 blog link a prominent, fully clickable orange release card with a larger headline, feature summary, and responsive mobile layout.
