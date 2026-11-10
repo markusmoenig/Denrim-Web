@@ -151,9 +151,9 @@ export default function Home() {
             </span>
             <span className={styles.releaseArrow} aria-hidden="true">→</span>
           </Link>
-          <Link className={styles.releaseLink} to="/desktop">
+          <div className={styles.releaseLink}>
             <span className={styles.releaseBadge}>{translate({
-              id: 'forge.home.release1648.badge', message: 'Forge 1.6.48'
+              id: 'forge.home.release1648.badge', message: 'New: v1.6.48'
             })}</span>
             <span className={styles.releaseCopy}>
               <strong>{translate({
@@ -164,8 +164,7 @@ export default function Home() {
                 message: 'Live symmetry for Grab Brush, Loop Cut, Extrude, Inset, Offset and Bevel, plus Vertex Slide, Grab Brush with subdivision, and bug fixes.'
               })}</span>
             </span>
-            <span className={styles.releaseArrow} aria-hidden="true">→</span>
-          </Link>
+          </div>
           <div className={styles.actions}><a className={styles.primary} href="#get-forge">{translate({
                 id: 'forge.home.get',
                 message: 'Get Forge'

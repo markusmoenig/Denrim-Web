@@ -739,7 +739,7 @@
   transition:background .18s ease,border-color .18s ease;
 }
 
-.home .releaseLink:hover {
+.home a.releaseLink:hover {
   background:linear-gradient(110deg,#45301c,#25211b);
   border-color:#ffd095;
   color:#fff;
