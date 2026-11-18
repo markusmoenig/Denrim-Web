@@ -153,8 +153,8 @@ export default function Home() {
           </Link>
           <div className={styles.releaseLink}>
             <span className={styles.releaseBadge}>{translate({
-              id: 'forge.home.release1648.badge', message: 'New: v1.6.48'
-            })}</span>
+              id: 'forge.home.desktopRelease.badge', message: 'New: v{version}'
+            }, {version: platformVersions.desktop})}</span>
             <span className={styles.releaseCopy}>
               <strong>{translate({
                 id: 'forge.home.release1648.title', message: 'Live symmetry, Vertex Slide & more'
