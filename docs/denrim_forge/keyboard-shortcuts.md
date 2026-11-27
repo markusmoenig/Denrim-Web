@@ -118,6 +118,8 @@ Use **Command** on Mac and **Ctrl** on Windows/Linux for the modifier below. Fil
 
 ## Assign your own shortcut
 
+See [Customize the toolbar](./customize-toolbar.md) for adding buttons and menus and resolving shortcut conflicts.
+
 Right-click a Model tool/action, or long-press it on a touch device, and choose the shortcut assignment action. Capture the desired keys using a hardware keyboard, resolve any reported conflict, and confirm. Reset to Default removes that override; Cancel leaves it unchanged. Toolbar customization also exposes shortcut configuration. Scene toolbar shortcuts are configured separately and have no shared default key table.
 
 **Grab Brush, Booleans, Array, Offset, Circlify, Relax, and Freeze Sub-D have no default action shortcut.** Open them through their named controls or assign one. Do not assume a key shown in somebody else's customized toolbar is a default.

@@ -60,6 +60,8 @@ Use the visibility menu to **Hide Selected**, **Hide Unselected**, or **Reveal A
 
 ## Toolbars, help, and recording
 
+See [Customize the toolbar](./customize-toolbar.md) for adding buttons, grouping commands, and configuring shortcuts.
+
 Customize Model and Scene toolbars independently. Right-click a tool/action to assign its shortcut, or long-press with a hardware keyboard on a touch device. Resolve conflicts and use Reset to Default to remove an override. See [the default table](./keyboard-shortcuts.md).
 
 Help mode explains a control without applying its edit. Preferences also offers Video Feedback for tutorial recordings: pointer/hover and held-contact rings, tap/click feedback, and keyboard badges. It observes input without changing paint pressure or navigation.
